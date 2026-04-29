@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinica Augusto Carpena Harmonizacao Orofacial em Pelotas - RS</title>
+  <meta name="description" content="Clinica Augusto Carpena Harmonizacao Orofacial: Avaliacao 4.9 com 50 avaliacoes em Pelotas - RS. Qualidade e atendimento de excelencia."/>
+  <meta property="og:title" content="Clinica Augusto Carpena Harmonizacao Orofacial em Pelotas - RS"/>
+  <meta property="og:description" content="Clinica Augusto Carpena Harmonizacao Orofacial - 4.9 estrelas com 50 avaliacoes. Qualidade garantida."/>
+  <meta property="og:type" content="website"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--accent:#2563eb;--dark:#111111;--light:#f5f5f5;--text:#333}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:#fff}
+    .hero{background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85') center/cover no-repeat;color:#fff;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:120px 40px 80px}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1}
+    .hero>*{position:relative;z-index:2}
+    .hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:24px;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:900;line-height:1.15;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,0.3)}
+    .hero h1 span{color:var(--accent)}
+    .hero p{font-size:1.05rem;opacity:0.9;max-width:550px;margin:0 auto 36px;text-shadow:0 1px 8px rgba(0,0,0,0.2)}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s}
+    .btn:hover{filter:brightness(0.9);transform:translateY(-1px)}
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.5);margin-left:12px}
+    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.8)}
+    nav{background:transparent;padding:20px 0;display:flex;justify-content:space-between;align-items:center;position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1200px;z-index:100;padding-left:40px;padding-right:40px}
+    .logo{color:#fff;font-size:1.4rem;font-weight:900;letter-spacing:-1px}
+    .logo span{color:var(--accent)}
+    nav ul{list-style:none;display:flex;gap:24px}
+    nav ul a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;font-weight:600;transition:color .2s}
+    nav ul a:hover{color:#fff}
+    section{padding:64px 24px}
+    .container{max-width:1100px;margin:0 auto}
+    .section-title{font-size:2rem;font-weight:900;margin-bottom:8px;color:var(--dark)}
+    .section-title span{color:var(--accent)}
+    .section-sub{color:#666;margin-bottom:40px;font-size:1rem}
+    .services{background:var(--light)}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:12px;padding:28px 24px;box-shadow:0 2px 12px rgba(0,0,0,0.07);transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+    .card-icon{font-size:2rem;margin-bottom:14px}
+    .card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--dark)}
+    .card p{font-size:0.9rem;color:#666;line-height:1.6}
+    .features{background:var(--dark);color:#fff}
+    .features .section-title{color:#fff}
+    .features .section-sub{color:rgba(255,255,255,0.6)}
+    .grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+    .feat-card{text-align:center;padding:28px 16px;border:1px solid rgba(255,255,255,0.1);border-radius:12px}
+    .feat-card .num{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px}
+    .feat-card p{font-size:0.9rem;color:rgba(255,255,255,0.7)}
+    .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    @media(max-width:700px){.location-grid{grid-template-columns:1fr}}
+    .info-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+    .info-icon{background:var(--accent);color:#fff;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .info-item h4{font-weight:700;font-size:0.9rem;color:var(--dark)}
+    .info-item p{font-size:0.9rem;color:#666;margin-top:2px}
+    .map-placeholder{background:var(--light);border-radius:12px;overflow:hidden;height:300px}
+    .map-placeholder iframe{width:100%;height:100%;border:0}
+    /* STATS BAR */
+    .stats-bar{padding:0 40px;margin-top:-50px;position:relative;z-index:2}
+    .stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.1);padding:32px 16px}
+    .stat{text-align:center}
+    .stat-num{font-size:2.2rem;font-weight:900;color:var(--accent)}
+    .stat-label{font-size:0.8rem;color:#888;margin-top:4px}
+    /* ABOUT */
+    .about{background:var(--light)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .about-text p{color:#666;line-height:1.8;margin-bottom:16px}
+    .about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+    .about-feat{display:flex;align-items:flex-start;gap:12px;padding:14px;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .about-feat-icon{width:36px;height:36px;background:rgba(0,0,0,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+    .about-feat h4{font-size:0.85rem;font-weight:700;color:var(--dark)}
+    .about-feat p{font-size:0.75rem;color:#888;margin:0}
+    .about-img{background:linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.05)),url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85') center/cover no-repeat;border-radius:16px;height:400px}
+    /* BENEFITS */
+    .benefits{background:var(--dark);color:#fff}
+    .benefits .section-title{color:#fff}
+    .benefits .section-sub{color:rgba(255,255,255,0.6)}
+    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .benefit-card{display:flex;gap:16px;padding:24px;border:1px solid rgba(255,255,255,0.1);border-radius:12px;transition:all .3s}
+    .benefit-card:hover{background:rgba(255,255,255,0.05)}
+    .benefit-num{font-size:1.5rem;font-weight:900;color:var(--accent);flex-shrink:0;width:40px}
+    .benefit-card h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+    .benefit-card p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6}
+    /* TESTIMONIALS */
+    .testimonials{background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85') center/cover no-repeat;position:relative}
+    .testimonials::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.75)}
+    .testimonials>*{position:relative;z-index:2}
+    .testimonials .section-title{color:#fff}
+    .testimonials .section-sub{color:rgba(255,255,255,0.6)}
+    .testimonials .section-label{color:var(--accent)}
+    .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .test-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px}
+    .test-card p{font-size:0.9rem;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:16px;font-style:italic}
+    .test-author{display:flex;align-items:center;gap:12px}
+    .test-avatar{width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1rem}
+    .test-name{font-weight:600;font-size:0.9rem;color:#fff}
+    .test-role{font-size:0.75rem;color:rgba(255,255,255,0.5)}
+    /* FAQ */
+    .faq-list{max-width:700px;margin:0 auto}
+    .faq-item{border-bottom:1px solid #eee;padding:20px 0}
+    .faq-q{font-weight:700;font-size:1rem;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-a{color:#666;font-size:0.9rem;line-height:1.7;margin-top:12px}
+    /* CTA */
+    .cta{background:linear-gradient(135deg,var(--accent),#2563ebdd);color:#fff;text-align:center}
+    .cta h2{font-size:2rem;font-weight:900;margin-bottom:12px}
+    .cta p{opacity:0.9;margin-bottom:28px;font-size:1rem}
+    .btn-white{background:#fff;color:var(--accent);font-weight:700}
+    .btn-white:hover{background:#f0f0f0}
+    /* FOOTER */
+    footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:48px 40px 24px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 24px}
+    footer h4{color:var(--accent);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:8px}
+    footer ul a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem}
+    footer ul a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;font-size:0.8rem;max-width:1100px;margin:0 auto}
+    .wpp-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;padding:12px 20px;border-radius:50px;display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:all .2s}
+    .wpp-float:hover{transform:scale(1.05)}
+    .section-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    @media(max-width:768px){nav ul{display:none}.hero{padding:80px 20px 60px}.btn-outline{display:none}.stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}.about-grid{grid-template-columns:1fr}.about-img{height:250px}.about-features{grid-template-columns:1fr}.location-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Clinica<span>Augusto Carpena Harmonizacao Orofacial</span></div>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="badge">🏢 Empresa em Pelotas - RS</div>
+  <h1>Qualidade que voce<br/><span>pode confiar</span></h1>
+  <p>Qualidade, confianca e profissionalismo. E assim que trabalhamos todos os dias.</p>
+  <a href="https://wa.me/5553991623214" class="btn">📱 Chamar no WhatsApp</a>
+  <a href="#servicos" class="btn btn-outline">Ver servicos</a>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Avaliacao Google</div></div>
+    <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Avaliacoes</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Comprometimento</div></div>
+    <div class="stat"><div class="stat-num">🏆</div><div class="stat-label">Referencia na regiao</div></div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">NOSSA HISTORIA</div>
+        <h2 class="section-title">Conheca a <span>Clinica Augusto Carpena Harmonizacao Orofacial</span></h2>
+        <p>Somos referencia em qualidade e atendimento em Pelotas - RS. Nossa missao e oferecer o melhor servico, com profissionalismo e dedicacao em cada detalhe.</p>
+        <p>Com estrutura moderna e equipe qualificada, garantimos uma experiencia unica para cada cliente que nos visita.</p>
+        <div class="about-features">
+          <div class="about-feat"><div class="about-feat-icon">⭐</div><div><h4>Excelencia</h4><p>Referencia na regiao</p></div></div>
+          <div class="about-feat"><div class="about-feat-icon">❤️</div><div><h4>Atendimento</h4><p>Cuidado personalizado</p></div></div>
+          <div class="about-feat"><div class="about-feat-icon">🎯</div><div><h4>Qualidade</h4><p>Produtos e tecnicas premium</p></div></div>
+          <div class="about-feat"><div class="about-feat-icon">🤝</div><div><h4>Confianca</h4><p>Clientes satisfeitos</p></div></div>
+        </div>
+      </div>
+      <div class="about-img"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">NOSSOS SERVICOS</div>
+    <h2 class="section-title">O que <span>oferecemos</span></h2>
+    <p class="section-sub">Conheca tudo que a Clinica Augusto Carpena Harmonizacao Orofacial tem para voce</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3>Atendimento Premium</h3>
+        <p>Atendimento personalizado e de qualidade para cada cliente.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Qualidade Garantida</h3>
+        <p>Compromisso total com a excelencia em tudo que fazemos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Confianca</h3>
+        <p>Anos de experiencia e clientes satisfeitos comprovam nosso trabalho.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h3>Localizacao</h3>
+        <p>Facil acesso e estacionamento para sua comodidade.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Suporte</h3>
+        <p>Tire suas duvidas e agende pelo WhatsApp a qualquer momento.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Referencia</h3>
+        <p>Reconhecidos pela qualidade e profissionalismo na regiao.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-label">POR QUE NOS ESCOLHER</div>
+    <h2 class="section-title">Beneficios que so a <span>Clinica Augusto Carpena Harmonizacao Orofacial</span> oferece</h2>
+    <p class="section-sub">Muito mais do que um servico, uma experiencia completa</p>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="benefit-num">01</div><div><h3>Profissionais Qualificados</h3><p>Equipe treinada e atualizada com as melhores tecnicas do mercado.</p></div></div>
+      <div class="benefit-card"><div class="benefit-num">02</div><div><h3>Atendimento Personalizado</h3><p>Cada cliente e unico. Entendemos suas necessidades e entregamos sob medida.</p></div></div>
+      <div class="benefit-card"><div class="benefit-num">03</div><div><h3>Ambiente Premium</h3><p>Espaco moderno, confortavel e higienizado para voce se sentir em casa.</p></div></div>
+      <div class="benefit-card"><div class="benefit-num">04</div><div><h3>Produtos de Qualidade</h3><p>Utilizamos apenas marcas premium e materiais de primeira linha.</p></div></div>
+      <div class="benefit-card"><div class="benefit-num">05</div><div><h3>Preco Justo</h3><p>Qualidade acessivel. O melhor custo-beneficio da regiao.</p></div></div>
+      <div class="benefit-card"><div class="benefit-num">06</div><div><h3>Agendamento Facil</h3><p>Agende pelo WhatsApp em segundos. Sem burocracia, sem espera.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-label">DEPOIMENTOS</div>
+    <h2 class="section-title">O que nossos clientes dizem</h2>
+    <p class="section-sub">A satisfacao de quem ja confia no nosso trabalho</p>
+    <div class="test-grid">
+      <div class="test-card"><p>"Melhor experiencia que ja tive! Atendimento impecavel, profissionais dedicados e resultado perfeito. Super recomendo!"</p><div class="test-author"><div class="test-avatar">M</div><div><div class="test-name">Maria S.</div><div class="test-role">Cliente frequente</div></div></div></div>
+      <div class="test-card"><p>"Ambiente incrivel e equipe nota 10. Sempre saio satisfeito. Nao troco por nada!"</p><div class="test-author"><div class="test-avatar">J</div><div><div class="test-name">Joao P.</div><div class="test-role">Cliente ha 2 anos</div></div></div></div>
+      <div class="test-card"><p>"Qualidade e profissionalismo de outro nivel. Atendimento humanizado e resultado que surpreende toda vez."</p><div class="test-author"><div class="test-avatar">A</div><div><div class="test-name">Ana C.</div><div class="test-role">Indicou para amigos</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">PERGUNTAS FREQUENTES</div>
+    <h2 class="section-title">Duvidas? A gente <span>responde</span></h2>
+    <p class="section-sub">As perguntas mais comuns dos nossos clientes</p>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Como agendar um horario?</div><div class="faq-a">Basta clicar no botao do WhatsApp e enviar uma mensagem. Respondemos rapidamente e confirmamos seu horario.</div></div>
+      <div class="faq-item"><div class="faq-q">Quais formas de pagamento aceitam?</div><div class="faq-a">Aceitamos dinheiro, PIX, cartao de debito e credito. Consulte condicoes especiais pelo WhatsApp.</div></div>
+      <div class="faq-item"><div class="faq-q">Preciso agendar com antecedencia?</div><div class="faq-a">Recomendamos agendar para garantir seu horario, mas atendemos por ordem de chegada quando possivel.</div></div>
+      <div class="faq-item"><div class="faq-q">Voces atendem aos sabados?</div><div class="faq-a">Sim! Confira nossos horarios de atendimento na secao de contato abaixo.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" style="background:var(--light)">
+  <div class="container">
+    <div class="section-label">ENTRE EM CONTATO</div>
+    <h2 class="section-title">Venha nos <span>visitar</span></h2>
+    <p class="section-sub">Agende pelo WhatsApp ou venha pessoalmente</p>
+    <div class="location-grid">
+      <div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Endereco</h4>
+            <p>Pelotas - RS<br/>Pelotas - RS</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div>
+            <h4>Horario de Atendimento</h4>
+            <p>Consultar horarios</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Resposta rapida e agendamento facil</p>
+          </div>
+        </div>
+        <a href="https://wa.me/5553991623214" class="btn" style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;background:#25D366">💬 Fale pelo WhatsApp</a>
+      </div>
+      <div class="map-placeholder">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Clinica%20Augusto%20Carpena%20Harmonizacao%20Orofacial%20Pelotas%20-%20RS"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Quer saber mais?</h2>
+    <p>Entre em contato pelo WhatsApp. Atendimento rapido e sem complicacao.</p>
+    <a href="https://wa.me/5553991623214" class="btn btn-white">📱 Falar com a Clinica Augusto Carpena Harmonizacao Orofacial</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:12px">Clinica Augusto Carpena Harmonizacao Orofacial</div>
+      <p>Qualidade, profissionalismo e atendimento de excelencia em Pelotas - RS.</p>
+    </div>
+    <div>
+      <h4>Links Rapidos</h4>
+      <ul>
+        <li><a href="#sobre">Sobre Nos</a></li>
+        <li><a href="#servicos">Servicos</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="#">Pelotas - RS</a></li>
+        <li><a href="#">Pelotas - RS</a></li>
+        <li><a href="https://wa.me/5553991623214">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Clinica Augusto Carpena Harmonizacao Orofacial. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5553991623214" class="wpp-float">💬 WhatsApp</a>
+<script>!function(){var s=location.pathname.replace('/sites/','').replace(//$/,'');if(s){var i=new Image;i.src='http://89.116.225.95/sites/track?s='+encodeURIComponent(s)+'&t='+Date.now()}}();</script>
+</body>
+</html>
