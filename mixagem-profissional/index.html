@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Domine a Engenharia de Áudio e Mixe Como um Profissional</title>
+  <meta name="description" content="Pare de adivinhar e comece a aplicar as técnicas reais usadas nos grandes estúdios. Aprenda gravação, mixagem e masterização do zero ao avançado."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --dark:#0a0a0a;
+      --dark2:#111111;
+      --dark3:#1a1a1a;
+      --orange:#FF6B00;
+      --orange-dark:#E55A00;
+      --orange-glow:rgba(255,107,0,0.15);
+      --gold:#FFB800;
+      --white:#ffffff;
+      --gray:#888;
+      --light-gray:#f5f5f5;
+    }
+    body{font-family:'Inter',sans-serif;color:var(--white);background:var(--dark)}
+    h1,h2,h3,.playfair{font-family:'Playfair Display',serif}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);
+      min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+      padding:80px 40px;position:relative;overflow:hidden
+    }
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--gold),var(--orange))}
+    .hero::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,107,0,0.05) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,0,0.1);color:var(--orange);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:50px;margin-bottom:28px;border:1px solid rgba(255,107,0,0.2)}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:20px;max-width:700px}
+    .hero h1 em{color:var(--orange);font-style:normal}
+    .hero-sub{font-size:1.05rem;color:var(--gray);margin-bottom:36px;max-width:600px;line-height:1.7}
+    .video-wrapper{position:relative;width:100%;max-width:720px;margin:0 auto 40px;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08)}
+    .video-placeholder{background:var(--dark3);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .play-btn{width:70px;height:70px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,107,0,0.4);transition:all .3s}
+    .play-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(255,107,0,0.6)}
+    .play-btn svg{width:24px;height:24px;fill:#fff;margin-left:4px}
+
+    /* COUNTDOWN */
+    .countdown-bar{background:var(--dark3);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 40px;max-width:500px;margin:0 auto 24px;text-align:center}
+    .countdown-label{font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+    .countdown-nums{display:flex;justify-content:center;gap:12px}
+    .countdown-num{background:var(--dark);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 18px;min-width:60px}
+    .countdown-num .num{font-size:2rem;font-weight:900;color:var(--white)}
+    .countdown-num .unit{font-size:0.6rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+    .scarcity{color:var(--orange);font-size:0.85rem;font-weight:700;margin-bottom:8px}
+    .price-line{color:var(--gray);font-size:1rem;margin-bottom:16px}
+    .price-line .old{text-decoration:line-through;color:#555}
+    .price-line .new{font-size:2rem;font-weight:900;color:var(--white);margin-left:8px}
+    .btn-cta{display:inline-block;background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;padding:18px 48px;border-radius:8px;font-weight:800;font-size:1rem;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:all .2s;box-shadow:0 4px 20px rgba(255,107,0,0.3)}
+    .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,0,0.5)}
+    .guarantee{color:var(--gray);font-size:0.8rem;margin-top:12px;display:flex;align-items:center;gap:6px;justify-content:center}
+
+    /* SECTIONS */
+    section{padding:80px 40px}
+    .container{max-width:1000px;margin:0 auto}
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;text-align:center}
+    .section-title{font-size:2rem;font-weight:800;margin-bottom:12px;text-align:center}
+    .section-sub{color:var(--gray);margin-bottom:48px;font-size:1rem;text-align:center}
+
+    /* TESTIMONIALS */
+    .testimonials{background:var(--dark2)}
+    .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .test-card{background:var(--dark3);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:28px 24px}
+    .test-stars{color:var(--orange);font-size:0.9rem;margin-bottom:12px;letter-spacing:2px}
+    .test-card p{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;font-style:italic}
+    .test-author{display:flex;align-items:center;gap:12px}
+    .test-avatar{width:40px;height:40px;background:linear-gradient(135deg,var(--orange),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem}
+    .test-name{font-weight:700;font-size:0.9rem}
+    .test-role{font-size:0.75rem;color:var(--gray)}
+
+    /* BENEFITS */
+    .benefits{background:var(--dark)}
+    .benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .benefits-list{display:flex;flex-direction:column;gap:20px}
+    .benefit-item{display:flex;align-items:flex-start;gap:14px}
+    .benefit-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;margin-top:8px;flex-shrink:0;box-shadow:0 0 10px rgba(255,107,0,0.4)}
+    .benefit-item h4{font-size:0.95rem;font-weight:700;margin-bottom:4px}
+    .benefit-item p{font-size:0.85rem;color:var(--gray);line-height:1.6}
+    .benefits-img{background:linear-gradient(135deg,var(--dark2),var(--dark3));border-radius:16px;height:400px;display:flex;align-items:center;justify-content:center;font-size:4rem;border:1px solid rgba(255,255,255,0.06)}
+
+    /* MODULES */
+    .modules{background:var(--dark2)}
+    .module-list{max-width:700px;margin:0 auto}
+    .module-item{background:var(--dark3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 24px;margin-bottom:8px;display:flex;align-items:center;gap:16px;transition:all .2s}
+    .module-item:hover{border-color:rgba(255,107,0,0.3);background:rgba(255,107,0,0.03)}
+    .module-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--orange),var(--gold));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0}
+    .module-item h3{font-size:0.95rem;font-weight:600}
+
+    /* PRICING */
+    .pricing{background:var(--dark)}
+    .price-card{max-width:500px;margin:0 auto;background:var(--dark2);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+    .price-header{background:linear-gradient(135deg,var(--dark3),#1f1f1f);padding:20px 32px;text-align:center;font-weight:800;font-size:1.1rem;letter-spacing:1px}
+    .price-body{padding:40px 32px;text-align:center}
+    .price-body .old-price{color:#555;text-decoration:line-through;font-size:1.1rem}
+    .price-body .current-price{font-size:3rem;font-weight:900;margin:8px 0 24px}
+    .price-body .current-price span{font-size:1rem;font-weight:400;color:var(--gray)}
+    .price-body .access{color:var(--orange);font-size:0.85rem;font-weight:600;margin-bottom:24px}
+    .price-footer{display:flex;justify-content:center;gap:24px;padding:16px 32px 24px;color:var(--gray);font-size:0.8rem}
+
+    /* FOOTER */
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);text-align:center;padding:32px 40px;color:var(--gray);font-size:0.8rem}
+    footer .brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px}
+    footer .brand span{color:var(--orange)}
+
+    @media(max-width:768px){
+      .hero{padding:60px 20px}
+      section{padding:60px 20px}
+      .benefits-grid{grid-template-columns:1fr}
+      .benefits-img{height:250px}
+      .countdown-bar{padding:16px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">⭐ Método Comprovado por +1.000 Alunos</div>
+  <h1>Domine a Engenharia de Áudio e <em>Mixe Como um Profissional</em></h1>
+  <p class="hero-sub">Pare de adivinhar e comece a aplicar as técnicas reais usadas nos grandes estúdios. Aprenda gravação, mixagem e masterização do zero ao avançado.</p>
+
+  <!-- VIDEO -->
+  <div class="video-wrapper">
+    <div class="video-placeholder">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN + CTA -->
+  <div class="countdown-bar">
+    <div class="countdown-label">A oferta encerra em:</div>
+    <div class="countdown-nums">
+      <div class="countdown-num"><div class="num" id="hours">03</div><div class="unit">Horas</div></div>
+      <div class="countdown-num"><div class="num" id="mins">48</div><div class="unit">Minutos</div></div>
+      <div class="countdown-num"><div class="num" id="secs">21</div><div class="unit">Segundos</div></div>
+    </div>
+  </div>
+  <p class="scarcity">⚠️ Restam apenas 3 vagas com desconto!</p>
+  <p class="price-line"><span class="old">R$ 297,00</span> por apenas <span class="new">R$ 140,00</span></p>
+  <a href="#comprar" class="btn-cta">Quero Mixar Como Profissional →</a>
+  <p class="guarantee">🔒 Garantia incondicional de 7 dias</p>
+</div>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Quem Fez, Aprovou</h2>
+    <p class="section-sub">Veja o que nossos alunos estão dizendo</p>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"O curso mudou completamente minha forma de mixar. O Djalma explica de forma muito clara e direta."</p>
+        <div class="test-author">
+          <div class="test-avatar">C</div>
+          <div><div class="test-name">Carlos Silva</div><div class="test-role">Produtor Musical</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"Finalmente consegui tirar aquele som de 'demo' das minhas gravações. Recomendo demais!"</p>
+        <div class="test-author">
+          <div class="test-avatar">A</div>
+          <div><div class="test-name">Ana Souza</div><div class="test-role">Editora e Compositora</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"Conteúdo técnico de primeira. A parte de prática e mix/informação é sensacional!"</p>
+        <div class="test-author">
+          <div class="test-avatar">P</div>
+          <div><div class="test-name">Pedro Santos</div><div class="test-role">Engenheiro de Áudio</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-grid">
+      <div>
+        <h2 class="section-title" style="text-align:left">Tudo o que você precisa para <em style="color:var(--orange);font-style:normal">evoluir seu som</em></h2>
+        <p style="color:var(--gray);margin-bottom:32px;line-height:1.8">Não importa se você está começando agora ou já tem experiência. O método foi desenhado para preencher as lacunas do seu conhecimento.</p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <div><h4>Acesso Vitalício</h4><p>Estude no seu ritmo e reveja as aulas quantas vezes quiser.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <div><h4>Certificado Incluso</h4><p>Comprove suas habilidades com um certificado profissional.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <div><h4>Suporte Direto</h4><p>Tire dúvidas diretamente na plataforma do curso.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-dot"></div>
+            <div><h4>Atualizações Grátis</h4><p>Novos conteúdos sem custo adicional.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-img">🎧</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULOS -->
+<section class="modules">
+  <div class="container">
+    <h2 class="section-title">Conteúdo Programático</h2>
+    <p class="section-sub">Direto ao ponto, sem enrolação.</p>
+    <div class="module-list">
+      <div class="module-item"><div class="module-icon">01</div><div><h3>Módulo 1: Basilão (Fundamentos)</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Compressor: Entendendo a dinâmica · Gate: Limpeza e controle · Side Chain: A técnica secreta do groove · Separação de bandas: Controle total · Mid Side: Largura e foco</p></div></div>
+      <div class="module-item"><div class="module-icon">02</div><div><h3>Módulo 2: Mix in the Box (Prática)</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Detonautas - Seja forte pra lutar · Barrabás - Mixagem completa · Balthazar - Parte 1 a 4 (Processo detalhado) · Baluarte - Parte 1 e 2 · Interstaty - Parte 1</p></div></div>
+      <div class="module-item"><div class="module-icon">03</div><div><h3>Módulo 3: Mixagem por Instrumentos</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Bumbo: Sobrando pratos? · Caixa: Como deixar gigante · Reverber GROSSO: Ambiência profissional · Tons: Salvando captação problemática · O "caldo" da bateria: Overs e Room · Finalizando geral e o PRINT</p></div></div>
+      <div class="module-item"><div class="module-icon">04</div><div><h3>Módulo 4: Mixagem Híbrida (Mesa de Som)</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Introdução à mixagem na mesa analógica · Soma e coloração de som real · Workflow híbrido: O melhor dos dois mundos</p></div></div>
+      <div class="module-item"><div class="module-icon">05</div><div><h3>Módulo 5: Gravação de Bateria</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Batera Rock'n'Roll: Cheia e com sobras · Batera Pop: Bontinha e sequinha · Batera Groove: Mono, 3 canais e distorcida · Batera Metal: Definida, seca e agulhada · Exercícios práticos de microfonação</p></div></div>
+      <div class="module-item"><div class="module-icon">06</div><div><h3>Módulo 6: Pro Tools (Dominando a DAW)</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Configuração de I/O e Agregate · Edição Completa e Beat Detective · Automação de volumes, pan e plugins · Edição de bateria sem metrônomo · Fades, Crossfades e Clicks · Arquivos de áudio e exportação</p></div></div>
+      <div class="module-item"><div class="module-icon">🎁</div><div><h3>Bônus: Masterclass com Convidados</h3><p style="color:var(--gray);font-size:0.8rem;margin-top:6px">Vinícius Junqueira: Segredos da Captação · Vinícius Junqueira: Técnicas de Mixagem · Tostoi: Produção Criativa - Parte 01</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="comprar">
+  <div class="container">
+    <div class="price-card">
+      <div class="price-header">Oferta Especial</div>
+      <div class="price-body">
+        <div class="access">Acesso completo e vitalício</div>
+        <div class="old-price">R$ 297,00</div>
+        <div class="current-price">R$ 140<span>,00</span></div>
+        <a href="#" class="btn-cta" style="width:100%;display:block;text-align:center">Quero Mixar Como Profissional →</a>
+      </div>
+      <div class="price-footer">
+        <span>🔒 Compra Segura</span>
+        <span>✅ Acesso Imediato</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">🎵 <span>ForestLab</span></div>
+  <p>© 2026 ForestLab. Todos os direitos reservados.</p>
+</footer>
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+!function(){
+  var h=3,m=48,s=21;
+  setInterval(function(){
+    s--;if(s<0){s=59;m--}if(m<0){m=59;h--}if(h<0){h=0;m=0;s=0}
+    document.getElementById('hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('secs').textContent=String(s).padStart(2,'0');
+  },1000);
+}();
+</script>
+
+</body>
+</html>
