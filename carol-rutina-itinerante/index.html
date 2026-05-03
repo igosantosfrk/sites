@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carol Quiere Contarte Su Rutina Itinerante | Maria do Socorro de Almeida Farias</title>
+  <meta name="description" content="Livro infantojuvenil que retrata o cotidiano linguístico e cultural das regiões de fronteira Brasil-Uruguai. Por Maria do Socorro de Almeida Farias."/>
+  <meta property="og:title" content="Carol Quiere Contarte Su Rutina Itinerante"/>
+  <meta property="og:description" content="Uma história sobre identidade, fronteira e as descobertas de ser fronteiriça. Português, espanhol e portunhol numa narrativa encantadora."/>
+  <meta property="og:type" content="book"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --coral:#E8746A;
+      --coral-light:#F4A59E;
+      --coral-dark:#C75B52;
+      --cream:#FFF8F0;
+      --sand:#F5E6D3;
+      --text:#3D2B1F;
+      --text-muted:#7A6558;
+      --white:#fff;
+    }
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.7}
+    h1,h2,h3,.playfair{font-family:'Playfair Display',serif}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(135deg,#FFF8F0 0%,#F5E6D3 50%,#E8D5C0 100%);
+      min-height:100vh;display:flex;align-items:center;padding:80px 40px;position:relative;overflow:hidden
+    }
+    .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:rgba(232,116,106,0.08);border-radius:50%}
+    .hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:rgba(232,116,106,0.05);border-radius:50%}
+    .hero-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+    .hero-text{padding-right:20px}
+    .hero-badge{display:inline-block;background:rgba(232,116,106,0.12);color:var(--coral);font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:8px 20px;border-radius:24px;margin-bottom:24px;border:1px solid rgba(232,116,106,0.2)}
+    .hero h1{font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:20px;color:var(--text)}
+    .hero h1 em{color:var(--coral);font-style:italic}
+    .hero-sub{font-size:1.05rem;color:var(--text-muted);margin-bottom:12px;line-height:1.8}
+    .hero-author{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--coral-dark);margin-bottom:32px}
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+    .btn-coral{background:var(--coral);color:#fff;padding:14px 32px;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(232,116,106,0.3)}
+    .btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,116,106,0.4)}
+    .btn-outline{background:transparent;border:2px solid var(--coral);color:var(--coral);padding:12px 28px;border-radius:50px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all .2s}
+    .btn-outline:hover{background:rgba(232,116,106,0.08)}
+    .hero-img{display:flex;justify-content:center;align-items:center}
+    .book-cover{width:320px;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.15);transform:rotate(-3deg);transition:transform .3s}
+    .book-cover:hover{transform:rotate(0deg) scale(1.02)}
+
+    /* SECTIONS */
+    section{padding:80px 40px}
+    .container{max-width:1100px;margin:0 auto}
+    .section-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+    .section-title{font-size:2rem;font-weight:700;margin-bottom:12px;color:var(--text)}
+    .section-sub{color:var(--text-muted);margin-bottom:48px;font-size:1rem;max-width:600px}
+
+    /* ABOUT */
+    .about{background:var(--white)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-text p{color:var(--text-muted);line-height:1.9;margin-bottom:16px;font-size:0.95rem}
+    .about-quote{background:rgba(232,116,106,0.06);border-left:4px solid var(--coral);padding:20px 24px;border-radius:0 12px 12px 0;margin:24px 0;font-style:italic;color:var(--text)}
+    .about-quote cite{display:block;margin-top:8px;font-style:normal;font-weight:600;font-size:0.85rem;color:var(--coral)}
+
+    /* FEATURES */
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .feature-card{background:var(--white);border-radius:16px;padding:32px 28px;box-shadow:0 2px 16px rgba(0,0,0,0.04);transition:all .3s;border:1px solid rgba(0,0,0,0.04)}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+    .feature-icon{font-size:2.2rem;margin-bottom:16px}
+    .feature-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
+    .feature-card p{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+
+    /* REACH */
+    .reach{background:var(--coral);color:#fff}
+    .reach .section-label{color:var(--coral-light)}
+    .reach .section-title{color:#fff}
+    .reach .section-sub{color:rgba(255,255,255,0.8)}
+    .reach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+    .reach-card{text-align:center;padding:28px 16px;border:1px solid rgba(255,255,255,0.15);border-radius:14px;background:rgba(255,255,255,0.08)}
+    .reach-flag{font-size:2.5rem;margin-bottom:12px}
+    .reach-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+    .reach-card p{font-size:0.85rem;color:rgba(255,255,255,0.7)}
+
+    /* AUTHOR */
+    .author-section{background:var(--white)}
+    .author-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
+    .author-avatar{width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,var(--sand),var(--coral-light));display:flex;align-items:center;justify-content:center;font-size:4rem;margin:0 auto}
+    .author-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px}
+    .author-info p{color:var(--text-muted);line-height:1.8;font-size:0.95rem;margin-bottom:12px}
+
+    /* CTA */
+    .cta{background:linear-gradient(135deg,var(--sand),var(--cream));text-align:center;padding:80px 40px}
+    .cta h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:16px;color:var(--text)}
+    .cta p{color:var(--text-muted);margin-bottom:32px;font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+    /* FOOTER */
+    footer{background:var(--text);color:rgba(255,255,255,0.6);text-align:center;padding:32px 40px;font-size:0.85rem}
+    footer strong{color:#fff}
+
+    @media(max-width:768px){
+      .hero-content{grid-template-columns:1fr;gap:40px;text-align:center}
+      .hero-text{padding-right:0}
+      .hero-btns{justify-content:center}
+      .book-cover{width:240px}
+      .about-grid{grid-template-columns:1fr}
+      .author-grid{grid-template-columns:1fr;text-align:center}
+      section{padding:60px 20px}
+      .hero{padding:60px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">📚 Livro Infantojuvenil</div>
+      <h1>Carol Quiere Contarte<br/><em>Su Rutina Itinerante</em></h1>
+      <p class="hero-author">Maria do Socorro de Almeida Farias</p>
+      <p class="hero-sub">Uma historia encantadora sobre identidade, fronteira e as descobertas de ser fronteiriça. Em português, espanhol e portunhol.</p>
+      <div class="hero-btns">
+        <a href="#comprar" class="btn-coral">📖 Quero o Livro</a>
+        <a href="#sobre" class="btn-outline">Saiba Mais</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="book-cover" style="width:320px;height:380px;background:linear-gradient(135deg,#F5E6D3,#E8D5C0);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--text-muted);text-align:center;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.15)">
+        <div>
+          <div style="font-size:3rem;margin-bottom:12px">📖</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--text)">Carol Quiere Contarte Su Rutina Itinerante</div>
+          <div style="margin-top:8px;font-size:0.8rem">Maria do Socorro de Almeida Farias</div>
+          <div style="margin-top:12px;font-size:0.7rem;color:var(--coral)">Editora Yaguarú</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE O LIVRO -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">SOBRE O LIVRO</div>
+        <h2 class="section-title">Uma janela para a fronteira</h2>
+        <p>O livro se destaca pelo uso integrado do português, espanhol e portunhol, refletindo a realidade de quem vive entre Brasil e Uruguai.</p>
+        <p>A narrativa acompanha a personagem Carol em suas interações diárias, evidenciando práticas linguísticas compartilhadas com amigas brasileiras e uruguaias, além de abordar aspectos sociais e culturais marcados pelo trânsito entre Jaguarão e Río Branco.</p>
+        <div class="about-quote">
+          "O livro traz o viver da Carolina em meio às descobertas e conflitos de ser fronteiriça, e o modo como ela vai lidando com isso."
+          <cite>— Professora Sara Mota</cite>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">DETALHES</div>
+        <h2 class="section-title">Ficha Técnica</h2>
+        <p><strong>Autora:</strong> Profª Drª Maria do Socorro de Almeida Farias</p>
+        <p><strong>Instituição:</strong> Universidade Federal do Pampa (Unipampa), Campus Jaguarão</p>
+        <p><strong>Editora:</strong> Yaguarú Livros (Cassino/RS)</p>
+        <p><strong>Ilustrações:</strong> Alisson Affonso (aquarela)</p>
+        <p><strong>Gênero:</strong> Infantojuvenil</p>
+        <p><strong>Idiomas:</strong> Português, Espanhol e Portunhol</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES -->
+<section>
+  <div class="container">
+    <div class="section-label">DESTAQUES</div>
+    <h2 class="section-title">Por que ler este livro?</h2>
+    <p class="section-sub">Uma obra que celebra a diversidade linguística e cultural da fronteira</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌎</div>
+        <h3>Trilíngue</h3>
+        <p>Escrito em português, espanhol e portunhol, refletindo a riqueza linguística da fronteira Brasil-Uruguai.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Ilustrações em Aquarela</h3>
+        <p>Capa e ilustrações assinadas por Alisson Affonso em aquarela, trazendo beleza e delicadeza à narrativa.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">❤️</div>
+        <h3>Identidade e Cultura</h3>
+        <p>Valoriza as identidades culturais e linguísticas das regiões de fronteira, trazendo representatividade.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👧</div>
+        <h3>Para Jovens Leitores</h3>
+        <p>Narrativa envolvente e acessível para o público infantojuvenil, com temas universais de descoberta e pertencimento.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Base Acadêmica</h3>
+        <p>Escrito por professora doutora da Unipampa, com rigor linguístico e sensibilidade literária.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <h3>Vivência Real</h3>
+        <p>Baseado na realidade cotidiana de quem vive na fronteira entre Jaguarão (BR) e Río Branco (UY).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALCANCE -->
+<section class="reach">
+  <div class="container">
+    <div class="section-label">ALCANCE INTERNACIONAL</div>
+    <h2 class="section-title">Onde o livro já chegou</h2>
+    <p class="section-sub">Mesmo com lançamento recente, a obra já alcança leitores em diferentes localidades</p>
+    <div class="reach-grid">
+      <div class="reach-card">
+        <div class="reach-flag">🇺🇸</div>
+        <h3>Estados Unidos</h3>
+        <p>Texas, Arizona, Nova York e Flórida</p>
+      </div>
+      <div class="reach-card">
+        <div class="reach-flag">🇧🇷</div>
+        <h3>Brasil</h3>
+        <p>ES, SC, RS (Pelotas, Santa Maria, Jaguarão, Bagé e mais)</p>
+      </div>
+      <div class="reach-card">
+        <div class="reach-flag">🇺🇾</div>
+        <h3>Uruguai</h3>
+        <p>Río Branco, Artigas e Punta del Este</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<section class="author-section">
+  <div class="container">
+    <div class="author-grid">
+      <div>
+        <div class="author-avatar">👩‍🏫</div>
+      </div>
+      <div class="author-info">
+        <div class="section-label">AUTORA</div>
+        <h3>Maria do Socorro de Almeida Farias</h3>
+        <p>Professora doutora da Universidade Federal do Pampa (Unipampa), Campus Jaguarão. Este é seu primeiro livro infantojuvenil, resultado de anos de pesquisa e vivência na região de fronteira Brasil-Uruguai.</p>
+        <p>A obra reforça a valorização das identidades culturais e linguísticas das regiões de fronteira, contribuindo para a representatividade desse público na literatura infantojuvenil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="comprar">
+  <h2>Garanta seu exemplar</h2>
+  <p>Adquira o livro e mergulhe nessa história encantadora sobre fronteira, identidade e descobertas.</p>
+  <a href="#" class="btn-coral">📖 Comprar Agora</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Carol Quiere Contarte Su Rutina Itinerante</strong> · Maria do Socorro de Almeida Farias</p>
+  <p style="margin-top:6px">Editora Yaguarú Livros · Cassino/RS</p>
+  <p style="margin-top:6px">&copy; 2026 Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
