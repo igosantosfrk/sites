@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adriano Silva — Advocacia Trabalhista de Alto Padrão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #070706;
+      --cream:     #f5f1e8;
+      --gold:      #c5a047;
+      --gold-dim:  rgba(197,160,71,0.15);
+      --gold-mid:  rgba(197,160,71,0.4);
+      --muted:     rgba(245,241,232,0.45);
+      --muted2:    rgba(245,241,232,0.2);
+      --border:    rgba(245,241,232,0.1);
+      --border-gold: rgba(197,160,71,0.3);
+      --card-bg:   rgba(197,160,71,0.07);
+      --card-bg2:  rgba(197,160,71,0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITY ─────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .label-row::before {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .label-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .serif { font-family: 'Playfair Display', serif; }
+    .italic { font-style: italic; }
+    .gold { color: var(--gold); }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(7,7,6,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 48px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark span {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+    .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    .btn-nav {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 10px 22px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-nav:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: 64px;
+    }
+
+    .hero-content {
+      padding: 80px 48px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 8vw, 108px);
+      font-weight: 500;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 32px;
+      max-width: 1000px;
+    }
+    .hero-heading .line2 {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-primary .arrow { font-size: 14px; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-mid);
+      color: var(--gold);
+    }
+
+    /* ─── STATS BAR ───────────────────────────────────── */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 40px 48px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    #sobre {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Profile card */
+    .profile-card {
+      border: 1px solid var(--border-gold);
+      background: var(--card-bg);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card-inner {
+      padding: 48px;
+      padding-top: 60px;
+      position: relative;
+    }
+
+    .profile-monogram {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .profile-monogram span {
+      font-family: 'Playfair Display', serif;
+      font-size: 200px;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.06;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .profile-role-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .profile-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .profile-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      position: relative;
+    }
+    .profile-oab {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: rgba(245,241,232,0.35);
+      position: relative;
+    }
+
+    /* Info cards row */
+    .profile-info-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+    }
+    .profile-info-cell {
+      padding: 24px 28px;
+      border-right: 1px solid var(--border);
+    }
+    .profile-info-cell:last-child { border-right: none; }
+    .info-icon {
+      font-size: 18px;
+      margin-bottom: 14px;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    .info-cell-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .info-cell-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+
+    /* About text side */
+    .about-text {}
+
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+    .about-heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ─── AREAS ───────────────────────────────────────── */
+    #atuacao {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .areas-intro {
+      margin-bottom: 64px;
+      max-width: 620px;
+    }
+    .areas-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .areas-heading em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .areas-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+    }
+
+    .area-card {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .area-card:nth-child(3n) { border-right: none; }
+    .area-card:nth-child(4),
+    .area-card:nth-child(5),
+    .area-card:nth-child(6) { border-bottom: none; }
+    .area-card:hover { background: var(--card-bg2); }
+
+    .area-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 32px;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .area-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .area-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .area-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ─── FILOSOFIA ───────────────────────────────────── */
+    #filosofia {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .filosofia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .filosofia-left {
+      padding-right: 80px;
+      border-right: 1px solid var(--border);
+    }
+
+    .filosofia-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+    .filosofia-heading em {
+      color: var(--gold);
+      font-style: italic;
+      display: block;
+    }
+
+    .filosofia-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .filosofia-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .principio-card {
+      padding: 48px 40px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .principio-card:nth-child(2n) { border-right: none; }
+    .principio-card:nth-child(3),
+    .principio-card:nth-child(4) { border-bottom: none; }
+
+    .principio-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .principio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+
+    .principio-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ─── RESULTADOS ──────────────────────────────────── */
+    #resultados {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .resultados-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .resultados-heading em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+    }
+    .resultados-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 64px;
+    }
+
+    /* Big numbers */
+    .numeros-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .numero-item {
+      padding: 48px 36px;
+      border-right: 1px solid var(--border);
+    }
+    .numero-item:last-child { border-right: none; }
+
+    .numero-big {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .numero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    /* Case studies */
+    .cases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .case-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--card-bg2);
+      transition: background 0.3s;
+    }
+    .case-card:last-child { border-bottom: 1px solid var(--border); }
+    .case-card:hover { background: var(--card-bg); }
+
+    .case-left {
+      padding: 40px 36px;
+      border-right: 1px solid var(--border);
+    }
+    .case-sector-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .case-sector {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--cream);
+    }
+
+    .case-right {
+      padding: 40px 48px;
+    }
+    .case-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .case-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── DEPOIMENTOS ─────────────────────────────────── */
+    #depoimentos {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .dep-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 64px;
+    }
+    .dep-heading em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+    }
+
+    .dep-card {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dep-card:last-child { border-right: none; }
+
+    .dep-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .dep-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 24px;
+    }
+
+    .dep-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .dep-org {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ─── CONTATO ─────────────────────────────────────── */
+    #contato {
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contato-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .contato-heading em {
+      color: var(--gold);
+      font-style: italic;
+      display: block;
+    }
+
+    .contato-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .contato-infos {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contato-info-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    .contato-info-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .info-icon-box {
+      width: 48px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .info-content {
+      padding: 0 20px;
+    }
+    .info-content-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .info-content-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--cream);
+    }
+
+    /* Form */
+    .contato-form {
+      border: 1px solid var(--border);
+      padding: 48px;
+      background: var(--card-bg2);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      padding: 10px 0;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(245,241,232,0.2);
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--gold-mid);
+    }
+    .form-textarea {
+      resize: none;
+      min-height: 100px;
+    }
+
+    .form-notice {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .btn-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-form:hover { opacity: 0.88; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 64px 48px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      text-decoration: none;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 320px;
+    }
+
+    .footer-col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-nav-list a {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav-list a:hover { color: var(--cream); }
+
+    .footer-address {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: rgba(245,241,232,0.3);
+      text-transform: uppercase;
+    }
+    .footer-legal {
+      font-size: 10px;
+      color: rgba(245,241,232,0.25);
+    }
+
+    /* ─── SVG ICONS ───────────────────────────────────── */
+    .icon { display: inline-block; vertical-align: middle; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 80px 24px 0; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-bottom: 1px solid var(--border); }
+      .about-grid { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .area-card { border-right: none; }
+      .filosofia-grid { grid-template-columns: 1fr; }
+      .filosofia-left { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 48px; margin-bottom: 48px; }
+      .numeros-grid { grid-template-columns: repeat(2, 1fr); }
+      .dep-grid { grid-template-columns: 1fr; }
+      .dep-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .contato-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      footer { padding: 48px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark"><span>AS</span></div>
+        <div class="logo-text">
+          <span class="logo-name">Adriano Silva</span>
+          <span class="logo-sub">Advocacia Trabalhista</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#filosofia">Filosofia</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="#contato" class="btn-nav">Agendar Consulta</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="label-row" style="margin-bottom:48px;">
+        <span class="label-text">Estabelecido · Excelência Trabalhista</span>
+      </div>
+
+      <h1 class="hero-heading">
+        Advocacia Trabalhista<br>
+        <span class="line2">de alto padrão.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Defesa estratégica para empresas, gestores e executivos no contencioso trabalhista. Atuação técnica, discreta e orientada a resultados — onde cada decisão é pensada para preservar o que importa.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#contato" class="btn-primary">
+          Agendar Consultoria <span class="arrow">→</span>
+        </a>
+        <a href="#atuacao" class="btn-ghost">Áreas de Atuação</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Anos de Atuação</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Casos Conduzidos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">94%</div>
+        <div class="stat-label">Êxito em Contencioso</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">OAB/SP</div>
+        <div class="stat-label">Inscrição Ativa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOBRE ─────────────────────────────────────────── -->
+  <section id="sobre">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Profile card -->
+        <div class="profile-card">
+          <div class="profile-card-inner" style="min-height:340px;">
+            <div class="profile-monogram">
+              <span>AS</span>
+            </div>
+            <div class="profile-role-label">Role</div>
+            <div class="profile-role-label" style="font-size:13px; letter-spacing:0.05em; color: var(--muted); font-family:'Inter',sans-serif; margin-bottom:24px;">AS</div>
+            <div style="margin-bottom:4px;">
+              <span style="font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;">Adriano Silva</span>
+            </div>
+            <div class="profile-name">Sócio-fundador</div>
+            <div class="profile-oab">OAB/SP 000.000</div>
+          </div>
+          <div class="profile-info-row">
+            <div class="profile-info-cell">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              </div>
+              <div class="info-cell-label">Formação</div>
+              <div class="info-cell-value">Direito · USP<br>LL.M Direito do Trabalho</div>
+            </div>
+            <div class="profile-info-cell">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+              </div>
+              <div class="info-cell-label">Reconhecimento</div>
+              <div class="info-cell-value">Listado em rankings de advocacia trabalhista</div>
+            </div>
+            <div class="profile-info-cell">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="info-cell-label">Experiência</div>
+              <div class="info-cell-value">15+ anos<br>500+ casos conduzidos</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About text -->
+        <div class="about-text">
+          <div class="label-row">
+            <span class="label-text">Sobre o Escritório</span>
+          </div>
+          <h2 class="about-heading">
+            Mais de uma década de<br>
+            <em>defesa técnica</em> no direito<br>
+            do trabalho.
+          </h2>
+          <p class="about-p">
+            Adriano Silva atua há mais de quinze anos representando empresas, gestores e executivos em demandas trabalhistas de alta complexidade. Sua prática combina rigor técnico, leitura estratégica do contencioso e uma postura discreta — sempre orientada a preservar reputação, relações e patrimônio.
+          </p>
+          <p class="about-p">
+            O escritório é referência em contencioso de massa, compliance trabalhista, due diligence em operações de M&A e na representação individual de altos executivos em desligamentos sensíveis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ÁREAS DE ATUAÇÃO ──────────────────────────────── -->
+  <section id="atuacao">
+    <div class="container">
+      <div class="areas-intro">
+        <div class="label-row">
+          <span class="label-text">Áreas de Atuação</span>
+        </div>
+        <h2 class="areas-heading">
+          Soluções jurídicas <em>sob<br>medida.</em>
+        </h2>
+        <p class="areas-sub">
+          Cada matéria recebe atenção pessoal do titular. Não trabalhamos em volume — trabalhamos em profundidade, sempre que o caso exige.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+        <!-- Card 1 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+              <circle cx="12" cy="12" r="5"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Contencioso Trabalhista Estratégico</h3>
+          <p class="area-desc">Defesa em ações individuais e coletivas de alto valor. Atuação em todas as instâncias com leitura estratégica do litígio.</p>
+          <span class="area-num">01 / 06</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+              <line x1="12" y1="12" x2="12" y2="16"/>
+              <line x1="10" y1="14" x2="14" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Consultoria Empresarial Preventiva</h3>
+          <p class="area-desc">Estruturação de políticas internas, contratos, jornadas e modelos de remuneração para mitigar passivos.</p>
+          <span class="area-num">02 / 06</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M9 12l2 2 4-4"/>
+              <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Compliance e Auditoria Trabalhista</h3>
+          <p class="area-desc">Programas de conformidade, treinamentos e auditorias para identificar e neutralizar riscos antes que se tornem litígios.</p>
+          <span class="area-num">03 / 06</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Due Diligence em M&A</h3>
+          <p class="area-desc">Avaliação de passivos trabalhistas em operações societárias, com mapeamento de contingências e estruturação de garantias.</p>
+          <span class="area-num">04 / 06</span>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Representação de Executivos</h3>
+          <p class="area-desc">Assessoria em desligamentos, planos de stock options, bônus diferidos e acordos de confidencialidade.</p>
+          <span class="area-num">05 / 06</span>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="area-card">
+          <div class="area-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3 class="area-title">Direito Sindical e Coletivo</h3>
+          <p class="area-desc">Negociação de acordos e convenções coletivas, mediação em conflitos sindicais e defesa em dissídios.</p>
+          <span class="area-num">06 / 06</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FILOSOFIA ─────────────────────────────────────── -->
+  <section id="filosofia">
+    <div class="container">
+      <div class="filosofia-grid">
+
+        <div class="filosofia-left">
+          <div class="label-row">
+            <span class="label-text">Filosofia</span>
+          </div>
+          <h2 class="filosofia-heading">
+            Quatro princípios.<br>
+            <em>Sem exceção.</em>
+          </h2>
+          <p class="filosofia-sub">
+            A advocacia que defendemos é exigente consigo mesma antes de ser exigente com o adversário. É da disciplina diária que nasce a confiança que recebemos.
+          </p>
+        </div>
+
+        <div class="filosofia-right">
+          <div class="principio-card">
+            <div class="principio-num">01</div>
+            <h3 class="principio-title">Excelência técnica</h3>
+            <p class="principio-desc">Cada peça é construída com profundidade doutrinária e precisão jurisprudencial. Não há atalhos.</p>
+          </div>
+          <div class="principio-card">
+            <div class="principio-num">02</div>
+            <h3 class="principio-title">Discrição absoluta</h3>
+            <p class="principio-desc">Reputação e confidencialidade são ativos inegociáveis. O cliente conduz a estratégia; nunca a manchete.</p>
+          </div>
+          <div class="principio-card">
+            <div class="principio-num">03</div>
+            <h3 class="principio-title">Estratégia antes da peça</h3>
+            <p class="principio-desc">Antes de redigir, planejamos o desfecho. Cada movimento processual carrega intenção e cálculo.</p>
+          </div>
+          <div class="principio-card">
+            <div class="principio-num">04</div>
+            <h3 class="principio-title">Compromisso com resultados</h3>
+            <p class="principio-desc">Indicadores de êxito e custo-benefício são acompanhados com transparência caso a caso.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESULTADOS ────────────────────────────────────── -->
+  <section id="resultados">
+    <div class="container">
+      <div class="label-row">
+        <span class="label-text">Resultados</span>
+      </div>
+      <h2 class="resultados-heading">
+        Os números falam.<br>
+        <em>A confidencialidade preserva.</em>
+      </h2>
+      <p class="resultados-note">Casos descritos sem identificação por força de obrigação ética. Métricas auditadas internamente.</p>
+
+      <!-- Big numbers -->
+      <div class="numeros-grid">
+        <div class="numero-item">
+          <div class="numero-big">R$ 380M</div>
+          <div class="numero-label">Em Passivos Evitados<br>nos Últimos 5 Anos</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-big">94%</div>
+          <div class="numero-label">De Êxito em<br>Contencioso Estratégico</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-big">180+</div>
+          <div class="numero-label">Operações de M&A<br>com Diligência Conduzida</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-big">40+</div>
+          <div class="numero-label">Executivos<br>Representados em Desligamentos</div>
+        </div>
+      </div>
+
+      <!-- Case studies -->
+      <div class="cases-list">
+        <div class="case-card">
+          <div class="case-left">
+            <div class="case-sector-label">Setor</div>
+            <div class="case-sector">Tecnologia</div>
+          </div>
+          <div class="case-right">
+            <h3 class="case-title">Defesa em ação coletiva de R$ 86M</h3>
+            <p class="case-desc">Reconhecimento de natureza jurídica diversa do reclamado, com redução de 92% do valor pleiteado em 1ª instância.</p>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-left">
+            <div class="case-sector-label">Setor</div>
+            <div class="case-sector">Indústria</div>
+          </div>
+          <div class="case-right">
+            <h3 class="case-title">Due diligence em aquisição estratégica</h3>
+            <p class="case-desc">Mapeamento de passivo oculto de R$ 24M e estruturação de garantias contratuais que viabilizaram a operação.</p>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-left">
+            <div class="case-sector-label">Setor</div>
+            <div class="case-sector">Financeiro</div>
+          </div>
+          <div class="case-right">
+            <h3 class="case-title">Desligamento de C-level</h3>
+            <p class="case-desc">Negociação extrajudicial de pacote de saída envolvendo stock options, bônus diferidos e cláusulas de não-concorrência.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DEPOIMENTOS ───────────────────────────────────── -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="label-row">
+        <span class="label-text">Depoimentos</span>
+      </div>
+      <h2 class="dep-heading">
+        A voz de quem <em>confia o sigilo.</em>
+      </h2>
+
+      <div class="dep-grid">
+        <div class="dep-card">
+          <p class="dep-quote">"Conduziu uma defesa milimétrica em uma ação que tinha potencial para ferir nossa operação inteira. Saímos com previsibilidade e tranquilidade."</p>
+          <div>
+            <div class="dep-divider"></div>
+            <div class="dep-role">Diretora Jurídica</div>
+            <div class="dep-org">Multinacional do Setor de Tecnologia</div>
+          </div>
+        </div>
+        <div class="dep-card">
+          <p class="dep-quote">"É o tipo de advogado que pensa três jogadas adiante. Tem a frieza que o contencioso de alto valor exige."</p>
+          <div>
+            <div class="dep-divider"></div>
+            <div class="dep-role">CEO</div>
+            <div class="dep-org">Grupo Industrial Brasileiro</div>
+          </div>
+        </div>
+        <div class="dep-card">
+          <p class="dep-quote">"Negociou meu desligamento com elegância e firmeza absolutas. Preservou minha reputação e o que era justo."</p>
+          <div>
+            <div class="dep-divider"></div>
+            <div class="dep-role">Executivo C-level</div>
+            <div class="dep-org">Setor Financeiro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTATO ───────────────────────────────────────── -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+
+        <div>
+          <div class="label-row">
+            <span class="label-text">Contato</span>
+          </div>
+          <h2 class="contato-heading">
+            Vamos conversar<br>
+            <em>com discrição.</em>
+          </h2>
+          <p class="contato-sub">
+            Atendimentos por agendamento. Toda conversa preliminar é confidencial, sem compromisso e conduzida pessoalmente pelo titular.
+          </p>
+
+          <div class="contato-infos">
+            <div class="contato-info-item">
+              <div class="info-icon-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div class="info-content">
+                <div class="info-content-label">Telefone</div>
+                <div class="info-content-val">+55 (11) 0000-0000</div>
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="info-icon-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="info-content">
+                <div class="info-content-label">E-mail</div>
+                <div class="info-content-val">contato@adrianosilva.adv.br</div>
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="info-icon-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="info-content">
+                <div class="info-content-label">Escritório</div>
+                <div class="info-content-val">Av. Paulista, 0000 · São Paulo · SP</div>
+              </div>
+            </div>
+            <div class="contato-info-item">
+              <div class="info-icon-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="info-content">
+                <div class="info-content-label">LinkedIn</div>
+                <div class="info-content-val">/in/adrianosilva</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contato-form">
+          <div class="form-group">
+            <label class="form-label">Nome Completo</label>
+            <input type="text" class="form-input" placeholder="" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefone</label>
+            <input type="tel" class="form-input" placeholder="" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-input" placeholder="" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensagem</label>
+            <textarea class="form-textarea" placeholder="Descreva brevemente o assunto da consulta."></textarea>
+          </div>
+          <p class="form-notice">Suas informações são tratadas com sigilo absoluto e nunca compartilhadas com terceiros.</p>
+          <button type="submit" class="btn-form">Enviar Mensagem →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <div class="logo-mark"><span>AS</span></div>
+          <div class="logo-text">
+            <span class="logo-name">Adriano Silva</span>
+            <span class="logo-sub">Advocacia Trabalhista</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc">
+          Defesa estratégica em direito do trabalho. Atendimentos exclusivos por agendamento, com sigilo absoluto e atenção pessoal do titular.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <ul class="footer-nav-list">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li><a href="#filosofia">Filosofia</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Escritório</div>
+        <div class="footer-address">
+          Av. Paulista, 0000 · 00º andar<br>
+          Bela Vista · São Paulo · SP<br>
+          CEP 00000-000<br><br>
+          +55 (11) 0000-0000<br>
+          contato@adrianosilva.adv.br
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Adriano Silva Advocacia · OAB/SP 000.000</span>
+      <span class="footer-legal">Conforme Provimento OAB 205/2021 — vedada captação de clientela.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
