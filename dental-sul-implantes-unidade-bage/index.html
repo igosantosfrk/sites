@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dental Sul Implantes | Unidade Bagé | Implantes Dentários em Bagé - RS</title>
+  <meta name="description" content="Dental Sul Implantes | Unidade Bagé: Especialista em implantes dentários e reabilitação oral em Bagé - RS. Avaliação 4.7 estrelas com 17 avaliações. Atendimento humanizado e tecnologia de ponta."/>
+  <meta property="og:title" content="Dental Sul Implantes | Unidade Bagé em Bagé - RS"/>
+  <meta property="og:description" content="Dental Sul Implantes | Unidade Bagé - 4.7 estrelas. Transforme seu sorriso com atendimento humanizado e tecnologia de ponta."/>
+  <meta property="og:type" content="website"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --green:#27685B;
+      --green-dark:#1D3030;
+      --green-light:#39897A;
+      --gold:#CBA54D;
+      --gold-light:#E6CF99;
+      --gold-bg:rgba(203,165,77,0.15);
+      --bg-light:#F9FBFB;
+      --text-dark:#1D3030;
+      --text-muted:rgba(29,48,48,0.6);
+      --white:#fff;
+    }
+    body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--white);line-height:1.6}
+    h1,h2,h3,.playfair{font-family:'Playfair Display',serif}
+
+    /* NAV */
+    nav{background:transparent;padding:20px 0;display:flex;justify-content:space-between;align-items:center;position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:1200px;z-index:100;padding-left:40px;padding-right:40px}
+    .nav-logo{color:var(--white);font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+    .nav-logo span{display:block;font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);margin-top:-2px}
+    nav ul{list-style:none;display:flex;gap:28px}
+    nav ul a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
+    nav ul a:hover{color:var(--white)}
+    .nav-cta{background:var(--gold);color:var(--green-dark);padding:10px 24px;border-radius:6px;font-weight:600;font-size:0.85rem;text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .nav-cta:hover{background:var(--gold-light)}
+
+    /* HERO - fullscreen com imagem */
+    .hero{
+      background:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=85') center/cover no-repeat;
+      color:var(--white);min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:120px 40px 80px
+    }
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(29,48,48,0.45);z-index:1}
+    .hero>*{position:relative;z-index:2}
+    .hero-badge{display:inline-block;background:rgba(203,165,77,0.2);color:var(--gold-light);font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:24px;margin-bottom:28px;border:1px solid rgba(203,165,77,0.3)}
+    .hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:700;line-height:1.15;margin-bottom:20px}
+    .hero h1 em{color:var(--gold);font-style:italic}
+    .hero p{font-size:1.05rem;opacity:0.85;max-width:550px;margin:0 auto 36px;line-height:1.7}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-gold{background:var(--gold);color:var(--green-dark);padding:14px 32px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .btn-outline-white{background:transparent;border:2px solid rgba(255,255,255,0.4);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all .2s}
+    .btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6)}
+
+    /* STATS BAR */
+    .stats-bar{background:var(--white);padding:0 40px;margin-top:-40px;position:relative;z-index:2}
+    .stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.08);padding:32px 16px}
+    .stat{text-align:center;padding:8px 16px}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--green)}
+    .stat-label{font-size:0.8rem;color:var(--text-muted);margin-top:4px}
+
+    /* SECTIONS */
+    section{padding:80px 40px}
+    .container{max-width:1100px;margin:0 auto}
+    .section-label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .section-title{font-size:2rem;font-weight:700;margin-bottom:12px;color:var(--text-dark)}
+    .section-sub{color:var(--text-muted);margin-bottom:48px;font-size:1rem;max-width:600px}
+
+    /* ABOUT */
+    .about{background:var(--bg-light)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .about-text p{color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+    .about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+    .about-feat{display:flex;align-items:flex-start;gap:12px;padding:16px;background:var(--white);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .about-feat-icon{width:36px;height:36px;background:rgba(39,104,91,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--green);font-size:1.1rem}
+    .about-feat h4{font-size:0.85rem;font-weight:700;color:var(--text-dark);margin-bottom:2px}
+    .about-feat p{font-size:0.78rem;color:var(--text-muted);margin:0}
+    .about-img{background:linear-gradient(135deg,rgba(39,104,91,0.15),rgba(29,48,48,0.1)),url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80') center/cover no-repeat;border-radius:16px;height:400px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:4rem;position:relative;overflow:hidden}
+    .about-img::after{content:'';position:absolute;bottom:0;right:0;width:120px;height:120px;background:rgba(203,165,77,0.15);border-radius:50% 0 16px 0}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+    .service-card{background:var(--white);border-radius:14px;padding:32px 24px;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:all .3s;border:1px solid rgba(0,0,0,0.04)}
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
+    .service-icon{font-size:2rem;margin-bottom:16px}
+    .service-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text-dark)}
+    .service-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.7}
+
+    /* TESTIMONIALS */
+    .testimonials{background:linear-gradient(135deg,rgba(29,48,48,0.92),rgba(39,104,91,0.9)),url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=85') center/cover no-repeat;color:var(--white)}
+    .testimonials .section-label{color:var(--gold-light)}
+    .testimonials .section-title{color:var(--white)}
+    .testimonials .section-sub{color:rgba(255,255,255,0.7)}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .testimonial-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px 24px}
+    .testimonial-card p{font-size:0.9rem;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:20px;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:12px}
+    .testimonial-avatar{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--green-dark);font-size:1rem}
+    .testimonial-name{font-weight:600;font-size:0.9rem}
+    .testimonial-role{font-size:0.75rem;color:rgba(255,255,255,0.5)}
+
+    /* CONTACT */
+    .contact{background:var(--bg-light)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .contact-info{display:flex;flex-direction:column;gap:24px}
+    .contact-item{display:flex;align-items:flex-start;gap:16px}
+    .contact-icon{width:44px;height:44px;background:rgba(39,104,91,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .contact-item h4{font-size:0.9rem;font-weight:700;color:var(--text-dark);margin-bottom:4px}
+    .contact-item p{font-size:0.85rem;color:var(--text-muted)}
+    .btn-whatsapp{background:#25D366;color:var(--white);padding:16px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .2s;margin-top:8px}
+    .btn-whatsapp:hover{background:#1da851;transform:translateY(-2px)}
+    .contact-map{border-radius:14px;overflow:hidden;height:350px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+    .contact-map iframe{width:100%;height:100%;border:0}
+
+    /* CTA */
+    .cta{background:linear-gradient(135deg,rgba(29,48,48,0.9),rgba(39,104,91,0.85)),url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=85') center/cover no-repeat;color:var(--white);text-align:center;padding:80px 40px}
+    .cta h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:16px}
+    .cta p{opacity:0.85;margin-bottom:32px;font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+    /* FOOTER */
+    footer{background:var(--green-dark);color:rgba(255,255,255,0.6);padding:48px 40px 24px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;margin-bottom:32px}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:4px}
+    .footer-logo span{display:block;font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light)}
+    footer p{font-size:0.85rem;line-height:1.7;margin-top:12px}
+    footer h4{color:var(--gold-light);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:8px}
+    footer ul a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color .2s}
+    footer ul a:hover{color:var(--gold-light)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;font-size:0.8rem;max-width:1100px;margin:0 auto}
+
+    /* WHATSAPP FLOAT */
+    .wpp-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;padding:12px 20px;border-radius:50px;display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:all .2s}
+    .wpp-float:hover{transform:scale(1.05);box-shadow:0 6px 28px rgba(37,211,102,0.5)}
+
+    @media(max-width:768px){
+      nav ul{display:none}
+      .nav-cta{display:none}
+      nav{padding:16px 20px}
+      .hero{padding:60px 20px 60px}
+      section{padding:60px 20px}
+      .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+      .about-grid{grid-template-columns:1fr}
+      .about-img{height:250px}
+      .about-features{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .cta{padding:60px 20px}
+      .hero-btns{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Dental Sul Implantes | Unidade Bagé<span>ODONTOLOGIA</span></div>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Especialidades</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5553999725559?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="nav-cta">✨ Agendar Consulta</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">✨ Clínica Odontológica em Bagé - RS</div>
+  <h1>Recupere seu <em>sorriso</em><br/>completo</h1>
+  <p>Implantes dentários e próteses com tecnologia de ultima geração e resultado natural.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/5553999725559?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="btn-gold">✨ Agendar Consulta</a>
+    <a href="#sobre" class="btn-outline-white">Conheça Nossa História</a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">4.7★</div>
+      <div class="stat-label">Avaliação Google</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">17+</div>
+      <div class="stat-label">Avaliacoes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Comprometimento</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">🏆</div>
+      <div class="stat-label">Referencia na Regiao</div>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">NOSSA HISTORIA</div>
+        <h2 class="section-title">Conheça a Dental Sul Implantes | Unidade Bagé</h2>
+        <p>Somos referência em excelência odontológica em Bagé - RS. Nossa missão é transformar sorrisos e melhorar a saúde bucal de nossos pacientes, unindo atendimento humanizado e tecnologia de ponta.</p>
+        <p>Com uma estrutura moderna e equipamentos de ultima geração, oferecemos um ambiente acolhedor onde cada paciente recebe atencao personalizada e tratamento de qualidade.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon">⭐</div>
+            <div><h4>Excelencia</h4><p>Referencia em odontologia na região</p></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">❤️</div>
+            <div><h4>Atendimento Humanizado</h4><p>Cuidado personalizado para cada paciente</p></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">🔬</div>
+            <div><h4>Tecnologia de Ponta</h4><p>Equipamentos modernos e técnicas avançadas</p></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">🤝</div>
+            <div><h4>Confianca</h4><p>Pacientes satisfeitos com nosso trabalho</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img"></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">NOSSOS SERVICOS</div>
+    <h2 class="section-title">Conheça nossas especialidades</h2>
+    <p class="section-sub">Oferecemos um atendimento completo com as mais modernas técnicas da odontologia</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🦷</div>
+        <h3>Implante Unitário</h3>
+        <p>Substituição de um dente perdido com implante e coroa individual.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Protocolo All-on-4</h3>
+        <p>Reabilitação total com prótese fixa sobre 4 implantes em um único dia.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💎</div>
+        <h3>Carga Imediata</h3>
+        <p>Implante e dente provisório no mesmo dia para resultado instantâneo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <h3>Enxerto Ósseo</h3>
+        <p>Reconstrução óssea para viabilizar implantes em casos complexos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <h3>Prótese sobre Implante</h3>
+        <p>Próteses fixas de alta qualidade sobre implantes para resultado natural.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Cirurgia Guiada</h3>
+        <p>Planejamento digital 3D para implantes com máxima precisão e segurança.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">😁</div>
+        <h3>Prótese Dentária</h3>
+        <p>Próteses fixas e removíveis de alta qualidade para reabilitação oral.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Sedação Consciente</h3>
+        <p>Procedimentos sem dor e sem ansiedade com sedação segura e monitorada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-label">AVALIAÇÕES NO GOOGLE</div>
+    <h2 class="section-title">4.7 estrelas no Google</h2>
+    <p class="section-sub">Baseado em 17 avaliações reais de pacientes</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p style="font-size:2.5rem;margin-bottom:8px">⭐⭐⭐⭐⭐</p>
+        <p>"Excelente profissional! Atendimento nota 10, super atencioso e cuidadoso. Recomendo de olhos fechados."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">★</div>
+          <div><div class="testimonial-name">Avaliação Google</div><div class="testimonial-role">Paciente verificado</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p style="font-size:2.5rem;margin-bottom:8px">⭐⭐⭐⭐⭐</p>
+        <p>"Ambiente acolhedor, equipe muito simpática. Fui muito bem atendido desde a recepção. Voltarei com certeza!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">★</div>
+          <div><div class="testimonial-name">Avaliação Google</div><div class="testimonial-role">Paciente verificado</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p style="font-size:2.5rem;margin-bottom:8px">⭐⭐⭐⭐⭐</p>
+        <p>"Profissional competente e muito humano. Explica tudo com paciência e faz a gente se sentir seguro. Nota 10!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">★</div>
+          <div><div class="testimonial-name">Avaliação Google</div><div class="testimonial-role">Paciente verificado</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:0.8rem;color:rgba(255,255,255,0.4)">Depoimentos baseados nas avaliações públicas do Google. Veja todas em google.com/maps</p>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="section-label">ENTRE EM CONTATO</div>
+    <h2 class="section-title">Marque sua consulta</h2>
+    <p class="section-sub">Entre em contato e agende seu horario. Atendimento rapido e sem complicacao.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Endereco</h4><p>R. Gomes Carneiro, 1157 - Centro, Bagé - RS, 96400-130, Brasil<br/>Bagé - RS</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><h4>Telefone</h4><p>(53) 99972-5559<br/>WhatsApp disponível</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div><h4>Horario</h4><p>Segunda a Sexta: 08h as 18h</p></div>
+        </div>
+        <a href="https://wa.me/5553999725559?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="btn-whatsapp">💬 Fale pelo WhatsApp</a>
+      </div>
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Dental%20Sul%20Implantes%20%7C%20Unidade%20Bag%C3%A9%20Bag%C3%A9%20-%20RS"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Pronto para transformar seu sorriso?</h2>
+  <p>Agende sua consulta agora pelo WhatsApp. Atendimento rapido, humanizado e sem complicacao.</p>
+  <a href="https://wa.me/5553999725559?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="btn-gold">✨ Agendar Consulta</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Dental Sul Implantes | Unidade Bagé<span>ODONTOLOGIA</span></div>
+      <p>Transformando sorrisos em Bagé - RS com atendimento humanizado e tecnologia de ponta.</p>
+    </div>
+    <div>
+      <h4>Links Rapidos</h4>
+      <ul>
+        <li><a href="#sobre">Sobre Nos</a></li>
+        <li><a href="#servicos">Especialidades</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5553999725559">(53) 99972-5559</a></li>
+        <li><a href="#">R. Gomes Carneiro, 1157 - Centro, Bagé - RS, 96400-130, Brasil</a></li>
+        <li><a href="#">Bagé - RS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Dental Sul Implantes | Unidade Bagé. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5553999725559?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="wpp-float">💬 WhatsApp</a>
+<script>!function(){var s=location.pathname.replace('/sites/','').replace(//$/,'');if(s){fetch('https://hkiaaflzoiiileemsgyi.supabase.co/rest/v1/site_visits',{method:'POST',headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhraWFhZmx6b2lpaWxlZW1zZ3lpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MTU2MTYsImV4cCI6MjA5MTE5MTYxNn0.dT2rkLsd69cwVxkaFAI1ZzoeyV71jsV_vqJOnPVA-vI'},body:JSON.stringify({slug:s})}).catch(function(){})}}();</script>
+</body>
+</html>
