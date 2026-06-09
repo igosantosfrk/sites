@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Harmonia — Estética, Dermatologia e Cirurgia Plástica</title>
+<meta name="description" content="Referência em estética avançada, dermatologia e cirurgia plástica em Caxias do Sul e São Paulo. Resultados naturais, equipe médica especializada e avaliação individual. Agende sua avaliação.">
+<meta property="og:title" content="Clínica Harmonia — A sua melhor versão, com segurança">
+<meta property="og:description" content="Estética avançada, dermatologia e cirurgia plástica. 4,9★ no Google com 668 avaliações. Agende sua avaliação.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --font-display:"Fraunces", Georgia, serif;
+  --font-body:"Hanken Grotesk", system-ui, sans-serif;
+
+  --bg:#f7f2ec;            /* areia clara */
+  --surface:#fffdfa;
+  --surface-2:#f1e9de;
+  --ink:#211c16;
+  --ink-soft:#6c6357;
+  --brand:#1e3a30;         /* verde profundo */
+  --brand-deep:#142a22;
+  --accent:#b1894d;        /* dourado fosco */
+  --accent-soft:#cda863;
+  --line:#e6dccd;
+
+  --step--1:clamp(0.8rem,0.78rem + 0.12vw,0.9rem);
+  --step-0:clamp(1rem,0.96rem + 0.22vw,1.12rem);
+  --step-1:clamp(1.2rem,1.12rem + 0.45vw,1.5rem);
+  --step-2:clamp(1.44rem,1.3rem + 0.8vw,2rem);
+  --step-3:clamp(1.73rem,1.5rem + 1.3vw,2.6rem);
+  --step-4:clamp(2.07rem,1.7rem + 2vw,3.4rem);
+  --step-hero:clamp(2.7rem,1.6rem + 5.2vw,5.8rem);
+
+  --space-section:clamp(4.5rem,9vw,8.5rem);
+  --space-xl:clamp(2.5rem,5vw,4rem); --space-lg:2rem; --space-md:1.25rem; --space-sm:.75rem;
+  --container:1200px; --container-narrow:760px;
+  --radius:14px; --radius-lg:24px; --radius-pill:999px;
+
+  --shadow-sm:0 1px 2px rgba(20,16,12,.04),0 2px 8px rgba(20,16,12,.05);
+  --shadow-md:0 6px 16px rgba(20,16,12,.06),0 14px 38px rgba(20,16,12,.09);
+  --shadow-lg:0 16px 44px rgba(20,16,12,.10),0 28px 80px rgba(30,58,48,.14);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* ============ RESET ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);font-size:var(--step-0);line-height:1.65;
+  color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;position:relative;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.06;letter-spacing:-.02em;font-weight:500}
+h1{font-size:var(--step-hero)} h2{font-size:var(--step-4)} h3{font-size:var(--step-2)}
+p{max-width:64ch}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ LAYOUT ============ */
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,4rem);position:relative;z-index:2}
+.section{padding-block:var(--space-section)}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:var(--step--1)}
+.lead{font-size:var(--step-1);color:var(--ink-soft)}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease)}
+.nav-inner{max-width:var(--container);margin-inline:auto;padding:1.4rem clamp(1.25rem,5vw,4rem);display:flex;align-items:center;justify-content:space-between}
+.nav.scrolled{background:rgba(247,242,236,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav.scrolled .nav-inner{padding-block:.9rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.45rem;font-weight:600;letter-spacing:-.01em;color:var(--brand)}
+.brand .mono{display:grid;place-items:center;width:38px;height:38px;border:1.5px solid var(--accent);border-radius:50%;color:var(--accent);font-size:1.1rem}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:var(--step--1);font-weight:500;letter-spacing:.02em;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--brand)}
+@media(max-width:880px){.nav-links a:not(.btn){display:none}}
+
+/* ============ BOTÕES ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:1rem 1.7rem;border-radius:var(--radius-pill);
+  font-family:var(--font-body);font-weight:600;font-size:var(--step-0);cursor:pointer;border:0;
+  background:var(--brand);color:#fff;box-shadow:var(--shadow-sm);
+  transition:transform .2s var(--ease),box-shadow .25s ease,background .3s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);background:var(--brand-deep)}
+.btn:active{transform:translateY(0)}
+.btn--accent{background:var(--accent);color:#1a1308}
+.btn--accent:hover{background:var(--accent-soft)}
+.btn--ghost{background:transparent;color:var(--brand);border:1.5px solid var(--line)}
+.btn--ghost:hover{background:transparent;border-color:var(--brand)}
+.btn svg{width:18px;height:18px}
+
+/* ============ HERO ============ */
+.hero{position:relative;padding-top:clamp(8rem,16vh,11rem);padding-bottom:var(--space-section);overflow:hidden}
+.hero-mesh{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 55% at 78% 18%,rgba(177,137,77,.20),transparent 60%),
+    radial-gradient(55% 50% at 12% 88%,rgba(30,58,48,.14),transparent 60%),
+    radial-gradient(45% 40% at 95% 92%,rgba(205,168,99,.12),transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
+.hero h1{margin-top:var(--space-md);max-width:15ch}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero .lead{margin-top:var(--space-lg);max-width:52ch}
+.hero-actions{margin-top:var(--space-xl);display:flex;gap:var(--space-md);flex-wrap:wrap;align-items:center}
+.hero-rating{display:flex;align-items:center;gap:.7rem;margin-top:var(--space-xl)}
+.stars{color:var(--accent);letter-spacing:.1em;font-size:1.05rem}
+.hero-rating b{font-family:var(--font-display);font-size:1.2rem;color:var(--ink)}
+.hero-rating span{font-size:var(--step--1);color:var(--ink-soft)}
+
+/* visual do hero (placeholder elegante) */
+.hero-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  /* TROCAR: substituir o gradiente por <img> com foto real da clínica/paciente */
+  background:
+    radial-gradient(120% 90% at 30% 10%,#e9d9bd,transparent 55%),
+    radial-gradient(120% 100% at 90% 100%,#21443a,transparent 60%),
+    linear-gradient(150deg,#cdb389 0%,#7e9285 45%,#1e3a30 100%);
+}
+.hero-visual .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,42,34,.55),transparent 55%)}
+.hero-visual .mono-xl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--font-display);font-size:clamp(5rem,14vw,9rem);color:rgba(255,253,250,.22);font-weight:400}
+.hero-visual figcaption{position:absolute;left:1.5rem;right:1.5rem;bottom:1.4rem;color:#fff;z-index:2}
+.hero-visual figcaption strong{font-family:var(--font-display);font-weight:500;font-size:1.25rem;display:block}
+.hero-visual figcaption span{font-size:var(--step--1);opacity:.85}
+.hero-badge{position:absolute;top:1.2rem;right:1.2rem;background:rgba(255,253,250,.92);backdrop-filter:blur(6px);
+  border-radius:var(--radius);padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;box-shadow:var(--shadow-md);z-index:2}
+.hero-badge .g{font-family:var(--font-display);font-weight:600;font-size:1.3rem;color:var(--brand)}
+.hero-badge small{display:block;font-size:.72rem;color:var(--ink-soft);line-height:1.2}
+
+/* ============ TRUST / NÚMEROS ============ */
+.trust{background:var(--brand);color:#f3ede3;border-block:1px solid var(--brand-deep)}
+.trust .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+@media(max-width:760px){.trust .grid{grid-template-columns:repeat(2,1fr);gap:2.5rem 1rem}}
+.stat .num{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;color:#fff;line-height:1}
+.stat .num .suf{color:var(--accent-soft)}
+.stat .lbl{margin-top:.5rem;font-size:var(--step--1);letter-spacing:.04em;color:rgba(243,237,227,.72);text-transform:uppercase}
+
+/* ============ SEÇÃO TÍTULO ============ */
+.sec-head{max-width:680px;margin-bottom:var(--space-xl)}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head h2{margin-top:var(--space-sm)}
+.sec-head p{margin-top:var(--space-md)}
+.sec-head.center p{margin-inline:auto}
+
+/* ============ ESPECIALIDADES ============ */
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.spec{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:1.8rem;transition:transform .35s var(--ease),box-shadow .35s ease,border-color .3s}
+.spec:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.spec .ic{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:var(--surface-2);color:var(--brand);margin-bottom:1.1rem}
+.spec .ic svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6}
+.spec h3{font-size:1.3rem}
+.spec p{font-size:var(--step--1);color:var(--ink-soft);margin-top:.5rem}
+
+/* ============ PROCEDIMENTOS ============ */
+.proc-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:860px){.proc-wrap{grid-template-columns:1fr}}
+.proc-col{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.proc-col header{padding:1.5rem 1.6rem;background:var(--surface-2);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.7rem}
+.proc-col header .ic{color:var(--accent)}
+.proc-col header .ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
+.proc-col h3{font-size:1.25rem}
+.proc-col ul{list-style:none;padding:1rem 1.6rem 1.7rem}
+.proc-col li{padding:.7rem 0;border-bottom:1px solid var(--line);font-size:var(--step-0);display:flex;align-items:center;gap:.6rem;color:var(--ink)}
+.proc-col li:last-child{border-bottom:0}
+.proc-col li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+
+/* ============ AUTORIDADE / EQUIPE ============ */
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media(max-width:760px){.team-grid{grid-template-columns:1fr}}
+.doc{display:grid;grid-template-columns:140px 1fr;gap:1.5rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius-lg);padding:1.5rem;align-items:center}
+@media(max-width:480px){.doc{grid-template-columns:1fr;text-align:center}}
+.doc .ph{aspect-ratio:1;border-radius:18px;overflow:hidden;position:relative;
+  /* TROCAR: foto real do(a) médico(a) */
+  background:linear-gradient(150deg,#cdb389,#1e3a30)}
+.doc .ph span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-display);font-size:2.4rem;color:rgba(255,253,250,.5)}
+.doc h3{font-size:1.3rem}
+.doc .role{color:var(--accent);font-weight:600;font-size:var(--step--1);margin-top:.2rem}
+.doc .crm{color:var(--ink-soft);font-size:.85rem;margin-top:.6rem;letter-spacing:.02em}
+
+/* ============ JORNADA ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding-top:3.2rem}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;left:0;
+  font-family:var(--font-display);font-size:2.4rem;color:var(--accent);opacity:.5}
+.step h3{font-size:1.2rem}
+.step p{font-size:var(--step--1);color:var(--ink-soft);margin-top:.5rem}
+
+/* ============ DEPOIMENTOS ============ */
+.testi{background:var(--brand);color:#f3ede3}
+.testi .sec-head h2,.testi .eyebrow{color:#fff}
+.testi .eyebrow{color:var(--accent-soft)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:860px){.testi-grid{grid-template-columns:1fr}}
+.quote{background:rgba(255,253,250,.05);border:1px solid rgba(255,253,250,.12);border-radius:var(--radius-lg);padding:2rem}
+.quote .stars{margin-bottom:1rem}
+.quote p{font-family:var(--font-display);font-size:1.3rem;line-height:1.4;color:#fff;font-style:italic;max-width:none}
+.quote .who{margin-top:1.3rem;display:flex;align-items:center;gap:.8rem;font-size:var(--step--1);color:rgba(243,237,227,.75)}
+.quote .who .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#cdb389,#1e3a30);flex:none}
+.gbar{margin-top:var(--space-xl);display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,253,250,.07);
+  border:1px solid rgba(255,253,250,.14);border-radius:var(--radius-pill);padding:.7rem 1.3rem}
+.gbar .stars{font-size:1.1rem}
+.gbar b{color:#fff;font-family:var(--font-display)}
+
+/* ============ UNIDADES ============ */
+.units{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media(max-width:760px){.units{grid-template-columns:1fr}}
+.unit{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem}
+.unit .tag{color:var(--accent);font-weight:600;font-size:var(--step--1);letter-spacing:.08em;text-transform:uppercase}
+.unit h3{margin-top:.5rem;font-size:1.5rem}
+.unit address{font-style:normal;color:var(--ink-soft);margin-top:.8rem;line-height:1.6}
+.unit .hr{height:1px;background:var(--line);margin:1.3rem 0}
+.unit .meta{display:flex;align-items:center;gap:.5rem;color:var(--ink);font-size:var(--step--1)}
+.unit .meta svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.7}
+
+/* ============ FAQ ============ */
+.faq{max-width:var(--container-narrow);margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line);padding:1.3rem 0}
+.faq summary{font-family:var(--font-display);font-size:1.2rem;color:var(--ink);cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pl{flex:none;width:24px;height:24px;position:relative;transition:transform .3s var(--ease)}
+.faq summary .pl::before,.faq summary .pl::after{content:"";position:absolute;background:var(--accent);border-radius:2px}
+.faq summary .pl::before{top:11px;left:3px;right:3px;height:2px}
+.faq summary .pl::after{left:11px;top:3px;bottom:3px;width:2px;transition:opacity .3s}
+.faq details[open] summary .pl{transform:rotate(90deg)}
+.faq details[open] summary .pl::after{opacity:0}
+.faq details p{margin-top:.9rem;color:var(--ink-soft)}
+
+/* ============ CTA FINAL ============ */
+.final{position:relative;overflow:hidden;background:var(--brand-deep);color:#f5efe5;text-align:center;border-radius:0}
+.final-mesh{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(50% 60% at 50% 0%,rgba(177,137,77,.28),transparent 60%),
+             radial-gradient(40% 50% at 85% 100%,rgba(177,137,77,.16),transparent 60%)}
+.final .container{position:relative;z-index:2}
+.final h2{color:#fff;max-width:18ch;margin-inline:auto}
+.final p{margin:var(--space-md) auto 0;color:rgba(245,239,229,.78)}
+.final .hero-actions{justify-content:center;margin-top:var(--space-xl)}
+
+/* ============ RODAPÉ ============ */
+.foot{background:var(--brand);color:rgba(243,237,227,.7);padding-block:var(--space-xl)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-bottom:var(--space-xl);border-bottom:1px solid rgba(255,253,250,.12)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:1.8rem}}
+.foot .brand{color:#fff;margin-bottom:1rem}
+.foot h4{color:#fff;font-family:var(--font-body);font-size:var(--step--1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;font-weight:600}
+.foot a{display:block;padding:.3rem 0;color:rgba(243,237,227,.7);transition:color .2s;font-size:var(--step--1)}
+.foot a:hover{color:var(--accent-soft)}
+.foot .copy{padding-top:1.5rem;font-size:.8rem;color:rgba(243,237,227,.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+/* ============ STICKY CTA MOBILE ============ */
+.sticky-cta{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:45;display:none;
+  box-shadow:var(--shadow-lg);justify-content:center}
+.sticky-cta.show{display:flex}
+@media(min-width:769px){.sticky-cta{display:none!important}}
+
+/* ============ FOTOS ============ */
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.doc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* ============ DIFERENCIAIS ============ */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:860px){.diff-grid{grid-template-columns:1fr}}
+.diff{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem;
+  transition:transform .35s var(--ease),box-shadow .35s ease}
+.diff:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.diff .n{font-family:var(--font-display);font-size:1.05rem;color:var(--accent);letter-spacing:.08em}
+.diff h3{font-size:1.25rem;margin-top:.6rem}
+.diff p{font-size:var(--step--1);color:var(--ink-soft);margin-top:.5rem}
+
+/* ============ AMBIENTES ============ */
+.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:760px){.amb-grid{grid-template-columns:1fr}}
+.amb{position:relative;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);margin:0}
+.amb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.amb:hover img{transform:scale(1.05)}
+.amb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,42,34,.55),transparent 50%)}
+.amb figcaption{position:absolute;left:1.3rem;bottom:1.1rem;color:#fff;font-family:var(--font-display);font-size:1.25rem;z-index:2}
+
+/* ============ ANIMAÇÕES ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-anim{opacity:0;animation:rise .9s var(--ease) forwards}
+.hero-anim:nth-child(1){animation-delay:.05s}.hero-anim:nth-child(2){animation-delay:.16s}
+.hero-anim:nth-child(3){animation-delay:.28s}.hero-anim:nth-child(4){animation-delay:.40s}
+.hero-anim:nth-child(5){animation-delay:.52s}
+.hero-visual{opacity:0;animation:rise 1s var(--ease) .35s forwards}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal,.hero-anim,.hero-visual{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#topo" class="brand"><span class="mono">⚜</span> Clínica Harmonia</a>
+    <div class="nav-links">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#procedimentos">Procedimentos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#unidades">Unidades</a>
+      <!-- TROCAR: número de WhatsApp real -->
+      <a href="https://wa.me/5511945020000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Harmonia." class="btn btn--accent" target="_blank" rel="noopener">Agendar avaliação</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero container" id="topo">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow hero-anim">Estética · Dermatologia · Cirurgia Plástica</p>
+      <h1 class="hero-anim">A sua melhor versão, com <em>segurança</em> e resultado natural.</h1>
+      <p class="lead hero-anim">Há mais de uma década, a Clínica Harmonia cuida de quem busca realçar a própria beleza com leveza, ciência e acolhimento — em Caxias do Sul e São Paulo.</p>
+      <div class="hero-actions hero-anim">
+        <!-- TROCAR: número de WhatsApp real -->
+        <a href="https://wa.me/5511945020000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Harmonia." class="btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.748-.612z"/></svg>
+          Agendar minha avaliação
+        </a>
+        <a href="#procedimentos" class="btn btn--ghost">Ver procedimentos</a>
+      </div>
+      <div class="hero-rating hero-anim">
+        <span class="stars">★★★★★</span>
+        <b>4,9</b>
+        <span>668 avaliações no Google</span>
+      </div>
+    </div>
+
+    <figure class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=1400&q=82" alt="Paciente com pele luminosa e resultado natural">
+      <div class="hero-badge">
+        <div class="g">4,9</div>
+        <small>★★★★★<br>Google · 668</small>
+      </div>
+      <div class="veil"></div>
+      <figcaption>
+        <strong>+1,2 milhão de pessoas acompanham a Harmonia</strong>
+        <span>Referência em estética avançada no Sul e em São Paulo</span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ============ TRUST / NÚMEROS ============ -->
+<section class="trust">
+  <div class="container section" style="padding-block:clamp(2.5rem,5vw,3.5rem)">
+    <div class="grid">
+      <div class="stat reveal"><div class="num"><span data-count="4">0</span><span class="suf">,9</span></div><div class="lbl">Nota no Google</div></div>
+      <div class="stat reveal" style="transition-delay:.08s"><div class="num"><span data-count="668">0</span></div><div class="lbl">Avaliações reais</div></div>
+      <div class="stat reveal" style="transition-delay:.16s"><div class="num"><span data-count="1">0</span><span class="suf">,2 mi</span></div><div class="lbl">Seguidores</div></div>
+      <div class="stat reveal" style="transition-delay:.24s"><div class="num"><span data-count="2">0</span></div><div class="lbl">Unidades · Caxias e SP</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPECIALIDADES ============ -->
+<section class="section container" id="especialidades">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Cinco frentes de cuidado</p>
+    <h2>Tudo o que a sua beleza precisa, em um só lugar.</h2>
+    <p class="lead">Da pele ao corpo, do rosto aos cabelos: especialidades médicas integradas para um resultado harmônico e natural.</p>
+  </div>
+  <div class="spec-grid">
+    <article class="spec reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></div>
+      <h3>Estética Facial</h3>
+      <p>Harmonização, preenchimentos e protocolos que valorizam seus traços com naturalidade.</p>
+    </article>
+    <article class="spec reveal" style="transition-delay:.07s">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 0012 0c0-4-3-6-6-10z"/></svg></div>
+      <h3>Estética Corporal</h3>
+      <p>Tratamentos para gordura localizada, celulite e flacidez, com tecnologia de ponta.</p>
+    </article>
+    <article class="spec reveal" style="transition-delay:.14s">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 8c-3 0-7 2-7 7a7 7 0 0014 0c0-5-4-7-7-7z"/></svg></div>
+      <h3>Capilar</h3>
+      <p>Transplante FUE e gerenciamento capilar para recuperar densidade e confiança.</p>
+    </article>
+    <article class="spec reveal" style="transition-delay:.21s">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0116 0M12 4v.01M7 7l.01.01M17 7l-.01.01M12 12l3 6-3-1-3 1 3-6z"/></svg></div>
+      <h3>Dermatologia</h3>
+      <p>Saúde e renovação da pele com acompanhamento médico especializado.</p>
+    </article>
+    <article class="spec reveal" style="transition-delay:.28s">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3l7 7-9 9-7 1 1-7 8-10zM13 5l6 6"/></svg></div>
+      <h3>Cirurgia Plástica</h3>
+      <p>Procedimentos cirúrgicos em centro equipado, com segurança e planejamento individual.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PROCEDIMENTOS ============ -->
+<section class="section container" id="procedimentos" style="background:linear-gradient(180deg,transparent,rgba(241,233,222,.5));border-radius:var(--radius-lg)">
+  <div class="sec-head center reveal">
+    <p class="eyebrow">Procedimentos</p>
+    <h2>O que realizamos na Harmonia</h2>
+    <p class="lead">Cada procedimento começa por uma avaliação individual — porque resultado natural se constrói sob medida.</p>
+  </div>
+  <div class="proc-wrap">
+    <div class="proc-col reveal">
+      <header><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1 1 5 1 6 0"/></svg></span><h3>Facial</h3></header>
+      <ul>
+        <li>Harmonização Facial</li>
+        <li>Toxina Botulínica</li>
+        <li>Preenchimento com Ácido Hialurônico</li>
+        <li>Lip Lift</li>
+        <li>Lifting de Sobrancelha</li>
+        <li>Bichectomia</li>
+        <li>Blefaroplastia</li>
+        <li>Peeling Químico</li>
+        <li>Lipoaspiração de Papada</li>
+        <li>Otoplastia</li>
+      </ul>
+    </div>
+    <div class="proc-col reveal" style="transition-delay:.08s">
+      <header><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c-3 4-6 6-6 10a6 6 0 0012 0c0-4-3-6-6-10z"/></svg></span><h3>Corporal</h3></header>
+      <ul>
+        <li>Gordura Localizada e Flacidez</li>
+        <li>Tratamento de Celulite</li>
+        <li>Depilação a Laser</li>
+        <li>Bioplastia de Glúteo</li>
+        <li>Área Íntima Feminina</li>
+        <li>Remoção de Tatuagem a Laser</li>
+      </ul>
+    </div>
+    <div class="proc-col reveal" style="transition-delay:.16s">
+      <header><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 8c-3 0-7 2-7 7a7 7 0 0014 0c0-5-4-7-7-7z"/></svg></span><h3>Capilar</h3></header>
+      <ul>
+        <li>Transplante Capilar FUE</li>
+        <li>Programa de Gerenciamento Capilar</li>
+      </ul>
+      <div style="padding:0 1.6rem 1.7rem">
+        <!-- TROCAR: número de WhatsApp real -->
+        <a href="https://wa.me/5511945020000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20procedimentos%20da%20Harmonia." class="btn btn--ghost" target="_blank" rel="noopener" style="width:100%;justify-content:center">Tirar dúvida sobre um procedimento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPE / AUTORIDADE ============ -->
+<section class="section container" id="equipe">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Quem cuida de você</p>
+    <h2>Mãos médicas que você pode confiar.</h2>
+    <p class="lead">Resultado natural exige técnica, ética e experiência. Conheça parte do corpo clínico responsável pela Harmonia.</p>
+  </div>
+  <div class="team-grid">
+    <article class="doc reveal">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=82" alt="Dra. Mariana Duarte"></div>
+      <div>
+        <h3>Dra. Mariana Duarte</h3>
+        <div class="role">Dermatologia · Responsável Técnica</div>
+        <p style="font-size:var(--step--1);color:var(--ink-soft);margin-top:.7rem">Cuidado especializado da saúde e da beleza da pele, com abordagem individual.</p>
+        <div class="crm">Dermatologia clínica e estética</div>
+      </div>
+    </article>
+    <article class="doc reveal" style="transition-delay:.1s">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=82" alt="Dra. Camila Andrade"></div>
+      <div>
+        <h3>Dra. Camila Andrade</h3>
+        <div class="role">Cirurgiã Plástica</div>
+        <p style="font-size:var(--step--1);color:var(--ink-soft);margin-top:.7rem">Cirurgia plástica com planejamento personalizado e foco em segurança e harmonia.</p>
+        <div class="crm">Cirurgia Plástica</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section container" id="diferenciais">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Por que a Harmonia</p>
+    <h2>Diferenciais que você sente em cada detalhe.</h2>
+  </div>
+  <div class="diff-grid">
+    <article class="diff reveal">
+      <div class="n">01</div>
+      <h3>Avaliação individualizada</h3>
+      <p>Nada de prateleira. Cada protocolo nasce de uma leitura criteriosa do seu rosto, do seu corpo e do seu objetivo.</p>
+    </article>
+    <article class="diff reveal" style="transition-delay:.06s">
+      <div class="n">02</div>
+      <h3>Tecnologias de última geração</h3>
+      <p>Equipamentos reconhecidos internacionalmente, escolhidos para entregar resultado real com segurança.</p>
+    </article>
+    <article class="diff reveal" style="transition-delay:.12s">
+      <div class="n">03</div>
+      <h3>Equipe especializada</h3>
+      <p>Profissionais com formação sólida e qualificação contínua, dedicados a cada detalhe da sua experiência.</p>
+    </article>
+    <article class="diff reveal" style="transition-delay:.18s">
+      <div class="n">04</div>
+      <h3>Protocolos exclusivos</h3>
+      <p>Combinações desenhadas sob medida — a sua jornada estética não se parece com a de mais ninguém.</p>
+    </article>
+    <article class="diff reveal" style="transition-delay:.24s">
+      <div class="n">05</div>
+      <h3>Acompanhamento contínuo</h3>
+      <p>Cuidado que continua depois da sessão, garantindo evolução, conforto e tranquilidade.</p>
+    </article>
+    <article class="diff reveal" style="transition-delay:.30s">
+      <div class="n">06</div>
+      <h3>Resultados naturais</h3>
+      <p>Estética que valoriza quem você é. Buscamos harmonia e naturalidade — nunca exageros.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ JORNADA ============ -->
+<section class="section container" style="background:var(--brand);color:#f3ede3;border-radius:var(--radius-lg)">
+  <div class="sec-head reveal" style="max-width:680px">
+    <p class="eyebrow" style="color:var(--accent-soft)">Como funciona</p>
+    <h2 style="color:#fff">Do primeiro contato ao seu resultado</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <h3 style="color:#fff">Avaliação individual</h3>
+      <p style="color:rgba(243,237,227,.72)">Você conversa com a equipe, conta seus objetivos e tira todas as dúvidas, sem compromisso.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:.08s">
+      <h3 style="color:#fff">Plano sob medida</h3>
+      <p style="color:rgba(243,237,227,.72)">Definimos juntos o melhor caminho para o seu rosto, corpo ou cabelo — com naturalidade.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:.16s">
+      <h3 style="color:#fff">Procedimento seguro</h3>
+      <p style="color:rgba(243,237,227,.72)">Realizado por médicos especializados, em ambiente equipado e com toda a biossegurança.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:.24s">
+      <h3 style="color:#fff">Acompanhamento</h3>
+      <p style="color:rgba(243,237,227,.72)">Cuidamos de você no antes e no depois, para que o resultado dure e encante.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section testi">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">Quem vive a Harmonia</p>
+      <h2>Histórias que falam por nós</h2>
+    </div>
+    <div class="testi-grid">
+      <figure class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Na primeira aplicação já vi resultados e superou todas as minhas expectativas."</p>
+        <figcaption class="who"><span class="av"></span> Roberta W. · Google</figcaption>
+      </figure>
+      <figure class="quote reveal" style="transition-delay:.08s">
+        <div class="stars">★★★★★</div>
+        <p>"Ambiente aconchegante e acolhedor desde a recepção até a equipe de enfermagem."</p>
+        <figcaption class="who"><span class="av"></span> Jaqueline S. · Google</figcaption>
+      </figure>
+      <figure class="quote reveal" style="transition-delay:.16s">
+        <div class="stars">★★★★★</div>
+        <p>"Excelentes profissionais e ótimo atendimento. O resultado da minha cirurgia superou tudo o que eu esperava!"</p>
+        <figcaption class="who"><span class="av"></span> Rodrigo F. · Google</figcaption>
+      </figure>
+    </div>
+    <div style="text-align:center">
+      <div class="gbar reveal"><span class="stars">★★★★★</span> <b>4,9</b> de 5 · baseado em <b>668</b> avaliações no Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMBIENTES ============ -->
+<section class="section container" id="ambientes">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Nossa casa</p>
+    <h2>Um espaço pensado para o seu bem-estar.</h2>
+  </div>
+  <div class="amb-grid">
+    <figure class="amb reveal">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=82" alt="Recepção da clínica" loading="lazy">
+      <figcaption>Recepção</figcaption>
+    </figure>
+    <figure class="amb reveal" style="transition-delay:.08s">
+      <img src="https://images.unsplash.com/photo-1633681926035-ec1ac984418a?auto=format&fit=crop&w=900&q=82" alt="Consultório de procedimentos" loading="lazy">
+      <figcaption>Consultórios</figcaption>
+    </figure>
+    <figure class="amb reveal" style="transition-delay:.16s">
+      <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=82" alt="Ambientes da clínica" loading="lazy">
+      <figcaption>Ambientes</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ UNIDADES ============ -->
+<section class="section container" id="unidades">
+  <div class="sec-head reveal">
+    <p class="eyebrow">Onde estamos</p>
+    <h2>Duas unidades, o mesmo cuidado.</h2>
+  </div>
+  <div class="units">
+    <article class="unit reveal">
+      <div class="tag">Unidade Caxias do Sul</div>
+      <h3>Caxias do Sul · RS</h3>
+      <address>Rua Guerino Sanvitto, 795<br>Villagio Iguatemi · CEP 95012-340</address>
+      <div class="hr"></div>
+      <div class="meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Atendimento a partir das 09h</div>
+    </article>
+    <article class="unit reveal" style="transition-delay:.1s">
+      <div class="tag">Unidade São Paulo</div>
+      <h3>São Paulo · SP</h3>
+      <address>Atendimento em São Paulo<br>Consulte horários e endereço pelo WhatsApp</address>
+      <div class="hr"></div>
+      <div class="meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Atendimento a partir das 09h</div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section container">
+  <div class="sec-head center reveal">
+    <p class="eyebrow">Dúvidas frequentes</p>
+    <h2>Antes de agendar, talvez você queira saber</h2>
+  </div>
+  <div class="faq reveal">
+    <details open><summary>Preciso pagar para fazer a avaliação?<span class="pl"></span></summary><p>A avaliação é o momento de entender seus objetivos e indicar o melhor caminho, sem compromisso. Fale com a nossa equipe pelo WhatsApp para agendar a sua.</p></details>
+    <details><summary>Os procedimentos são feitos por médicos?<span class="pl"></span></summary><p>Sim. A Harmonia conta com corpo clínico especializado — dermatologia, cirurgia plástica e equipe de enfermagem — em ambiente equipado e com biossegurança.</p></details>
+    <details><summary>Vocês atendem em quais cidades?<span class="pl"></span></summary><p>Temos unidades em Caxias do Sul (RS) e em São Paulo (SP). Pelo WhatsApp confirmamos o endereço e os horários mais convenientes para você.</p></details>
+    <details><summary>Como sei qual procedimento é ideal para mim?<span class="pl"></span></summary><p>Cada caso é único. Na avaliação individual, ouvimos seus objetivos e montamos um plano sob medida, sempre priorizando resultado natural e segurança.</p></details>
+    <details><summary>Como faço para agendar?<span class="pl"></span></summary><p>É simples: clique em "Agendar avaliação", fale com a nossa equipe no WhatsApp e escolha o melhor horário. Estamos prontos para te atender.</p></details>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final section">
+  <div class="final-mesh"></div>
+  <div class="container">
+    <p class="eyebrow reveal" style="color:var(--accent-soft)">Dê o primeiro passo</p>
+    <h2 class="reveal" style="margin-top:var(--space-sm)">Sua melhor versão começa com uma conversa.</h2>
+    <p class="reveal">Agende sua avaliação na Clínica Harmonia e descubra, com segurança, o que podemos fazer por você.</p>
+    <div class="hero-actions reveal">
+      <!-- TROCAR: número de WhatsApp real -->
+      <a href="https://wa.me/5511945020000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Harmonia." class="btn btn--accent" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.748-.612z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><span class="mono">⚜</span> Clínica Harmonia</div>
+        <p style="font-size:var(--step--1);max-width:38ch">Estética avançada, dermatologia e cirurgia plástica. Referência em resultados naturais no Sul e em São Paulo.</p>
+      </div>
+      <div>
+        <h4>Navegar</h4>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#procedimentos">Procedimentos</a>
+        <a href="#equipe">Corpo clínico</a>
+        <a href="#unidades">Unidades</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <!-- TROCAR: número de WhatsApp e Instagram reais -->
+        <a href="https://wa.me/5511945020000" target="_blank" rel="noopener">WhatsApp: (11) 94502-0000</a>
+        <a href="https://instagram.com/clinicaharmonia" target="_blank" rel="noopener">@clinicaharmonia</a>
+        <a href="#unidades">Caxias do Sul · São Paulo</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr"></span> Clínica Harmonia. Todos os direitos reservados.</span>
+      <span>Responsável Técnica: Dra. Mariana Duarte — Dermatologia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA MOBILE ============ -->
+<!-- TROCAR: número de WhatsApp real -->
+<a href="https://wa.me/5511945020000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Harmonia." class="btn btn--accent sticky-cta" id="stickyCta" target="_blank" rel="noopener">Agendar avaliação no WhatsApp</a>
+
+<script>
+// nav scrolled
+const nav=document.getElementById('nav');
+const sticky=document.getElementById('stickyCta');
+function onScroll(){
+  const y=window.scrollY;
+  nav.classList.toggle('scrolled',y>40);
+  sticky.classList.toggle('show',y>600);
+}
+let ticking=false;
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{onScroll();ticking=false});ticking=true}},{passive:true});
+onScroll();
+
+// scroll reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// count-up (suporta decimais leves via data-count inteiro)
+function countUp(el){
+  const target=+el.dataset.count,dur=1500,start=performance.now();
+  (function tick(now){
+    const p=Math.min((now-start)/dur,1),eased=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(eased*target).toLocaleString('pt-BR');
+    if(p<1)requestAnimationFrame(tick);else el.textContent=target.toLocaleString('pt-BR');
+  })(start);
+}
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// ano no rodapé
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
