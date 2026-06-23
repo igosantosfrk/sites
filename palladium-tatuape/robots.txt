@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://palladiumestetica.com.br/sitemap.xml
