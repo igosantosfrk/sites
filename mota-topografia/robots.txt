@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seusite.space/mota-topografia/sitemap.xml
