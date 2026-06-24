@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Première | Clínica de Estética — Rio Grande, RS</title>
+<meta name="description" content="Beleza e bem-estar que transformam. Depilação a laser de alta performance, redução de gordura, modelagem corporal e procedimentos estéticos no centro de Rio Grande, RS.">
+<meta property="og:title" content="Première | Clínica de Estética">
+<meta property="og:description" content="Beleza e bem-estar que transformam. Avaliação 5,0 no Google.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EEE6;
+    --cream-deep:#EBE2D6;
+    --ink:#241F1C;
+    --ink-soft:#564E47;
+    --wine:#6A2436;
+    --wine-deep:#4E1827;
+    --champagne:#B08A5E;
+    --line:rgba(36,31,28,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--wine);color:var(--cream)}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+  .eyebrow{
+    font-size:11px;letter-spacing:.42em;text-transform:uppercase;
+    font-weight:400;color:var(--champagne);display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--champagne);display:inline-block}
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .5s ease, box-shadow .5s ease, padding .5s ease;
+    padding:26px 0;
+  }
+  header.scrolled{background:rgba(244,238,230,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:16px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;letter-spacing:.06em}
+  .brand span{font-size:9px;letter-spacing:.36em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px}
+  .nav-links{display:flex;gap:38px;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;position:relative;transition:color .3s}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--wine);transition:width .35s}
+  .nav-links a:not(.btn):hover{color:var(--wine)}
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .btn{
+    border:1px solid var(--wine);color:var(--wine);padding:11px 24px;border-radius:40px;
+    font-size:12px !important;letter-spacing:.16em;transition:all .35s;white-space:nowrap;
+  }
+  .btn:hover{background:var(--wine);color:var(--cream)!important}
+  .btn.solid{background:var(--wine);color:var(--cream)}
+  .btn.solid:hover{background:var(--wine-deep);border-color:var(--wine-deep)}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+  .menu-toggle span{width:26px;height:1.5px;background:var(--ink);display:block;transition:.3s}
+
+  /* ===== HERO ===== */
+  .hero{padding:170px 0 90px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(48px,7.4vw,104px);line-height:.98;letter-spacing:-.01em;margin:26px 0 0;
+  }
+  .hero h1 em{font-style:italic;color:var(--wine)}
+  .hero-lead{max-width:430px;margin-top:30px;color:var(--ink-soft);font-size:17px}
+  .hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+  .hero-cta a{text-decoration:none}
+  .hero-rating{display:flex;align-items:center;gap:14px;margin-top:40px}
+  .stars{color:var(--champagne);letter-spacing:3px;font-size:17px}
+  .hero-rating small{color:var(--ink-soft);font-size:13px;letter-spacing:.04em}
+  .hero-rating b{color:var(--ink);font-weight:400}
+  .hero-visual{position:relative}
+  .hero-visual .frame{
+    position:relative;border-radius:220px 220px 14px 14px;overflow:hidden;aspect-ratio:3/4;
+    box-shadow:0 40px 80px -40px rgba(78,24,39,.5);
+  }
+  .hero-visual .frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-tag{
+    position:absolute;bottom:30px;left:-30px;background:var(--cream);
+    padding:20px 26px;border-radius:10px;box-shadow:0 24px 50px -22px rgba(36,31,28,.35);
+    max-width:220px;
+  }
+  .hero-tag .num{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--wine);line-height:1}
+  .hero-tag p{font-size:12.5px;letter-spacing:.04em;color:var(--ink-soft);margin-top:4px}
+
+  /* marquee */
+  .marquee{border-block:1px solid var(--line);padding:20px 0;overflow:hidden;white-space:nowrap;margin-top:30px}
+  .marquee div{display:inline-block;animation:scroll 32s linear infinite}
+  .marquee span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--ink);margin:0 34px;opacity:.65}
+  .marquee span::after{content:"✦";color:var(--champagne);margin-left:34px;font-size:14px;font-style:normal}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== SECTIONS ===== */
+  section{position:relative}
+  .pad{padding:clamp(80px,11vw,150px) 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+  .sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.01em;max-width:640px}
+  .sec-head h2 em{font-style:italic;color:var(--wine)}
+  .sec-head p{max-width:330px;color:var(--ink-soft);font-size:15.5px}
+
+  /* manifesto */
+  .manifesto{background:var(--wine);color:var(--cream)}
+  .manifesto .eyebrow{color:var(--champagne)}
+  .manifesto-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
+  .manifesto blockquote{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(26px,3.4vw,42px);line-height:1.28;font-style:italic}
+  .manifesto blockquote b{font-style:normal;font-weight:500;color:var(--champagne)}
+  .manifesto .sig{margin-top:34px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,238,230,.7)}
+
+  /* services editorial list */
+  .svc{border-top:1px solid var(--line)}
+  .svc-row{
+    display:grid;grid-template-columns:80px 1fr auto;gap:30px;align-items:center;
+    padding:34px 6px;border-bottom:1px solid var(--line);cursor:default;
+    transition:padding .45s ease, background .45s ease;position:relative;
+  }
+  .svc-row .idx{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--champagne)}
+  .svc-row h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3.4vw,40px);transition:color .4s,transform .45s;letter-spacing:-.01em}
+  .svc-row p{grid-column:2;color:var(--ink-soft);font-size:14.5px;max-width:520px;margin-top:6px}
+  .svc-row .arrow{font-size:24px;color:var(--wine);opacity:0;transform:translateX(-12px);transition:.4s}
+  .svc-row:hover{background:var(--cream-deep);padding-left:26px;padding-right:26px}
+  .svc-row:hover h3{color:var(--wine);transform:translateX(6px)}
+  .svc-row:hover .arrow{opacity:1;transform:translateX(0)}
+
+  /* feature split */
+  .feature{background:var(--cream-deep)}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,84px);align-items:center}
+  .feature-img{border-radius:14px 14px 200px 14px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px -45px rgba(36,31,28,.45)}
+  .feature-img img{width:100%;height:100%;object-fit:cover}
+  .feature h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.4vw,56px);line-height:1.05;margin:22px 0 22px;letter-spacing:-.01em}
+  .feature h2 em{font-style:italic;color:var(--wine)}
+  .feature ul{list-style:none;margin-top:30px}
+  .feature li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15.5px;align-items:baseline}
+  .feature li b{font-family:'Cormorant Garamond',serif;color:var(--wine);font-size:18px;font-weight:600;min-width:26px}
+
+  /* stats */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .stat{text-align:center;padding:20px}
+  .stat .big{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,6.5vw,84px);color:var(--wine);line-height:1}
+  .stat .lab{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
+
+  /* testimonials */
+  .testi{background:var(--ink);color:var(--cream)}
+  .testi .eyebrow{color:var(--champagne)}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:54px}
+  .tcard{border:1px solid rgba(244,238,230,.16);border-radius:14px;padding:38px 32px;transition:transform .5s,border-color .5s,background .5s}
+  .tcard:hover{transform:translateY(-8px);border-color:var(--champagne);background:rgba(176,138,94,.06)}
+  .tcard .stars{font-size:15px;margin-bottom:20px}
+  .tcard p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--cream)}
+  .tcard .who{margin-top:24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,238,230,.55)}
+
+  /* visit / cta */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,80px);align-items:center}
+  .visit h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.8vw,62px);line-height:1.04;margin-bottom:26px;letter-spacing:-.01em}
+  .visit h2 em{font-style:italic;color:var(--wine)}
+  .info-row{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+  .info-row:last-of-type{border-bottom:1px solid var(--line)}
+  .info-row .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne);min-width:110px;padding-top:3px}
+  .info-row .v{font-size:16px;color:var(--ink)}
+  .info-row .v a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:.3s}
+  .info-row .v a:hover{color:var(--wine);border-color:var(--wine)}
+  .map{border-radius:14px;overflow:hidden;aspect-ratio:1/1;border:1px solid var(--line);min-height:340px}
+  .map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) sepia(.1)}
+  .cta-buttons{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .cta-buttons a{text-decoration:none}
+
+  /* footer */
+  footer{background:var(--wine-deep);color:var(--cream);padding:80px 0 36px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(244,238,230,.16)}
+  .foot-brand b{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;letter-spacing:.04em;display:block}
+  .foot-brand p{margin-top:16px;color:rgba(244,238,230,.7);max-width:320px;font-size:15px}
+  .foot-col h4{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne);margin-bottom:20px}
+  .foot-col a,.foot-col p{display:block;color:rgba(244,238,230,.8);text-decoration:none;font-size:14.5px;margin-bottom:12px;transition:color .3s}
+  .foot-col a:hover{color:var(--champagne)}
+  .foot-bottom{padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(244,238,230,.5);letter-spacing:.06em}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* float whatsapp */
+  .wa-float{position:fixed;bottom:26px;right:26px;z-index:60;background:#25D366;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .3s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  @media(max-width:920px){
+    .hero-grid,.manifesto-grid,.feature-grid,.visit-grid,.foot-top{grid-template-columns:1fr}
+    .testi-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px 20px}
+    .nav-links{position:fixed;inset:0 0 0 35%;background:var(--cream);flex-direction:column;justify-content:center;padding:40px;transform:translateX(100%);transition:transform .5s;box-shadow:-20px 0 50px -20px rgba(0,0,0,.2)}
+    .nav-links.open{transform:none}
+    .menu-toggle{display:flex}
+    .hero-visual{order:-1}
+    .hero-tag{left:auto;right:0}
+    .svc-row{grid-template-columns:46px 1fr;gap:16px}
+    .svc-row .arrow{display:none}
+    .svc-row p{grid-column:1/-1}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" style="text-decoration:none">
+      <b>Première</b>
+      <span>Clínica de Estética · Rio Grande</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#laser">Depilação a Laser</a>
+      <a href="#visite">Contato</a>
+      <a href="https://wa.me/5553997067700?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Premi%C3%A8re." class="btn solid" target="_blank" rel="noopener">Agendar avaliação</a>
+    </nav>
+    <button class="menu-toggle" id="mtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">Estética avançada · Desde a primeira sessão</span>
+      <h1 class="reveal">Beleza e bem-estar que <em>transformam</em>.</h1>
+      <p class="hero-lead reveal">Tecnologia, técnica e cuidado em cada detalhe. No coração de Rio Grande, a Première cria protocolos personalizados para revelar a sua melhor versão.</p>
+      <div class="hero-cta reveal">
+        <a href="https://wa.me/5553997067700?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." class="btn solid" target="_blank" rel="noopener">Agendar avaliação</a>
+        <a href="#servicos" class="btn">Conhecer tratamentos</a>
+      </div>
+      <div class="hero-rating reveal">
+        <span class="stars">★★★★★</span>
+        <small><b>5,0</b> de avaliação · 35 avaliações no Google</small>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="frame">
+        <!-- TROCAR por foto real da clínica/atendimento -->
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Tratamento estético na Première">
+      </div>
+      <div class="hero-tag">
+        <div class="num">+4,4 mil</div>
+        <p>seguidores acompanham as transformações no Instagram</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div>
+    <span>Depilação a Laser</span><span>Crioescultura</span><span>Radiofrequência</span><span>Modelagem Corporal</span><span>Redução de Gordura</span><span>Cuidados com a Pele</span>
+    <span>Depilação a Laser</span><span>Crioescultura</span><span>Radiofrequência</span><span>Modelagem Corporal</span><span>Redução de Gordura</span><span>Cuidados com a Pele</span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto pad" id="sobre">
+  <div class="wrap manifesto-grid">
+    <div class="reveal">
+      <span class="eyebrow">A Première</span>
+    </div>
+    <div class="reveal">
+      <blockquote>Acreditamos que autoestima se constrói no <b>cuidado</b>. Cada protocolo nasce de uma avaliação atenta, conduzido por profissionais que se importam de verdade com o seu <b>resultado</b>.</blockquote>
+      <p class="sig">— Equipe Première · Rio Grande, RS</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="pad" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Tratamentos que unem <em>ciência</em> e sensibilidade.</h2>
+      <p>Da estética facial à modelagem corporal, protocolos personalizados com tecnologia de alta performance.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-row reveal">
+        <div class="idx">01</div>
+        <div><h3>Depilação a Laser</h3><p>Alta performance para pele lisa e livre de pelos, com resultado visível já nas primeiras sessões.</p></div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="svc-row reveal">
+        <div class="idx">02</div>
+        <div><h3>Crioescultura</h3><p>Redução de gordura localizada por congelamento, modelando o contorno corporal sem cirurgia.</p></div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="svc-row reveal">
+        <div class="idx">03</div>
+        <div><h3>Radiofrequência</h3><p>Firmeza e revitalização da pele, estimulando colágeno para um aspecto mais jovem e tonificado.</p></div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="svc-row reveal">
+        <div class="idx">04</div>
+        <div><h3>Modelagem Corporal</h3><p>Tratamentos para emagrecimento e definição, combinando tecnologia e protocolos personalizados.</p></div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="svc-row reveal">
+        <div class="idx">05</div>
+        <div><h3>Cuidados com a Pele</h3><p>Limpeza, hidratação e saúde estética facial para uma pele equilibrada e radiante.</p></div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="svc-row reveal">
+        <div class="idx">06</div>
+        <div><h3>Procedimentos Estéticos</h3><p>Bioestimulador de colágeno, preenchimento, harmonização e protocolos avançados de beleza.</p></div>
+        <div class="arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: LASER -->
+<section class="feature pad" id="laser">
+  <div class="wrap feature-grid">
+    <div class="feature-img reveal">
+      <!-- TROCAR por foto real -->
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="Depilação a laser na Première">
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Destaque</span>
+      <h2>Depilação a laser de <em>alta performance</em>.</h2>
+      <p style="color:var(--ink-soft);font-size:16.5px;max-width:460px">A tecnologia que mais transforma a rotina das nossas clientes: rápida, confortável e com resultados que aparecem desde as primeiras sessões.</p>
+      <ul>
+        <li><b>01</b><span>Resultado visível já nas primeiras sessões</span></li>
+        <li><b>02</b><span>Procedimento confortável e seguro para todos os tons de pele</span></li>
+        <li><b>03</b><span>Aplicação por profissionais especializados e atenciosos</span></li>
+        <li><b>04</b><span>Protocolo personalizado conforme a sua área e tipo de pelo</span></li>
+      </ul>
+      <div style="margin-top:34px">
+        <a href="https://wa.me/5553997067700?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20depila%C3%A7%C3%A3o%20a%20laser." class="btn solid" target="_blank" rel="noopener" style="text-decoration:none">Quero conhecer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="pad">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="big">5,0</div><div class="lab">Avaliação Google</div></div>
+    <div class="stat reveal"><div class="big">35</div><div class="lab">Avaliações reais</div></div>
+    <div class="stat reveal"><div class="big">4,4 mil</div><div class="lab">Seguidores</div></div>
+    <div class="stat reveal"><div class="big">3</div><div class="lab">Sessões p/ resultado*</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi pad">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <h2 style="color:var(--cream)">O que dizem as <em style="color:var(--champagne)">nossas clientes</em>.</h2>
+      <p style="color:rgba(244,238,230,.6)">Avaliações reais publicadas no Google.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Em 3 sessões já consegui ver resultado na depilação a laser, super recomendo 🥰"</p>
+        <div class="who">Cliente · Google</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Profissionais atenciosos e preocupados com os resultados dos clientes."</p>
+        <div class="who">Cliente · Google</div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Experiência maravilhosa, atendimento impecável e qualidade no serviço 👏🏻"</p>
+        <div class="who">Cliente · Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="pad" id="visite">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <span class="eyebrow">Visite a Première</span>
+      <h2>Sua avaliação começa <em>aqui</em>.</h2>
+      <div class="info-row">
+        <div class="k">Endereço</div>
+        <div class="v"><a href="https://maps.google.com/?q=R.+Gen.+Bacelar,+270+-+Centro,+Rio+Grande+-+RS" target="_blank" rel="noopener">R. Gen. Bacelar, 270 — Centro<br>Rio Grande, RS · 96200-370</a></div>
+      </div>
+      <div class="info-row">
+        <div class="k">Telefone</div>
+        <div class="v"><a href="tel:+5553997067700">(53) 99706-7700</a></div>
+      </div>
+      <div class="info-row">
+        <div class="k">Horário</div>
+        <div class="v">Segunda a sexta · até 18h30</div>
+      </div>
+      <div class="info-row">
+        <div class="k">Instagram</div>
+        <div class="v"><a href="https://instagram.com/premiereclinicaestetica" target="_blank" rel="noopener">@premiereclinicaestetica</a></div>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5553997067700?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Premi%C3%A8re." class="btn solid" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        <a href="https://maps.google.com/?q=R.+Gen.+Bacelar,+270+-+Centro,+Rio+Grande+-+RS" class="btn" target="_blank" rel="noopener">Ver rotas</a>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=R.%20Gen.%20Bacelar,%20270%20-%20Centro,%20Rio%20Grande%20-%20RS,%2096200-370&output=embed" title="Mapa Première Clínica de Estética"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <b>Première</b>
+        <p>Clínica de Estética em Rio Grande, RS. Beleza e bem-estar que transformam, com tecnologia e cuidado em cada detalhe.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#laser">Depilação a Laser</a>
+        <a href="#visite">Contato</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="tel:+5553997067700">(53) 99706-7700</a>
+        <a href="https://instagram.com/premiereclinicaestetica" target="_blank" rel="noopener">@premiereclinicaestetica</a>
+        <p>R. Gen. Bacelar, 270 — Centro</p>
+        <p>Rio Grande, RS · 96200-370</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Première | Clínica de Estética. Todos os direitos reservados.</span>
+      <span>Rio Grande · Rio Grande do Sul</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5553997067700?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Premi%C3%A8re." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.04zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  // header scroll
+  const header=document.getElementById('header');
+  window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40));
+  // mobile menu
+  const t=document.getElementById('mtoggle'),n=document.getElementById('navlinks');
+  t.addEventListener('click',()=>n.classList.toggle('open'));
+  n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));
+  // reveal
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);io.unobserve(e.target)}})
+  },{threshold:.16,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
