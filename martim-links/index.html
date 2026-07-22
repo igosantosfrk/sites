@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Martim César — Poeta · Compositor · Dramaturgo</title>
+<meta name="description" content="Martim César, poeta de Jaguarão-RS. Site oficial, canal no YouTube e contato via WhatsApp." />
+<link rel="icon" href="/martim/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="Martim César — Poesia · Canção · Teatro" />
+<meta property="og:description" content="Site oficial, canal no YouTube e contato direto." />
+<meta property="og:image" content="https://seusite.space/martim/martim-foto-elis-vasconcellos.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --gold:#c9a961; --ink:#0c0e0a; --paper:#e8e2d4; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    min-height:100vh; min-height:100dvh;
+    font-family:'Inter',sans-serif; color:var(--paper);
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    padding:48px 24px;
+    position:relative; overflow-x:hidden;
+  }
+  body::before {
+    content:''; position:fixed; inset:0;
+    background:url('/martim/hero-bg.jpg') center/cover no-repeat;
+    filter:brightness(.32); z-index:-2;
+  }
+  body::after {
+    content:''; position:fixed; inset:0;
+    background:radial-gradient(ellipse at center, transparent 30%, rgba(6,8,5,.75) 100%);
+    z-index:-1;
+  }
+  .card { width:100%; max-width:480px; text-align:center; }
+  .signature { width:min(320px,80%); margin:0 auto 18px; display:block;
+    filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
+  .kicker {
+    font-size:11px; letter-spacing:.42em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px;
+    display:flex; align-items:center; justify-content:center; gap:14px;
+  }
+  .kicker::before,.kicker::after { content:''; height:1px; width:34px;
+    background:linear-gradient(90deg,transparent,var(--gold)); }
+  .kicker::after { background:linear-gradient(90deg,var(--gold),transparent); }
+  .quote {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:20px; color:rgba(232,226,212,.85); margin-bottom:38px;
+  }
+  .links { display:flex; flex-direction:column; gap:16px; }
+  .btn {
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    padding:17px 20px; text-decoration:none;
+    font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--paper); border:1px solid rgba(201,169,97,.55);
+    background:rgba(12,14,10,.45); backdrop-filter:blur(3px);
+    transition:all .3s ease;
+  }
+  .btn:hover { background:rgba(201,169,97,.12); border-color:var(--gold); color:var(--gold); }
+  .btn svg { width:17px; height:17px; flex-shrink:0; stroke:var(--gold); fill:none;
+    stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .btn .fill { fill:var(--gold); stroke:none; }
+  .foot {
+    margin-top:44px; font-size:10px; letter-spacing:.3em; text-transform:uppercase;
+    color:rgba(232,226,212,.45);
+  }
+  @media (max-width:420px){ .quote{font-size:18px} .btn{letter-spacing:.2em} }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="signature" src="/martim/martim-dourado.png" alt="Martim César" />
+    <p class="kicker">Poesia · Canção · Teatro</p>
+    <p class="quote">&ldquo;Uma obra que cruza fronteiras feito quem atravessa um rio.&rdquo;</p>
+    <nav class="links">
+      <a class="btn" href="https://seusite.space/martim/">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.9 5.7 3.9 9S14.5 18.4 12 21c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>
+        Site Oficial
+      </a>
+      <a class="btn" href="https://www.youtube.com/results?search_query=martim+c%C3%A9sar+jaguar%C3%A3o">
+        <svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path class="fill" d="M10 9.2v5.6l5-2.8z"/></svg>
+        Canal no YouTube
+      </a>
+      <a class="btn" href="https://wa.me/5553991049388?text=Ol%C3%A1%2C%20Martim!">
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M8.8 9.2c.3-.8.9-.9 1.3-.6l.8 1.2c.2.3 0 .7-.5 1.2.4 1 1.5 2 2.6 2.4.5-.4.9-.6 1.2-.4l1.2.9c.3.4.1 1-.7 1.3-2.4.7-6.4-2.6-5.9-6z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <p class="foot">Jaguarão · Rio Grande do Sul</p>
+  </main>
+</body>
+</html>
