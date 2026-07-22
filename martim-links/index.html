@@ -13,25 +13,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  :root { --gold:#c9a961; --ink:#0c0e0a; --paper:#e8e2d4; }
+  :root { --gold:#c9a961; --ink:#0c0a07; --paper:#ece5d3; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     min-height:100vh; min-height:100dvh;
     font-family:'Inter',sans-serif; color:var(--paper);
-    background:var(--ink);
+    background:
+      radial-gradient(ellipse 120% 70% at 50% -10%, rgba(201,169,97,.07), transparent 60%),
+      linear-gradient(160deg, #141109 0%, #0c0a07 45%, #080706 100%);
+    background-attachment:fixed;
     display:flex; align-items:center; justify-content:center;
     padding:48px 24px;
-    position:relative; overflow-x:hidden;
-  }
-  body::before {
-    content:''; position:fixed; inset:0;
-    background:url('/martim/hero-bg.jpg') center/cover no-repeat;
-    filter:brightness(.32); z-index:-2;
-  }
-  body::after {
-    content:''; position:fixed; inset:0;
-    background:radial-gradient(ellipse at center, transparent 30%, rgba(6,8,5,.75) 100%);
-    z-index:-1;
   }
   .card { width:100%; max-width:480px; text-align:center; }
   .signature { width:min(320px,80%); margin:0 auto 18px; display:block;
@@ -46,24 +38,24 @@
   .kicker::after { background:linear-gradient(90deg,var(--gold),transparent); }
   .quote {
     font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:20px; color:rgba(232,226,212,.85); margin-bottom:38px;
+    font-size:20px; color:rgba(236,229,211,.8); margin-bottom:38px;
   }
   .links { display:flex; flex-direction:column; gap:16px; }
   .btn {
     display:flex; align-items:center; justify-content:center; gap:12px;
     padding:17px 20px; text-decoration:none;
     font-size:12px; letter-spacing:.28em; text-transform:uppercase;
-    color:var(--paper); border:1px solid rgba(201,169,97,.55);
-    background:rgba(12,14,10,.45); backdrop-filter:blur(3px);
+    color:var(--paper); border:1px solid rgba(201,169,97,.45);
+    background:linear-gradient(150deg, rgba(255,255,255,.025), rgba(255,255,255,0) 55%), rgba(255,255,255,.012);
     transition:all .3s ease;
   }
-  .btn:hover { background:rgba(201,169,97,.12); border-color:var(--gold); color:var(--gold); }
+  .btn:hover { background:rgba(201,169,97,.1); border-color:var(--gold); color:var(--gold); }
   .btn svg { width:17px; height:17px; flex-shrink:0; stroke:var(--gold); fill:none;
     stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
   .btn .fill { fill:var(--gold); stroke:none; }
   .foot {
     margin-top:44px; font-size:10px; letter-spacing:.3em; text-transform:uppercase;
-    color:rgba(232,226,212,.45);
+    color:rgba(236,229,211,.4);
   }
   @media (max-width:420px){ .quote{font-size:18px} .btn{letter-spacing:.2em} }
 </style>
