@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carol quiere contarte su rutina itinerante — Maria do Socorro de Almeida Farias</title>
+<meta name="description" content="Livro infantil bilíngue sobre Carol, a menina de Jaguarão que vive entre o Brasil e o Uruguai. Uma história sobre fronteira, duas línguas e infância. Por Maria do Socorro de Almeida Farias.">
+<meta property="og:title" content="Carol quiere contarte su rutina itinerante">
+<meta property="og:description" content="A história da menina que vive entre dois países, duas línguas e um só coração. Livro infantil bilíngue português-espanhol.">
+<meta property="og:image" content="img/carol-000.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+<style>
+:root{
+  --rosa:#e84b8a; --rosa-suave:#f9d5e5; --rosa-claro:#fdeef5;
+  --verde:#5a9367; --verde-claro:#e3efe6;
+  --celeste:#6fb3d9; --celeste-claro:#e4f1f8;
+  --sol:#f2b134; --sol-claro:#fdf3dd;
+  --vermelho:#c65454;
+  --papel:#fdfaf3; --papel-2:#faf4e8;
+  --tinta:#4a3f35; --tinta-suave:#7a6f63;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif; color:var(--tinta); background:var(--papel);
+  overflow-x:hidden; line-height:1.65;
+}
+h1,h2,h3{font-family:'Fredoka',sans-serif}
+img{max-width:100%;display:block}
+
+/* ---------- decorações flutuantes ---------- */
+.float-deco{position:absolute; pointer-events:none; user-select:none; opacity:.85; animation:flutuar 6s ease-in-out infinite;}
+@keyframes flutuar{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(5deg)}}
+@keyframes flutuar2{0%,100%{transform:translateY(-8px) rotate(6deg)}50%{transform:translateY(8px) rotate(-4deg)}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:center;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, var(--sol-claro) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, var(--celeste-claro) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 15% 20%, var(--rosa-claro) 0%, transparent 55%),
+    var(--papel);
+  padding:40px 6% 120px;
+}
+.hero-inner{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;width:100%}
+.hero-txt .kicker{
+  display:inline-block; font-weight:800; font-size:.95rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--verde); background:var(--verde-claro); padding:8px 18px; border-radius:999px; margin-bottom:22px;
+}
+.hero-txt h1{
+  font-size:clamp(2.4rem,5vw,3.9rem); line-height:1.08; color:var(--rosa); font-weight:700;
+  margin-bottom:8px; text-wrap:balance;
+}
+.hero-txt .autora{font-family:'Caveat',cursive; font-size:1.7rem; color:var(--tinta-suave); margin-bottom:18px}
+.hero-txt p.lead{font-size:1.18rem; max-width:520px; margin-bottom:30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.08rem; text-decoration:none;
+  padding:15px 32px; border-radius:999px; transition:transform .2s, box-shadow .2s; display:inline-flex; align-items:center; gap:10px;
+}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.btn-rosa{background:var(--rosa); color:#fff; box-shadow:0 8px 22px rgba(232,75,138,.35)}
+.btn-ghost{background:#fff; color:var(--tinta); border:3px solid var(--sol); box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.hero-img{position:relative}
+.hero-img img{
+  width:100%; max-width:460px; margin:0 auto; filter:drop-shadow(0 18px 35px rgba(74,63,53,.18));
+  animation:flutuar 7s ease-in-out infinite;
+}
+.hero .sol{top:6%; right:4%; font-size:4rem; animation-duration:8s}
+.hero .coracao{bottom:18%; left:2%; font-size:2.6rem; animation:flutuar2 5s ease-in-out infinite}
+.hero .bandeiras{top:22%; left:44%; font-size:2rem; animation-duration:9s}
+
+/* ---------- faixa marquee ---------- */
+.faixa{background:var(--rosa); color:#fff; overflow:hidden; padding:16px 0; transform:rotate(-1.2deg); margin:-30px 0 0; position:relative; z-index:3; box-shadow:0 10px 30px rgba(232,75,138,.25)}
+.faixa-track{display:flex; gap:48px; white-space:nowrap; animation:rolar 22s linear infinite; font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.25rem; letter-spacing:.04em}
+@keyframes rolar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- seções ---------- */
+section{padding:96px 6%}
+.wrap{max-width:1100px;margin:0 auto}
+.sec-kicker{font-family:'Caveat',cursive; font-size:1.9rem; color:var(--rosa); display:block; margin-bottom:6px}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem); font-weight:600; margin-bottom:20px; text-wrap:balance}
+
+/* sobre */
+.sobre{background:var(--papel-2); position:relative}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.sobre-grid img{border-radius:26px; box-shadow:0 16px 40px rgba(74,63,53,.15); transform:rotate(-2deg)}
+.sobre p{font-size:1.12rem; margin-bottom:16px}
+.destaque{
+  background:#fff; border-left:6px solid var(--sol); padding:18px 22px; border-radius:0 18px 18px 0;
+  font-style:italic; color:var(--tinta-suave); font-size:1.05rem; margin-top:22px;
+}
+
+/* palavras nas duas línguas */
+.linguas{background:linear-gradient(180deg,var(--papel) 0%, var(--celeste-claro) 100%); text-align:center}
+.cards-palavras{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-top:44px}
+.palavra{
+  background:#fff; border-radius:22px; padding:26px 30px; min-width:190px;
+  box-shadow:0 10px 26px rgba(74,63,53,.1); transition:transform .25s; cursor:default;
+}
+.palavra:hover{transform:translateY(-8px) rotate(-2deg)}
+.palavra .es{font-family:'Fredoka',sans-serif; font-size:1.5rem; color:var(--celeste); font-weight:600}
+.palavra .divisor{font-size:1.1rem; color:var(--sol); margin:4px 0}
+.palavra .pt{font-family:'Fredoka',sans-serif; font-size:1.5rem; color:var(--verde); font-weight:600}
+.palavra .nota{font-size:.85rem; color:var(--tinta-suave); margin-top:8px}
+
+/* galeria / história */
+.historia .intro{max-width:640px; margin-bottom:56px}
+.spread{
+  display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;
+  margin-bottom:90px; opacity:0; transform:translateY(40px); transition:opacity .7s ease, transform .7s ease;
+}
+.spread.visivel{opacity:1; transform:translateY(0)}
+.spread:nth-child(even){direction:rtl}
+.spread:nth-child(even) > *{direction:ltr}
+.spread img{border-radius:24px; box-shadow:0 18px 44px rgba(74,63,53,.16)}
+.spread:nth-child(odd) img{transform:rotate(1.5deg)}
+.spread:nth-child(even) img{transform:rotate(-1.5deg)}
+.spread blockquote{
+  font-family:'Caveat',cursive; font-size:clamp(1.6rem,2.6vw,2.1rem); line-height:1.35; color:var(--tinta);
+  position:relative; padding-left:26px;
+}
+.spread blockquote::before{content:'“'; position:absolute; left:-6px; top:-18px; font-size:4rem; color:var(--rosa-suave); font-family:Georgia,serif}
+.spread .legenda{margin-top:14px; padding-left:26px; color:var(--tinta-suave); font-size:1rem}
+
+/* autora */
+.autora-sec{background:var(--rosa-claro)}
+.autora-grid{display:grid; grid-template-columns:auto 1fr; gap:44px; align-items:center; max-width:900px; margin:0 auto}
+.autora-avatar{
+  width:150px;height:150px;border-radius:50%; background:var(--rosa); color:#fff; display:flex; align-items:center; justify-content:center;
+  font-family:'Fredoka',sans-serif; font-size:3rem; font-weight:700; box-shadow:0 12px 30px rgba(232,75,138,.3);
+}
+.autora-sec p{font-size:1.1rem; margin-bottom:14px}
+
+/* CTA final */
+.cta{
+  text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 50% 60% at 20% 20%, var(--sol-claro) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 80% 80%, var(--rosa-claro) 0%, transparent 55%),
+    var(--papel);
+}
+.cta h2{font-size:clamp(2rem,4vw,3rem)}
+.cta p{font-size:1.15rem; max-width:560px; margin:0 auto 34px}
+.cta .sol2{top:10%; left:8%; font-size:3.4rem}
+.cta .pipa{bottom:12%; right:8%; font-size:3rem; animation:flutuar2 7s ease-in-out infinite}
+
+/* footer */
+footer{background:var(--tinta); color:#efe8de; text-align:center; padding:44px 6%; font-size:.98rem}
+footer .ponte{font-family:'Caveat',cursive; font-size:1.5rem; color:var(--sol); margin-bottom:8px}
+footer a{color:var(--rosa-suave)}
+
+/* reveal genérico */
+.reveal{opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease}
+.reveal.visivel{opacity:1; transform:translateY(0)}
+
+@media(max-width:860px){
+  .hero-inner,.sobre-grid,.spread{grid-template-columns:1fr; gap:34px}
+  .hero{padding-top:70px; text-align:center}
+  .hero-txt p.lead{margin-inline:auto}
+  .btns{justify-content:center}
+  .hero-img img{max-width:330px}
+  .spread:nth-child(even){direction:ltr}
+  .spread{margin-bottom:64px}
+  .autora-grid{grid-template-columns:1fr; text-align:center; justify-items:center}
+  section{padding:70px 6%}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="float-deco sol">☀️</span>
+  <span class="float-deco coracao">💚💙❤️</span>
+  <span class="float-deco bandeiras">🇧🇷 🇺🇾</span>
+  <div class="hero-inner">
+    <div class="hero-txt">
+      <span class="kicker">Livro infantil bilíngue · Português &amp; Español</span>
+      <h1>Carol quiere contarte su rutina itinerante</h1>
+      <div class="autora">por Maria do Socorro de Almeida Farias</div>
+      <p class="lead">
+        Oi, pessoal! Yo soy Carolina — Caro no Uruguai, Carol ou Carolzinha no Brasil.
+        <strong>La nena de Jaguarão</strong> te convida a atravessar a ponte e conhecer a vida
+        de quem cresce entre dois países, duas línguas e um só coração.
+      </p>
+      <div class="btns">
+        <a class="btn btn-rosa" href="#comprar">📖 Quero o livro</a>
+        <a class="btn btn-ghost" href="#historia">✨ Espiar a história</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/carol-000.jpg" alt="Ilustração da Carol correndo com as bandeiras do Brasil e do Uruguai">
+    </div>
+  </div>
+</header>
+
+<!-- FAIXA -->
+<div class="faixa" aria-hidden="true">
+  <div class="faixa-track">
+    <span>DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦ DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦ DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦&nbsp;</span>
+    <span>DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦ DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦ DAQUI PRA LÁ ✦ DE ALLÁ PRA CÁ ✦&nbsp;</span>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="reveal">
+      <span class="sec-kicker">Sobre o livro</span>
+      <h2>Uma fronteira, duas línguas, uma infância inteira</h2>
+      <p>
+        Carol vive em <strong>Jaguarão</strong>, na fronteira do Brasil com o Uruguai. Todos os dias ela cruza a
+        <strong>Ponte Internacional Barão de Mauá</strong> — para estudar, aprender, rir, cantar e brincar com os amigos.
+      </p>
+      <p>
+        Em casa, ela já sabe que <em>queso</em> é em español e <em>queijo</em> é em português. No ballet, as piruetas
+        são binacionais. Na natação, um pouco de acá, otro poco de allá. E nos livros, até a Chapeuzinho vira
+        <em>Caperucita</em>.
+      </p>
+      <div class="destaque">
+        "Porque con mis dos lenguas comparto mis sentimientos, mis voluntades, mis deseos. ¡Esa soy yo!"
+      </div>
+    </div>
+    <img class="reveal" src="img/carol-007.jpg" alt="Carol no carro vermelho com o sol sorrindo">
+  </div>
+</section>
+
+<!-- DUAS LÍNGUAS -->
+<section class="linguas">
+  <div class="wrap reveal">
+    <span class="sec-kicker">Duas línguas, um jeito de ser</span>
+    <h2>Como fala a Carol?</h2>
+    <p style="max-width:560px;margin:0 auto">Uns dizem que ela fala em português, otros dicen que habla en español. Ela responde: "às vezes nas duas!" 😄</p>
+    <div class="cards-palavras">
+      <div class="palavra"><div class="es">queso</div><div class="divisor">✦</div><div class="pt">queijo</div><div class="nota">na cozinha da Carol</div></div>
+      <div class="palavra"><div class="es">poroto</div><div class="divisor">✦</div><div class="pt">feijão</div><div class="nota">no prato de todo dia</div></div>
+      <div class="palavra"><div class="es">yo</div><div class="divisor">✦</div><div class="pt">eu</div><div class="nota">¡esa soy yo!</div></div>
+      <div class="palavra"><div class="es">uva</div><div class="divisor">✦</div><div class="pt">uva</div><div class="nota">essa se diz nas duas! 🍇</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA / GALERIA -->
+<section class="historia" id="historia">
+  <div class="wrap">
+    <div class="intro reveal">
+      <span class="sec-kicker">Espia só</span>
+      <h2>A rutina itinerante da Carol</h2>
+      <p style="font-size:1.1rem">Aquarelas que atravessam a ponte junto com ela — um pedacinho do que você vai encontrar no livro.</p>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-001.jpg" alt="Cruzando a ponte internacional na fronteira Uruguai-Brasil">
+      <div>
+        <blockquote>Por las tardes, de lunes a viernes, el puente cruzo. Cruzo el puente internacional Barão do Mauá para estudiar, para aprender, para reír, para cantar…</blockquote>
+        <div class="legenda">A ponte que liga Jaguarão (BR) e Río Branco (UY) — o caminho de todo dia.</div>
+      </div>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-002.jpg" alt="Colagem de palavras EU e YO em aquarela">
+      <div>
+        <blockquote>Uns dizem que falo em português, otros dicen que hablo en español. Yo les digo: "yo falo en português" y a veces en las dos. ¡Esa soy yo!</blockquote>
+        <div class="legenda">Eu ou yo? As duas! O portuñol também é língua de brincar.</div>
+      </div>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-003.jpg" alt="Carol e as amigas na aula de ballet">
+      <div>
+        <blockquote>Nas quartas e sextas-feiras, cuando al ballet rosa voy, encuentro mis amigas que de esta frontera son. As piruetas e os demi plié são binacionais.</blockquote>
+        <div class="legenda">Dançamos e assim nos entendemos — a arte é maravilhosa, diz meu pai.</div>
+      </div>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-004.jpg" alt="Carol na aula de natação com amigos uruguaios e brasileiros">
+      <div>
+        <blockquote>Los jueves, en natación, la clase es así: un poco de acá, otro poco de allá. Nadamos, mergulhamos, nos divertimos.</blockquote>
+        <div class="legenda">Amigas uruguaias, amigos brasileiros — todo mundo na mesma piscina.</div>
+      </div>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-005.jpg" alt="Chapeuzinho Vermelho atravessando um tronco na floresta">
+      <div>
+        <blockquote>Los fines de semana, ordeno mis libros. Uns estão escritos em português, otros en español… y, claro, la otra Caperucita Vermelha.</blockquote>
+        <div class="legenda">Na estante da Carol, até os contos de fadas cruzam a fronteira.</div>
+      </div>
+    </div>
+
+    <div class="spread">
+      <img src="img/carol-006.jpg" alt="O pai da Carol tocando guitarra">
+      <div>
+        <blockquote>Mi papá, conocido en Uruguay como el músico brasilero, me habla y me canta en portugués y en español.</blockquote>
+        <div class="legenda">Em casa, o amor também é bilíngue. 🎸</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<section class="autora-sec" id="autora">
+  <div class="autora-grid reveal">
+    <div class="autora-avatar">M</div>
+    <div>
+      <span class="sec-kicker">Quem escreveu</span>
+      <h2>Maria do Socorro de Almeida Farias</h2>
+      <p>
+        Mãe, escritora e apaixonada pela vida na fronteira, Maria do Socorro escreveu esta história
+        inspirada na infância da própria filha — uma menina que, como a Carol, cresce entre o Brasil
+        e o Uruguai, colecionando palavras, pontes e afetos nas duas línguas.
+      </p>
+      <p style="font-family:'Caveat',cursive;font-size:1.5rem;color:var(--rosa)">Publicado pela Yaguarú Livros 🧉</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="comprar">
+  <span class="float-deco sol2">☀️</span>
+  <span class="float-deco pipa">🪁</span>
+  <div class="wrap reveal">
+    <span class="sec-kicker">Leve a Carol pra casa</span>
+    <h2>Quer conhecer esta fronteira?</h2>
+    <p>Garanta seu exemplar de <strong>Carol quiere contarte su rutina itinerante</strong> e atravesse a ponte com ela — daqui pra lá, de allá pra cá.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn btn-rosa" href="#" id="btn-comprar">📖 Quero meu exemplar</a>
+    </div>
+    <p style="margin-top:20px;font-size:.95rem;color:var(--tinta-suave)">Escolas e projetos de leitura: fale com a gente para pedidos em quantidade.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="ponte">Jaguarão · Río Branco — daqui pra lá, de allá pra cá</div>
+  <div>© 2026 Maria do Socorro de Almeida Farias · Yaguarú Livros</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('visivel'); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll('.reveal, .spread').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
