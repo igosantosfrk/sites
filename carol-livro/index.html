@@ -130,9 +130,9 @@ h2{font-size:clamp(1.9rem,3.6vw,2.7rem); font-weight:600; margin-bottom:20px; te
 /* autora */
 .autora-sec{background:var(--rosa-claro)}
 .autora-grid{display:grid; grid-template-columns:auto 1fr; gap:44px; align-items:center; max-width:900px; margin:0 auto}
-.autora-avatar{
-  width:150px;height:150px;border-radius:50%; background:var(--rosa); color:#fff; display:flex; align-items:center; justify-content:center;
-  font-family:'Fredoka',sans-serif; font-size:3rem; font-weight:700; box-shadow:0 12px 30px rgba(232,75,138,.3);
+.autora-foto{
+  width:250px; border-radius:26px; box-shadow:0 16px 40px rgba(232,75,138,.28);
+  transform:rotate(-2deg); object-fit:cover; aspect-ratio:3/4; object-position:top;
 }
 .autora-sec p{font-size:1.1rem; margin-bottom:14px}
 
@@ -307,7 +307,7 @@ footer a{color:var(--rosa-suave)}
 <!-- AUTORA -->
 <section class="autora-sec" id="autora">
   <div class="autora-grid reveal">
-    <div class="autora-avatar">M</div>
+    <img class="autora-foto" src="img/autora.jpg" alt="Maria do Socorro de Almeida Farias segurando o livro Carol quiere contarte su rutina itinerante">
     <div>
       <span class="sec-kicker">Quem escreveu</span>
       <h2>Maria do Socorro de Almeida Farias</h2>
