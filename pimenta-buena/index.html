@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pimenta Buena — Player</title>
+<style>
+  :root {
+    --red: #c22f35;
+    --red-dark: #8f1f24;
+    --ink: #f2f0ec;
+    --gray: #9a978f;
+    --bg: #141312;
+    --card: #211f1e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background:
+      radial-gradient(ellipse at 30% 15%, rgba(194,47,53,.10), transparent 55%),
+      radial-gradient(ellipse at 75% 85%, rgba(255,255,255,.04), transparent 60%),
+      var(--bg);
+    min-height: 100vh; color: var(--ink);
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+    position: relative; overflow-x: hidden;
+  }
+  /* ornamentos florais */
+  body::before, body::after {
+    content: '❁ ✿ ❀'; position: fixed; font-size: 42px; letter-spacing: 18px;
+    opacity: .15; pointer-events: none; line-height: 1.9; writing-mode: vertical-rl;
+  }
+  body::before { top: 24px; left: 18px; color: var(--red); }
+  body::after { bottom: 24px; right: 18px; color: #6f6d66; }
+
+  .player {
+    width: 100%; max-width: 560px; background: var(--card);
+    border: 1px solid rgba(255,255,255,.09); border-radius: 10px; padding: 36px 32px 26px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.7); position: relative; z-index: 1;
+  }
+  .brand { text-align: center; margin-bottom: 4px; }
+  .brand .line1 {
+    font-family: 'Arial Black', 'Helvetica Neue', sans-serif; font-weight: 900;
+    font-size: 50px; letter-spacing: 1px; color: #fff; line-height: .9;
+    text-shadow: 0 3px 10px rgba(0,0,0,.6); text-transform: lowercase;
+  }
+  .brand .line2 {
+    font-family: 'Arial Black', 'Helvetica Neue', sans-serif; font-weight: 900;
+    font-size: 50px; letter-spacing: 1px; color: var(--red); line-height: .95;
+    text-transform: lowercase;
+  }
+  .brand .anos {
+    font-family: Georgia, serif; font-size: 18px; letter-spacing: 6px;
+    color: var(--red); margin-top: 6px; font-variant: small-caps;
+  }
+  .divider {
+    display: flex; align-items: center; gap: 10px; margin: 16px 0;
+    color: var(--gray); font-size: 12px;
+  }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.14); }
+
+  .now { text-align: center; margin-bottom: 18px; min-height: 58px; }
+  .now .title { font-size: 26px; font-weight: 700; color: #fff; word-break: break-word; }
+  .now .sub { font-size: 12px; color: var(--gray); margin-top: 6px; letter-spacing: 3px; text-transform: uppercase; }
+
+  .seek-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .time { font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 44px; text-align: center; font-family: Arial, sans-serif; }
+  input[type=range] {
+    flex: 1; -webkit-appearance: none; appearance: none; height: 10px; border-radius: 10px;
+    background: linear-gradient(to right, var(--red) var(--p, 0%), rgba(255,255,255,.16) var(--p, 0%));
+    outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--red); border: 4px solid #fff; box-shadow: 0 3px 12px rgba(0,0,0,.6); cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 20px; height: 20px; border: 4px solid #fff; border-radius: 50%;
+    background: var(--red); box-shadow: 0 3px 12px rgba(0,0,0,.6); cursor: pointer;
+  }
+
+  .controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px; }
+  .btn {
+    background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.16); color: #fff;
+    border-radius: 50%; width: 56px; height: 56px; font-size: 21px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: .2s;
+  }
+  .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+  .btn.play {
+    width: 80px; height: 80px; font-size: 30px; color: #fff;
+    background: linear-gradient(160deg, var(--red), var(--red-dark)); border: none;
+    box-shadow: 0 10px 30px rgba(194,47,53,.55);
+  }
+  .btn.play:hover { background: linear-gradient(160deg, #d43a40, var(--red)); }
+
+  .list { max-height: 320px; overflow-y: auto; border-top: 1px solid rgba(255,255,255,.12); padding-top: 12px; }
+  .list::-webkit-scrollbar { width: 6px; }
+  .list::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 6px; }
+  .item {
+    display: flex; align-items: center; gap: 12px; padding: 13px 14px; border-radius: 6px;
+    cursor: pointer; transition: .15s; font-size: 17px;
+  }
+  .item:hover { background: rgba(255,255,255,.07); }
+  .item.active { background: var(--red); color: #fff; }
+  .item .num { color: var(--gray); font-size: 13px; min-width: 22px; font-variant-numeric: tabular-nums; font-family: Arial, sans-serif; }
+  .item.active .num { color: rgba(255,255,255,.8); }
+  .item .name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item .playing-icon { display: none; font-size: 11px; letter-spacing: 1px; }
+  .item.active .playing-icon { display: block; }
+  .empty { text-align: center; color: var(--gray); padding: 28px 10px; font-size: 14px; line-height: 1.7; font-style: italic; }
+  .footer { text-align: center; margin-top: 18px; font-size: 10px; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; }
+
+  @media (max-width: 480px) {
+    .player { padding: 26px 18px 20px; }
+    .brand .line1, .brand .line2 { font-size: 40px; }
+    .controls { gap: 12px; }
+    .btn { width: 50px; height: 50px; }
+    .btn.play { width: 70px; height: 70px; }
+  }
+</style>
+</head>
+<body>
+<div class="player">
+  <div class="brand">
+    <div class="line1">pimenta</div>
+    <div class="line2">buena</div>
+    <div class="anos">20 anos</div>
+  </div>
+  <div class="divider">❀</div>
+  <div class="now">
+    <div class="title" id="title">—</div>
+    <div class="sub" id="sub">Selecione uma faixa</div>
+  </div>
+  <div class="seek-wrap">
+    <span class="time" id="cur">0:00</span>
+    <input type="range" id="seek" min="0" max="100" value="0" step="0.1">
+    <span class="time" id="dur">0:00</span>
+  </div>
+  <div class="controls">
+    <button class="btn" id="prev" title="Anterior">⏮</button>
+    <button class="btn" id="back10" title="Voltar 10s">↺</button>
+    <button class="btn play" id="play" title="Tocar/Pausar">▶</button>
+    <button class="btn" id="fwd10" title="Avançar 10s">↻</button>
+    <button class="btn" id="next" title="Próxima">⏭</button>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="footer">Domingo · 13 de Setembro · 20h</div>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<script>
+const audio = document.getElementById('audio');
+const seek = document.getElementById('seek');
+const playBtn = document.getElementById('play');
+const playlist = [
+  { file: 'Amar es.mp3', name: 'Amar es' },
+  { file: 'Fogata.mp3', name: 'Fogata' },
+  { file: 'Hay un Lugar que no fuimos Ayer.mp3', name: 'Hay un Lugar que no fuimos Ayer' },
+  { file: 'La Duena de la calle.mp3', name: 'La Duena de la calle' },
+  { file: 'Oprimidos Opresores.mp3', name: 'Oprimidos Opresores' },
+  { file: 'Solo un Detalle.mp3', name: 'Solo un Detalle' },
+  { file: 'Tu pecado Tu prejuicio.mp3', name: 'Tu pecado Tu prejuicio' },
+];
+let idx = -1, seeking = false;
+
+const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+
+function loadPlaylist() {
+  const list = document.getElementById('list');
+  list.innerHTML = playlist.map((t, i) =>
+    `<div class="item" data-i="${i}"><span class="num">${i+1}</span><span class="name">${t.name}</span><span class="playing-icon">▶ tocando</span></div>`
+  ).join('');
+  list.querySelectorAll('.item').forEach((el, j) => {
+    el.onclick = () => play(+el.dataset.i);
+    el.classList.toggle('active', j === idx);
+  });
+}
+
+function play(i) {
+  idx = i;
+  const t = playlist[i];
+  audio.src = 'audios/' + encodeURIComponent(t.file);
+  audio.play();
+  document.getElementById('title').textContent = t.name;
+  document.getElementById('sub').textContent = `Faixa ${i+1} de ${playlist.length}`;
+  document.querySelectorAll('.item').forEach((el, j) => el.classList.toggle('active', j === i));
+}
+
+playBtn.onclick = () => {
+  if (idx < 0 && playlist.length) return play(0);
+  audio.paused ? audio.play() : audio.pause();
+};
+document.getElementById('next').onclick = () => playlist.length && play((idx + 1 + playlist.length) % playlist.length);
+document.getElementById('prev').onclick = () => playlist.length && play((idx - 1 + playlist.length) % playlist.length);
+document.getElementById('back10').onclick = () => audio.currentTime = Math.max(0, audio.currentTime - 10);
+document.getElementById('fwd10').onclick = () => audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
+
+audio.onplay = () => playBtn.textContent = '⏸';
+audio.onpause = () => playBtn.textContent = '▶';
+audio.onended = () => idx < playlist.length - 1 && play(idx + 1);
+audio.onloadedmetadata = () => document.getElementById('dur').textContent = fmt(audio.duration);
+audio.ontimeupdate = () => {
+  if (seeking || !audio.duration) return;
+  const p = (audio.currentTime / audio.duration) * 100;
+  seek.value = p;
+  seek.style.setProperty('--p', p + '%');
+  document.getElementById('cur').textContent = fmt(audio.currentTime);
+};
+seek.oninput = () => {
+  seeking = true;
+  seek.style.setProperty('--p', seek.value + '%');
+  if (audio.duration) document.getElementById('cur').textContent = fmt((seek.value/100) * audio.duration);
+};
+seek.onchange = () => {
+  if (audio.duration) audio.currentTime = (seek.value / 100) * audio.duration;
+  seeking = false;
+};
+
+loadPlaylist();
+</script>
+</body>
+</html>
