@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição de Artistas — JaguarArte 2026</title>
+<meta name="description" content="Formulário de inscrição para artistas do JaguarArte 2026 — igualdade pela diversidade. 09 a 11 de outubro, Theatro Esperança, Jaguarão RS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #4d5f33;
+    --verde-escuro: #3d4c28;
+    --creme: #f7f1e6;
+    --papel: #fffdf8;
+    --terra: #c9a87c;
+    --erro: #a33d2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--creme);
+    color: var(--verde-escuro);
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('fundo.jpg') center top / cover no-repeat;
+    opacity: .3;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  header { text-align: center; padding: 24px 0 8px; }
+  .logo-sic {
+    width: 130px;
+    max-width: 40vw;
+    height: auto;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 4px 12px rgba(77,95,51,.18));
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--verde);
+    font-size: clamp(3rem, 11vw, 4.6rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+  }
+  h1 .ano {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: .35em;
+    margin-top: 10px;
+  }
+  .lema {
+    font-weight: 600;
+    color: var(--verde);
+    font-size: 1.05rem;
+    margin-top: 14px;
+  }
+  .info-evento {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--verde);
+  }
+  .info-evento span { display: inline-flex; align-items: center; gap: 6px; }
+
+  .card {
+    background: var(--papel);
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(77,95,51,.12);
+    padding: 32px 28px;
+    margin-top: 28px;
+    border: 1px solid rgba(77,95,51,.1);
+  }
+  .card > p.intro {
+    font-size: .95rem;
+    color: #5c6b47;
+    margin-bottom: 26px;
+    line-height: 1.55;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: .9rem;
+    margin-bottom: 6px;
+    color: var(--verde-escuro);
+  }
+  label .obrig { color: var(--erro); }
+  .campo { margin-bottom: 20px; }
+  input, select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1.5px solid #d8d2c2;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--verde-escuro);
+    background: #fff;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgba(77,95,51,.15);
+  }
+  .hint { font-size: .78rem; color: #8a8676; margin-top: 5px; }
+  .linha-link { display: flex; gap: 8px; align-items: center; }
+  .linha-link + .linha-link { margin-top: 10px; }
+  .linha-link .remover {
+    flex-shrink: 0;
+    width: 42px; height: 46px;
+    background: #f1ece0;
+    color: var(--erro);
+    border: 1.5px solid #d8d2c2;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+  }
+  .linha-link .remover:hover { background: #fbeae7; border-color: #e5b8af; }
+  .btn-mais-link {
+    width: auto;
+    margin-top: 10px;
+    background: none;
+    color: var(--verde);
+    border: 1.5px dashed var(--verde);
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-mais-link:hover { background: rgba(77,95,51,.08); }
+  .campo-erro input, .campo-erro select { border-color: var(--erro); }
+  .msg-erro {
+    background: #fbeae7;
+    border: 1px solid #e5b8af;
+    color: var(--erro);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: .88rem;
+    margin-bottom: 20px;
+    display: none;
+    line-height: 1.6;
+  }
+
+  button {
+    width: 100%;
+    background: var(--verde);
+    color: #fdfaf2;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+  }
+  button:hover { background: var(--verde-escuro); }
+  button:active { transform: scale(.99); }
+  button:disabled { opacity: .6; cursor: wait; }
+
+  .sucesso { display: none; text-align: center; padding: 30px 10px; }
+  .sucesso .icone {
+    width: 74px; height: 74px;
+    background: var(--verde);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem; color: #fdfaf2;
+  }
+  .sucesso h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: var(--verde);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  .sucesso p { color: #5c6b47; line-height: 1.6; font-size: .95rem; }
+
+  footer {
+    text-align: center;
+    margin-top: 34px;
+    font-size: .78rem;
+    color: #8a8676;
+    line-height: 1.7;
+  }
+  footer strong { color: var(--verde); }
+  .apoiadores { margin-top: 22px; }
+  .apoiadores img { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <img src="logo.png" alt="SIC — Sociedade Independente Cultural" class="logo-sic">
+    <h1>JaguarArte<span class="ano">2026</span></h1>
+    <p class="lema">igualdade pela diversidade</p>
+    <div class="info-evento">
+      <span>📅 09 a 11 de outubro</span>
+      <span>📍 Theatro Esperança — Jaguarão, RS</span>
+    </div>
+  </header>
+
+  <div class="card">
+    <div id="formArea">
+      <p class="intro">Inscreva-se para participar do <strong>JaguarArte 2026</strong>. Preencha os dados abaixo — todos os campos são obrigatórios. Após a inscrição, a organização entrará em contato pelo WhatsApp informado.</p>
+
+      <div class="msg-erro" id="msgErro"></div>
+
+      <form id="form" novalidate>
+        <div class="campo" id="c-nome">
+          <label for="nome">Nome completo <span class="obrig">*</span></label>
+          <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo">
+        </div>
+
+        <div class="campo" id="c-grupo">
+          <label for="grupo">Grupo / Nome artístico <span class="obrig">*</span></label>
+          <input type="text" id="grupo" name="grupo" placeholder="Nome do grupo ou nome artístico">
+          <div class="hint">Se você se apresenta sozinho(a), pode repetir seu nome.</div>
+        </div>
+
+        <div class="campo" id="c-whatsapp">
+          <label for="whatsapp">WhatsApp para contato <span class="obrig">*</span></label>
+          <input type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(53) 99999-9999">
+        </div>
+
+        <div class="campo" id="c-categoria">
+          <label for="categoria">Categoria <span class="obrig">*</span></label>
+          <select id="categoria" name="categoria">
+            <option value="">Selecione a categoria...</option>
+            <option>Música</option>
+            <option>Dança</option>
+            <option>Teatro</option>
+            <option>Poesia</option>
+            <option>Literatura</option>
+            <option>Artesanato</option>
+            <option>Artes Visuais</option>
+            <option>Outra</option>
+          </select>
+        </div>
+
+        <div class="campo" id="c-categoriaOutra" style="display:none">
+          <label for="categoriaOutra">Qual categoria? <span class="obrig">*</span></label>
+          <input type="text" id="categoriaOutra" name="categoriaOutra" placeholder="Descreva sua categoria artística">
+        </div>
+
+        <div class="campo" id="c-video">
+          <label>Link de vídeo da apresentação <span class="obrig">*</span></label>
+          <div id="listaLinks">
+            <div class="linha-link">
+              <input type="url" class="input-video" inputmode="url" placeholder="https://...">
+            </div>
+          </div>
+          <div class="hint">Pode ser YouTube, Instagram, TikTok ou Google Drive (link aberto).</div>
+          <button type="button" id="btnMaisLink" class="btn-mais-link">+ Adicionar outro link</button>
+        </div>
+
+        <button type="submit" id="btnEnviar">Enviar inscrição</button>
+      </form>
+    </div>
+
+    <div class="sucesso" id="sucesso">
+      <div class="icone">✓</div>
+      <h2>Inscrição enviada!</h2>
+      <p>Recebemos a sua inscrição para o <strong>JaguarArte 2026</strong>.<br>A organização entrará em contato pelo WhatsApp informado.<br><br>Nos vemos no Theatro Esperança! 🎭</p>
+    </div>
+  </div>
+
+  <footer>
+    <strong>JaguarArte 2026</strong> — igualdade pela diversidade<br>
+    música • dança • poesia • artesanato • literatura • teatro • artes visuais
+    <div class="apoiadores">
+      <img src="apoiadores.png" alt="Realização: SIC — Sociedade Independente Cultural. Apoio: Prefeitura de Jaguarão, SECULT Jaguarão, Fronteras Culturales, Círculo Operário de Jaguarão">
+    </div>
+  </footer>
+</div>
+
+<script>
+  const form = document.getElementById('form');
+  const msgErro = document.getElementById('msgErro');
+  const btn = document.getElementById('btnEnviar');
+  const whatsapp = document.getElementById('whatsapp');
+  const categoria = document.getElementById('categoria');
+  const campoOutra = document.getElementById('c-categoriaOutra');
+
+  whatsapp.addEventListener('input', () => {
+    let v = whatsapp.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 7) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    whatsapp.value = v;
+  });
+
+  categoria.addEventListener('change', () => {
+    campoOutra.style.display = categoria.value === 'Outra' ? 'block' : 'none';
+  });
+
+  const listaLinks = document.getElementById('listaLinks');
+  document.getElementById('btnMaisLink').addEventListener('click', () => {
+    const linha = document.createElement('div');
+    linha.className = 'linha-link';
+    linha.innerHTML = '<input type="url" class="input-video" inputmode="url" placeholder="https://...">' +
+      '<button type="button" class="remover" title="Remover este link">×</button>';
+    linha.querySelector('.remover').addEventListener('click', () => linha.remove());
+    listaLinks.appendChild(linha);
+    linha.querySelector('input').focus();
+  });
+
+  function marcaErros(erros, campos) {
+    document.querySelectorAll('.campo').forEach(c => c.classList.remove('campo-erro'));
+    campos.forEach(id => document.getElementById(id)?.classList.add('campo-erro'));
+    if (erros.length) {
+      msgErro.innerHTML = erros.join('<br>');
+      msgErro.style.display = 'block';
+      msgErro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      msgErro.style.display = 'none';
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const videos = [...document.querySelectorAll('.input-video')]
+      .map(i => i.value.trim())
+      .filter(v => v);
+
+    const dados = {
+      nome: document.getElementById('nome').value.trim(),
+      grupo: document.getElementById('grupo').value.trim(),
+      whatsapp: whatsapp.value.trim(),
+      categoria: categoria.value,
+      categoriaOutra: document.getElementById('categoriaOutra').value.trim(),
+      videos
+    };
+
+    const erros = [], campos = [];
+    if (dados.nome.length < 3) { erros.push('Informe o nome completo.'); campos.push('c-nome'); }
+    if (!dados.grupo) { erros.push('Informe o nome do grupo ou artista.'); campos.push('c-grupo'); }
+    if (dados.whatsapp.replace(/\D/g, '').length < 10) { erros.push('Informe um WhatsApp válido com DDD.'); campos.push('c-whatsapp'); }
+    if (!dados.categoria) { erros.push('Selecione uma categoria.'); campos.push('c-categoria'); }
+    if (dados.categoria === 'Outra' && !dados.categoriaOutra) { erros.push('Descreva a sua categoria.'); campos.push('c-categoriaOutra'); }
+    if (!videos.length) { erros.push('Informe pelo menos um link de vídeo.'); campos.push('c-video'); }
+    else if (videos.some(v => !/^https?:\/\/.+\..+/.test(v))) { erros.push('Um dos links de vídeo não é válido (deve começar com http:// ou https://).'); campos.push('c-video'); }
+
+    marcaErros(erros, campos);
+    if (erros.length) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    try {
+      const r = await fetch('https://lp.seusite.space/jaguararte-api/api/inscricoes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      const j = await r.json();
+      if (j.ok) {
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('sucesso').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        marcaErros(j.erros || ['Erro ao enviar. Tente novamente.'], []);
+        btn.disabled = false;
+        btn.textContent = 'Enviar inscrição';
+      }
+    } catch {
+      marcaErros(['Erro de conexão. Verifique sua internet e tente novamente.'], []);
+      btn.disabled = false;
+      btn.textContent = 'Enviar inscrição';
+    }
+  });
+</script>
+</body>
+</html>
