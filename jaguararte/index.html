@@ -150,6 +150,24 @@
     cursor: pointer;
   }
   .btn-mais-link:hover { background: rgba(77,95,51,.08); }
+  .termo-box {
+    background: #f3efe3;
+    border: 1.5px solid #ddd5c0;
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .campo-erro .termo-box { border-color: var(--erro); background: #fbeae7; }
+  .termo-titulo { font-weight: 700; font-size: .92rem; color: var(--verde); margin-bottom: 6px; }
+  .termo-texto { font-size: .85rem; line-height: 1.55; color: #5c6b47; margin-bottom: 12px; }
+  .termo-check { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-weight: 400; }
+  .termo-check input {
+    width: 20px; height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: var(--verde);
+    cursor: pointer;
+  }
+  .termo-check span { font-size: .85rem; line-height: 1.5; color: var(--verde-escuro); }
   .campo-erro input, .campo-erro select { border-color: var(--erro); }
   .msg-erro {
     background: #fbeae7;
@@ -277,6 +295,17 @@
           <button type="button" id="btnMaisLink" class="btn-mais-link">+ Adicionar outro link</button>
         </div>
 
+        <div class="campo termo" id="c-termo">
+          <div class="termo-box">
+            <p class="termo-titulo">⏱ Tempo de apresentação</p>
+            <p class="termo-texto">Cada artista ou grupo tem <strong>10 (dez) minutos</strong> de apresentação no palco. Esse tempo é único e vale para todas as categorias.</p>
+            <label class="termo-check">
+              <input type="checkbox" id="aceiteTermo">
+              <span>Estou ciente de que o tempo de apresentação é de <strong>no máximo 10 minutos</strong> e me comprometo a realizar a minha apresentação dentro desse tempo.</span>
+            </label>
+          </div>
+        </div>
+
         <button type="submit" id="btnEnviar">Enviar inscrição</button>
       </form>
     </div>
@@ -351,7 +380,8 @@
       whatsapp: whatsapp.value.trim(),
       categoria: categoria.value,
       categoriaOutra: document.getElementById('categoriaOutra').value.trim(),
-      videos
+      videos,
+      aceiteTermo: document.getElementById('aceiteTermo').checked
     };
 
     const erros = [], campos = [];
@@ -362,6 +392,7 @@
     if (dados.categoria === 'Outra' && !dados.categoriaOutra) { erros.push('Descreva a sua categoria.'); campos.push('c-categoriaOutra'); }
     if (!videos.length) { erros.push('Informe pelo menos um link de vídeo.'); campos.push('c-video'); }
     else if (videos.some(v => !/^https?:\/\/.+\..+/.test(v))) { erros.push('Um dos links de vídeo não é válido (deve começar com http:// ou https://).'); campos.push('c-video'); }
+    if (!dados.aceiteTermo) { erros.push('Para enviar a inscrição, você precisa marcar que está ciente do tempo de 10 minutos de apresentação.'); campos.push('c-termo'); }
 
     marcaErros(erros, campos);
     if (erros.length) return;

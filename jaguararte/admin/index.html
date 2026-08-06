@@ -218,6 +218,7 @@
               ${videos.map((v, n) => `<a href="${esc(v)}" target="_blank" rel="noopener">${videos.length > 1 ? 'Vídeo ' + (n + 1) : 'Assistir'} ↗</a>`).join('')}
             </div>
             <div class="item"><small>Data da inscrição</small>${esc(i.data)}</div>
+            <div class="item"><small>Termo dos 10 minutos</small>${i.aceiteTermo ? '✅ Aceito — ciente e comprometido com o tempo de 10 min' : '—'}</div>
           </div>
 
           <div class="item"><small style="display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#a39d8a;font-weight:600;margin-bottom:3px">Status</small></div>
