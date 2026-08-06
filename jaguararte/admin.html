@@ -3,82 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscrições — JaguarArte 2026</title>
+<title>Admin — JaguarArte 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --verde: #4d5f33; --verde-escuro: #3d4c28; --creme: #f7f1e6; --papel: #fffdf8; }
+  :root {
+    --verde: #4d5f33; --verde-escuro: #3d4c28; --creme: #f7f1e6; --papel: #fffdf8;
+    --nova: #8a6d1f; --nova-bg: #f7ecc9;
+    --analise: #1f5c8a; --analise-bg: #d9eaf7;
+    --aprovada: #3d6b2a; --aprovada-bg: #ddefd3;
+    --recusada: #a33d2e; --recusada-bg: #f7ddd7;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Poppins', sans-serif; background: var(--creme); color: var(--verde-escuro); min-height: 100vh; padding: 24px 16px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 800; color: var(--verde); font-size: 1.9rem; }
-  .topo { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+  body { font-family: 'Poppins', sans-serif; background: var(--creme); color: var(--verde-escuro); min-height: 100vh; padding: 20px 14px 60px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 800; color: var(--verde); font-size: 1.7rem; }
+
   .login { max-width: 380px; margin: 80px auto; background: var(--papel); padding: 32px; border-radius: 16px; box-shadow: 0 10px 40px rgba(77,95,51,.12); text-align: center; }
-  .login h1 { margin-bottom: 18px; }
+  .login h1 { margin-bottom: 6px; }
+  .login p { margin-bottom: 16px; font-size: .9rem; color: #5c6b47; }
   input[type=password] { width: 100%; padding: 12px 14px; border: 1.5px solid #d8d2c2; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 14px; }
-  button, .btn { background: var(--verde); color: #fdfaf2; border: none; border-radius: 10px; padding: 11px 20px; font-family: inherit; font-size: .92rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+  .erro-login { color: var(--recusada); font-size: .85rem; margin-top: 8px; display: none; }
+
+  button, .btn { background: var(--verde); color: #fdfaf2; border: none; border-radius: 10px; padding: 10px 18px; font-family: inherit; font-size: .88rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background .15s; }
   button:hover, .btn:hover { background: var(--verde-escuro); }
-  .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-  .stat { background: var(--papel); border-radius: 12px; padding: 14px 20px; box-shadow: 0 4px 14px rgba(77,95,51,.08); }
-  .stat b { display: block; font-size: 1.5rem; color: var(--verde); font-family: 'Fraunces', serif; }
-  .stat span { font-size: .78rem; color: #8a8676; }
-  .tabela { background: var(--papel); border-radius: 14px; box-shadow: 0 6px 24px rgba(77,95,51,.1); overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: .85rem; min-width: 760px; }
-  th { background: var(--verde); color: #fdfaf2; text-align: left; padding: 12px 14px; font-weight: 600; white-space: nowrap; }
-  td { padding: 11px 14px; border-bottom: 1px solid #eee8da; vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  td a { color: var(--verde); font-weight: 500; }
-  .badge { background: #e8ecdd; color: var(--verde); border-radius: 999px; padding: 3px 10px; font-size: .75rem; font-weight: 600; white-space: nowrap; }
-  .vazio { text-align: center; padding: 50px; color: #8a8676; }
-  .erro { color: #a33d2e; font-size: .85rem; margin-top: 8px; display: none; }
+
+  .topo { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .topo .acoes { display: flex; gap: 8px; }
+
+  .stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .stat { background: var(--papel); border-radius: 12px; padding: 10px 16px; box-shadow: 0 3px 12px rgba(77,95,51,.08); cursor: pointer; border: 2px solid transparent; }
+  .stat.ativo { border-color: var(--verde); }
+  .stat b { display: block; font-size: 1.3rem; color: var(--verde); font-family: 'Fraunces', serif; }
+  .stat span { font-size: .72rem; color: #8a8676; }
+
+  .filtros { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .filtros input, .filtros select { padding: 10px 12px; border: 1.5px solid #d8d2c2; border-radius: 10px; font-family: inherit; font-size: .88rem; background: #fff; color: var(--verde-escuro); }
+  .filtros input { flex: 1; min-width: 180px; }
+
+  .card {
+    background: var(--papel); border-radius: 14px; box-shadow: 0 4px 16px rgba(77,95,51,.09);
+    margin-bottom: 12px; overflow: hidden; border-left: 5px solid #d8d2c2;
+  }
+  .card.st-nova { border-left-color: var(--nova); }
+  .card.st-analise { border-left-color: var(--analise); }
+  .card.st-aprovada { border-left-color: var(--aprovada); }
+  .card.st-recusada { border-left-color: var(--recusada); }
+
+  .card-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; }
+  .card-head .num { font-family: 'Fraunces', serif; font-weight: 700; color: #b3ab97; font-size: 1rem; flex-shrink: 0; width: 38px; }
+  .card-head .quem { flex: 1; min-width: 0; }
+  .card-head .quem b { display: block; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-head .quem small { color: #8a8676; font-size: .78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .badge { border-radius: 999px; padding: 4px 12px; font-size: .72rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+  .badge.cat { background: #e8ecdd; color: var(--verde); }
+  .badge.st-nova { background: var(--nova-bg); color: var(--nova); }
+  .badge.st-analise { background: var(--analise-bg); color: var(--analise); }
+  .badge.st-aprovada { background: var(--aprovada-bg); color: var(--aprovada); }
+  .badge.st-recusada { background: var(--recusada-bg); color: var(--recusada); }
+  .seta { color: #b3ab97; transition: transform .2s; flex-shrink: 0; }
+  .card.aberto .seta { transform: rotate(180deg); }
+
+  .card-corpo { display: none; padding: 0 16px 16px; border-top: 1px solid #efe9db; }
+  .card.aberto .card-corpo { display: block; }
+  .detalhe { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 14px 0; }
+  @media (max-width: 560px) { .detalhe { grid-template-columns: 1fr; } }
+  .detalhe .item small { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: #a39d8a; font-weight: 600; margin-bottom: 3px; }
+  .detalhe .item { font-size: .88rem; }
+  .detalhe a { color: var(--verde); font-weight: 600; }
+  .videos-lista a { display: inline-block; margin: 2px 8px 2px 0; }
+
+  .status-botoes { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .status-botoes button { padding: 7px 14px; font-size: .78rem; border-radius: 999px; background: #efe9db; color: #7a745f; }
+  .status-botoes button.ativo.st-nova { background: var(--nova-bg); color: var(--nova); }
+  .status-botoes button.ativo.st-analise { background: var(--analise-bg); color: var(--analise); }
+  .status-botoes button.ativo.st-aprovada { background: var(--aprovada-bg); color: var(--aprovada); }
+  .status-botoes button.ativo.st-recusada { background: var(--recusada-bg); color: var(--recusada); }
+
+  textarea.obs { width: 100%; margin-top: 4px; padding: 10px 12px; border: 1.5px solid #d8d2c2; border-radius: 10px; font-family: inherit; font-size: .85rem; resize: vertical; min-height: 60px; background: #fff; color: var(--verde-escuro); }
+  .linha-acoes { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .btn-wpp { background: #1faa53; }
+  .btn-wpp:hover { background: #178a43; }
+  .btn-salvar-obs { background: #efe9db; color: var(--verde-escuro); }
+  .btn-excluir { background: none; color: var(--recusada); border: 1.5px solid #e5b8af; }
+  .btn-excluir:hover { background: var(--recusada-bg); }
+
+  .vazio { text-align: center; padding: 50px 20px; color: #8a8676; background: var(--papel); border-radius: 14px; }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--verde-escuro); color: #fdfaf2; padding: 11px 22px; border-radius: 999px; font-size: .85rem; font-weight: 500; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 50; }
+  .toast.show { opacity: 1; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="login" id="login">
     <h1>JaguarArte 2026</h1>
-    <p style="margin-bottom:16px;font-size:.9rem;color:#5c6b47">Painel de inscrições</p>
+    <p>Área administrativa</p>
     <input type="password" id="senha" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')entrar()">
     <button onclick="entrar()" style="width:100%">Entrar</button>
-    <p class="erro" id="loginErro">Senha incorreta.</p>
+    <p class="erro-login" id="loginErro">Senha incorreta.</p>
   </div>
 
   <div id="painel" style="display:none">
     <div class="topo">
-      <h1>Inscrições — JaguarArte 2026</h1>
-      <div style="display:flex;gap:10px">
+      <h1>Inscrições</h1>
+      <div class="acoes">
         <button onclick="carregar()">Atualizar</button>
-        <a class="btn" id="btnCsv" href="#">Baixar CSV (Excel)</a>
+        <a class="btn" id="btnCsv" href="#">Baixar CSV</a>
       </div>
     </div>
+
     <div class="stats" id="stats"></div>
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>#</th><th>Nome</th><th>Grupo / Artista</th><th>WhatsApp</th><th>Categoria</th><th>Vídeo</th><th>Data</th></tr>
-        </thead>
-        <tbody id="corpo"><tr><td colspan="7" class="vazio">Carregando...</td></tr></tbody>
-      </table>
+
+    <div class="filtros">
+      <input type="search" id="busca" placeholder="Buscar por nome ou grupo..." oninput="render()">
+      <select id="filtroCat" onchange="render()">
+        <option value="">Todas as categorias</option>
+      </select>
+      <select id="ordem" onchange="render()">
+        <option value="desc">Mais recentes primeiro</option>
+        <option value="asc">Mais antigas primeiro</option>
+      </select>
     </div>
+
+    <div id="lista"></div>
   </div>
 </div>
+<div class="toast" id="toast"></div>
 
 <script>
+  const API = 'https://lp.seusite.space/jaguararte-api';
+  const STATUS_LABEL = { nova: 'Nova', analise: 'Em análise', aprovada: 'Aprovada', recusada: 'Recusada' };
   let pass = sessionStorage.getItem('jaguararte_pass') || '';
+  let inscricoes = [];
+  let filtroStatus = '';
+  let abertos = new Set();
 
-  function entrar() {
-    pass = document.getElementById('senha').value;
-    carregar(true);
+  function esc(s) { const d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2200);
   }
 
-  function esc(s) {
-    const d = document.createElement('div');
-    d.textContent = s;
-    return d.innerHTML;
-  }
+  function entrar() { pass = document.getElementById('senha').value; carregar(true); }
 
   async function carregar(doLogin) {
     try {
-      const r = await fetch('https://lp.seusite.space/jaguararte-api/api/inscricoes', { headers: { 'x-admin-pass': pass } });
+      const r = await fetch(API + '/api/inscricoes', { headers: { 'x-admin-pass': pass } });
       if (r.status === 401) {
         if (doLogin) document.getElementById('loginErro').style.display = 'block';
         sessionStorage.removeItem('jaguararte_pass');
@@ -87,41 +157,137 @@
       sessionStorage.setItem('jaguararte_pass', pass);
       document.getElementById('login').style.display = 'none';
       document.getElementById('painel').style.display = 'block';
-      document.getElementById('btnCsv').href = 'https://lp.seusite.space/jaguararte-api/api/inscricoes.csv?pass=' + encodeURIComponent(pass);
-
+      document.getElementById('btnCsv').href = API + '/api/inscricoes.csv?pass=' + encodeURIComponent(pass);
       const j = await r.json();
-      const list = j.inscricoes || [];
+      inscricoes = (j.inscricoes || []).map(i => ({ ...i, status: i.status || 'nova', obs: i.obs || '' }));
 
-      const porCat = {};
-      list.forEach(i => { const c = i.categoria.split(':')[0]; porCat[c] = (porCat[c] || 0) + 1; });
-      document.getElementById('stats').innerHTML =
-        `<div class="stat"><b>${list.length}</b><span>Total de inscrições</span></div>` +
-        Object.entries(porCat).map(([c, n]) => `<div class="stat"><b>${n}</b><span>${esc(c)}</span></div>`).join('');
-
-      const corpo = document.getElementById('corpo');
-      if (!list.length) {
-        corpo.innerHTML = '<tr><td colspan="7" class="vazio">Nenhuma inscrição ainda.</td></tr>';
-        return;
-      }
-      corpo.innerHTML = list.slice().reverse().map(i => {
-        const fone = i.whatsapp.replace(/\D/g, '');
-        const videos = (i.videos || [i.video]).filter(Boolean);
-        const linksVideo = videos.map((v, n) =>
-          `<a href="${esc(v)}" target="_blank" rel="noopener">${videos.length > 1 ? 'Vídeo ' + (n + 1) : 'Ver vídeo'} ↗</a>`
-        ).join('<br>');
-        return `<tr>
-          <td>${i.id}</td>
-          <td><strong>${esc(i.nome)}</strong></td>
-          <td>${esc(i.grupo)}</td>
-          <td><a href="https://wa.me/55${fone}" target="_blank">${esc(i.whatsapp)}</a></td>
-          <td><span class="badge">${esc(i.categoria)}</span></td>
-          <td>${linksVideo}</td>
-          <td style="white-space:nowrap">${esc(i.data)}</td>
-        </tr>`;
-      }).join('');
+      const cats = [...new Set(inscricoes.map(i => i.categoria.split(':')[0]))].sort();
+      const sel = document.getElementById('filtroCat');
+      const atual = sel.value;
+      sel.innerHTML = '<option value="">Todas as categorias</option>' + cats.map(c => `<option${c === atual ? ' selected' : ''}>${esc(c)}</option>`).join('');
+      render();
     } catch {
       if (doLogin) document.getElementById('loginErro').style.display = 'block';
     }
+  }
+
+  function render() {
+    const busca = document.getElementById('busca').value.trim().toLowerCase();
+    const cat = document.getElementById('filtroCat').value;
+    const ordem = document.getElementById('ordem').value;
+
+    const porStatus = { nova: 0, analise: 0, aprovada: 0, recusada: 0 };
+    inscricoes.forEach(i => { porStatus[i.status] = (porStatus[i.status] || 0) + 1; });
+    document.getElementById('stats').innerHTML =
+      `<div class="stat${filtroStatus === '' ? ' ativo' : ''}" onclick="setStatus('')"><b>${inscricoes.length}</b><span>Total</span></div>` +
+      Object.keys(STATUS_LABEL).map(s =>
+        `<div class="stat${filtroStatus === s ? ' ativo' : ''}" onclick="setStatus('${s}')"><b>${porStatus[s] || 0}</b><span>${STATUS_LABEL[s]}</span></div>`
+      ).join('');
+
+    let list = inscricoes.filter(i =>
+      (!filtroStatus || i.status === filtroStatus) &&
+      (!cat || i.categoria.split(':')[0] === cat) &&
+      (!busca || i.nome.toLowerCase().includes(busca) || i.grupo.toLowerCase().includes(busca))
+    );
+    list.sort((a, b) => ordem === 'asc' ? a.id - b.id : b.id - a.id);
+
+    const el = document.getElementById('lista');
+    if (!list.length) {
+      el.innerHTML = '<div class="vazio">Nenhuma inscrição ' + (inscricoes.length ? 'com esses filtros.' : 'ainda.') + '</div>';
+      return;
+    }
+    el.innerHTML = list.map(i => {
+      const fone = i.whatsapp.replace(/\D/g, '');
+      const videos = (i.videos || [i.video]).filter(Boolean);
+      const aberto = abertos.has(i.id);
+      return `<div class="card st-${i.status}${aberto ? ' aberto' : ''}" id="card-${i.id}">
+        <div class="card-head" onclick="alternar(${i.id})">
+          <span class="num">#${i.id}</span>
+          <span class="quem"><b>${esc(i.grupo)}</b><small>${esc(i.nome)}</small></span>
+          <span class="badge cat">${esc(i.categoria.split(':')[0])}</span>
+          <span class="badge st-${i.status}">${STATUS_LABEL[i.status]}</span>
+          <span class="seta">▾</span>
+        </div>
+        <div class="card-corpo">
+          <div class="detalhe">
+            <div class="item"><small>Nome completo</small>${esc(i.nome)}</div>
+            <div class="item"><small>Grupo / Artista</small>${esc(i.grupo)}</div>
+            <div class="item"><small>WhatsApp</small><a href="https://wa.me/55${fone}" target="_blank">${esc(i.whatsapp)}</a></div>
+            <div class="item"><small>Categoria</small>${esc(i.categoria)}</div>
+            <div class="item videos-lista"><small>Vídeo${videos.length > 1 ? 's' : ''} de apresentação</small>
+              ${videos.map((v, n) => `<a href="${esc(v)}" target="_blank" rel="noopener">${videos.length > 1 ? 'Vídeo ' + (n + 1) : 'Assistir'} ↗</a>`).join('')}
+            </div>
+            <div class="item"><small>Data da inscrição</small>${esc(i.data)}</div>
+          </div>
+
+          <div class="item"><small style="display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#a39d8a;font-weight:600;margin-bottom:3px">Status</small></div>
+          <div class="status-botoes">
+            ${Object.keys(STATUS_LABEL).map(s =>
+              `<button class="st-${s}${i.status === s ? ' ativo' : ''}" onclick="mudarStatus(${i.id}, '${s}')">${STATUS_LABEL[s]}</button>`
+            ).join('')}
+          </div>
+
+          <div style="margin-top:12px">
+            <small style="display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#a39d8a;font-weight:600">Observações internas</small>
+            <textarea class="obs" id="obs-${i.id}" placeholder="Anotações da organização (só vocês veem)...">${esc(i.obs)}</textarea>
+          </div>
+
+          <div class="linha-acoes">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn btn-wpp" href="https://wa.me/55${fone}" target="_blank">Chamar no WhatsApp</a>
+              <button class="btn-salvar-obs" onclick="salvarObs(${i.id})">Salvar observações</button>
+            </div>
+            <button class="btn-excluir" onclick="excluir(${i.id})">Excluir</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function setStatus(s) { filtroStatus = s; render(); }
+  function alternar(id) { abertos.has(id) ? abertos.delete(id) : abertos.add(id); render(); }
+
+  async function mudarStatus(id, status) {
+    const r = await fetch(`${API}/api/inscricoes/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'x-admin-pass': pass },
+      body: JSON.stringify({ status })
+    });
+    if (r.ok) {
+      const i = inscricoes.find(x => x.id === id);
+      if (i) i.status = status;
+      toast(`#${id} marcada como ${STATUS_LABEL[status]}`);
+      render();
+    } else toast('Erro ao atualizar status');
+  }
+
+  async function salvarObs(id) {
+    const obs = document.getElementById('obs-' + id).value;
+    const r = await fetch(`${API}/api/inscricoes/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'x-admin-pass': pass },
+      body: JSON.stringify({ obs })
+    });
+    if (r.ok) {
+      const i = inscricoes.find(x => x.id === id);
+      if (i) i.obs = obs;
+      toast('Observações salvas');
+    } else toast('Erro ao salvar');
+  }
+
+  async function excluir(id) {
+    const i = inscricoes.find(x => x.id === id);
+    if (!confirm(`Excluir a inscrição #${id} (${i ? i.grupo : ''})? Essa ação não tem volta.`)) return;
+    const r = await fetch(`${API}/api/inscricoes/${id}`, {
+      method: 'DELETE',
+      headers: { 'x-admin-pass': pass }
+    });
+    if (r.ok) {
+      inscricoes = inscricoes.filter(x => x.id !== id);
+      abertos.delete(id);
+      toast(`Inscrição #${id} excluída`);
+      render();
+    } else toast('Erro ao excluir');
   }
 
   if (pass) carregar();
