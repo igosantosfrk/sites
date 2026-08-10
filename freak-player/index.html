@@ -10,29 +10,31 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#08080a;
-  --card1:#141416;
-  --card2:#0d0d0f;
+  --bg:#050507;
+  --bg2:#0B0B0E;
+  --card1:#141418;
+  --card2:#0D0D10;
   --panel:#0f0f11;
-  --line:rgba(255,255,255,.07);
-  --line2:rgba(255,255,255,.12);
-  --text:#f3f1ef;
-  --dim:#8b8b93;
-  --dim2:#5f5f67;
-  --red:#e11d2e;
-  --red2:#ff3446;
+  --line:#29292F;
+  --line2:#3a3a42;
+  --text:#F4F4F5;
+  --dim:#96969F;
+  --dim2:#66666E;
+  --red:#F52D3D;
+  --red2:#FF3346;
+  --wave-off:#303036;
 }
 html,body{height:100%}
 body{
   font-family:'Inter',system-ui,sans-serif;
   background:
-    radial-gradient(1100px 520px at 50% -8%, rgba(225,29,46,.18), transparent 60%),
-    linear-gradient(180deg,#0b0b0e,#070708);
+    radial-gradient(1200px 560px at 50% -8%, rgba(245,45,61,.16), transparent 60%),
+    linear-gradient(180deg,#0B0B0E,#050507);
   color:var(--text);
   min-height:100vh;
   padding:34px 18px 70px;
 }
-.stage{width:100%;max-width:1160px;margin:0 auto}
+.stage{width:100%;max-width:1380px;margin:0 auto}
 
 /* HEADER */
 .brand{text-align:center;margin-bottom:26px}
@@ -53,15 +55,17 @@ body{
   box-shadow:0 30px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.03);
 }
 .cover{
-  position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;
-  border:1px solid var(--line2);
+  position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line);
   background:
-    radial-gradient(120% 90% at 50% 15%, rgba(225,29,46,.4), transparent 55%),
-    linear-gradient(160deg,#1c0d10,#0a0a0c 70%);
+    radial-gradient(120% 78% at 50% 8%, rgba(245,45,61,.5), transparent 48%),
+    radial-gradient(90% 70% at 28% 105%, rgba(245,45,61,.2), transparent 55%),
+    radial-gradient(60% 45% at 72% 60%, rgba(120,20,30,.35), transparent 60%),
+    linear-gradient(155deg,#210e13 0%,#0a0a0c 62%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-  box-shadow:0 16px 40px rgba(0,0,0,.5);
+  box-shadow:0 18px 46px rgba(0,0,0,.6), inset 0 0 70px rgba(0,0,0,.7);
 }
-.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 120%, rgba(225,29,46,.25), transparent 60%)}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(85% 60% at 50% 120%, rgba(245,45,61,.22), transparent 60%)}
 .cover .ck{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:.34em;color:var(--red2);font-weight:600;position:relative;z-index:1}
 .cover .cw{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:#eceaea;position:relative;z-index:1;line-height:1}
 .cover .cw .r{color:var(--red)}
@@ -81,7 +85,7 @@ body{
 .wave{position:relative;height:52px;cursor:pointer}
 .wave-row{display:flex;align-items:center;gap:2px;height:100%;width:100%}
 .wave-row span{flex:1;min-width:2px;border-radius:2px}
-.wave-gray span{background:rgba(255,255,255,.16)}
+.wave-gray span{background:var(--wave-off)}
 .wave-fill{position:absolute;top:0;left:0;height:100%;width:0;overflow:hidden;pointer-events:none}
 .wave-red span{background:linear-gradient(180deg,var(--red2),var(--red))}
 .wave-head{position:absolute;top:-6px;left:0;transform:translateX(-50%);pointer-events:none;display:flex;flex-direction:column;align-items:center;width:0}
@@ -179,10 +183,10 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border:none;border-ra
         <div>
           <div class="np-eyebrow">Tocando agora</div>
           <div class="np-title" id="npTitle">—</div>
-          <div class="np-sub" id="npSub">Freak Brotherz · Studio Sessions</div>
+          <div class="np-sub" id="npSub">Freak Player Studio Sessions</div>
         </div>
         <div class="np-badges">
-          <span class="kbps" id="kbps">HD</span>
+          <span class="kbps" id="kbps">320 kbps</span>
           <span class="kebab"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>
         </div>
       </div>
@@ -233,7 +237,7 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border:none;border-ra
     <div id="tracks"></div>
   </div>
 
-  <div class="foot">Freak Brotherz · Studio Sessions</div>
+  <div class="foot">Freak Player Studio Sessions</div>
 </div>
 
 <audio id="audio" preload="metadata"></audio>
@@ -307,7 +311,7 @@ function load(i,autoplay){
   current=i; const t=TRACKS[i];
   audio.src=t.src;
   els.npTitle.textContent=t.title;
-  els.npSub.textContent='Freak Brotherz · Studio Sessions';
+  els.npSub.textContent='Freak Player Studio Sessions';
   document.querySelectorAll('.track').forEach(r=>r.classList.remove('active','playing'));
   const row=document.querySelector('.track[data-i="'+i+'"]');
   if(row) row.classList.add('active');
