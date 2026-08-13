@@ -150,6 +150,14 @@
     cursor: pointer;
   }
   .btn-mais-link:hover { background: rgba(77,95,51,.08); }
+  #anexos { width: 100%; padding: 12px; border: 1.5px dashed #d8d2c2; border-radius: 10px; background: #fffdf7; font-family: inherit; font-size: .92rem; color: #6b6552; }
+  .anexo-item { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: .92rem; color: #4a4636; }
+  .anexo-item span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .anexo-item .remover {
+    flex: none; width: 26px; height: 26px; border: 1.5px solid #d8d2c2; border-radius: 8px;
+    background: #fff; color: #b4543f; font-size: 1rem; line-height: 1; cursor: pointer;
+  }
+  .anexo-item .remover:hover { background: #fbeae7; border-color: #e5b8af; }
   .termo-box {
     background: #f3efe3;
     border: 1.5px solid #ddd5c0;
@@ -296,6 +304,13 @@
           <button type="button" id="btnMaisLink" class="btn-mais-link">+ Adicionar outro link</button>
         </div>
 
+        <div class="campo" id="c-anexos">
+          <label for="anexos">Anexos (opcional)</label>
+          <input type="file" id="anexos" multiple accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,.doc,.docx,.txt,.odt">
+          <div class="hint">Se quiser, anexe fotos (JPG, PNG) ou documentos de texto (PDF, DOC, TXT). Até 5 arquivos de 8 MB cada.</div>
+          <div id="listaAnexos"></div>
+        </div>
+
         <div class="campo termo" id="c-termo">
           <div class="termo-box">
             <p class="termo-titulo">⏱ Tempo de apresentação</p>
@@ -357,6 +372,51 @@
     linha.querySelector('input').focus();
   });
 
+  const ANEXO_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'heic', 'pdf', 'doc', 'docx', 'txt', 'odt'];
+  const ANEXO_MAX = 5, ANEXO_MAX_MB = 8;
+  const inputAnexos = document.getElementById('anexos');
+  const listaAnexos = document.getElementById('listaAnexos');
+  let anexosSel = [];
+
+  function renderAnexos() {
+    listaAnexos.innerHTML = '';
+    anexosSel.forEach((f, i) => {
+      const div = document.createElement('div');
+      div.className = 'anexo-item';
+      const span = document.createElement('span');
+      span.textContent = `📎 ${f.name} (${(f.size / 1024 / 1024).toFixed(1)} MB)`;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'remover';
+      btn.title = 'Remover anexo';
+      btn.textContent = '×';
+      btn.addEventListener('click', () => { anexosSel.splice(i, 1); renderAnexos(); });
+      div.append(span, btn);
+      listaAnexos.appendChild(div);
+    });
+  }
+
+  inputAnexos.addEventListener('change', () => {
+    const avisos = [];
+    for (const f of inputAnexos.files) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      if (!ANEXO_EXTS.includes(ext)) { avisos.push(`"${f.name}" não foi anexado: só aceitamos fotos ou documentos de texto (JPG, PNG, PDF, DOC, TXT).`); continue; }
+      if (f.size > ANEXO_MAX_MB * 1024 * 1024) { avisos.push(`"${f.name}" não foi anexado: o limite é ${ANEXO_MAX_MB} MB por arquivo.`); continue; }
+      if (anexosSel.length >= ANEXO_MAX) { avisos.push(`Máximo de ${ANEXO_MAX} anexos por inscrição.`); break; }
+      anexosSel.push(f);
+    }
+    inputAnexos.value = '';
+    renderAnexos();
+    marcaErros(avisos, avisos.length ? ['c-anexos'] : []);
+  });
+
+  const lerAnexo = f => new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve({ nome: f.name, dados: String(r.result).split(',')[1] || '' });
+    r.onerror = reject;
+    r.readAsDataURL(f);
+  });
+
   function marcaErros(erros, campos) {
     document.querySelectorAll('.campo').forEach(c => c.classList.remove('campo-erro'));
     campos.forEach(id => document.getElementById(id)?.classList.add('campo-erro'));
@@ -401,6 +461,7 @@
     btn.disabled = true;
     btn.textContent = 'Enviando...';
     try {
+      dados.anexos = await Promise.all(anexosSel.map(lerAnexo));
       const r = await fetch('https://lp.seusite.space/jaguararte-api/api/inscricoes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
