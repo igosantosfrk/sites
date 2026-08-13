@@ -286,13 +286,13 @@
         </div>
 
         <div class="campo" id="c-video">
-          <label>Link de vídeo da apresentação <span class="obrig">*</span></label>
+          <label>Link do material da apresentação <span class="obrig">*</span></label>
           <div id="listaLinks">
             <div class="linha-link">
               <input type="url" class="input-video" inputmode="url" placeholder="https://...">
             </div>
           </div>
-          <div class="hint">Pode ser YouTube, Instagram, TikTok ou Google Drive (link aberto).</div>
+          <div class="hint">Envie o link do seu material: vídeo (YouTube, Instagram, TikTok), site ou Google Drive (link aberto).</div>
           <button type="button" id="btnMaisLink" class="btn-mais-link">+ Adicionar outro link</button>
         </div>
 
@@ -391,8 +391,8 @@
     if (dados.whatsapp.replace(/\D/g, '').length < 10) { erros.push('Informe um WhatsApp válido com DDD.'); campos.push('c-whatsapp'); }
     if (!dados.categoria) { erros.push('Selecione uma categoria.'); campos.push('c-categoria'); }
     if (dados.categoria === 'Outra' && !dados.categoriaOutra) { erros.push('Descreva a sua categoria.'); campos.push('c-categoriaOutra'); }
-    if (!videos.length) { erros.push('Informe pelo menos um link de vídeo.'); campos.push('c-video'); }
-    else if (videos.some(v => !/^https?:\/\/.+\..+/.test(v))) { erros.push('Um dos links de vídeo não é válido (deve começar com http:// ou https://).'); campos.push('c-video'); }
+    if (!videos.length) { erros.push('Informe pelo menos um link do seu material.'); campos.push('c-video'); }
+    else if (videos.some(v => !/^https?:\/\/.+\..+/.test(v))) { erros.push('Um dos links não é válido (deve começar com http:// ou https://).'); campos.push('c-video'); }
     if (!dados.aceiteTermo) { erros.push('Para enviar a inscrição, você precisa marcar que está ciente do tempo de 10 minutos de apresentação.'); campos.push('c-termo'); }
 
     marcaErros(erros, campos);
