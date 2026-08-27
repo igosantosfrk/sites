@@ -148,6 +148,9 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border:none;border-ra
 .track.active .tname{color:var(--red2)}
 .track .tdur{color:var(--dim);font-size:13px;font-variant-numeric:tabular-nums}
 .track.active .tdur{color:var(--red2)}
+.track .download{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dim);border:1px solid transparent;transition:.15s;flex-shrink:0}
+.track .download:hover{color:#fff;border-color:rgba(245,45,61,.55);background:rgba(245,45,61,.12)}
+.track .download svg{width:17px;height:17px;fill:currentColor}
 .track .tk{color:var(--dim2);display:flex;padding:2px}
 .track .tk svg{width:16px;height:16px;fill:currentColor}
 .track.hidden{display:none}
@@ -244,12 +247,12 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border:none;border-ra
 
 <script>
 const TRACKS = [
-  {title:"Som, Luz, Câmera, Ação", src:"audio/som-luz-camera-acao.m4a"},
-  {title:"Heart Shaped Freak",     src:"audio/heart-shaped-freak.m4a"},
-  {title:"Reggae Crazy",           src:"audio/reggae-crazy.m4a"},
-  {title:"Pode Ser Divertido 2",   src:"audio/pode-ser-divertido-2.m4a"},
-  {title:"Panana Pléw",            src:"audio/panana-plew.m4a"},
-  {title:"Quem? 01",               src:"audio/quem-01.m4a"},
+  {title:"Som, Luz, Câmera, Ação", src:"audio/som-luz-camera-acao.mp3"},
+  {title:"Heart Shaped Freak",     src:"audio/heart-shaped-freak.mp3"},
+  {title:"Reggae Crazy",           src:"audio/reggae-crazy.mp3"},
+  {title:"Pode Ser Divertido 2",   src:"audio/pode-ser-divertido-2.mp3"},
+  {title:"Panana Pléw",            src:"audio/panana-plew.mp3"},
+  {title:"Quem? 01",               src:"audio/quem-01.mp3"},
   {title:"Faixa 01",               src:"audio/track-01.mp3"},
   {title:"Faixa 02",               src:"audio/track-02.mp3"},
   {title:"Faixa 03",               src:"audio/track-03.mp3"},
@@ -299,8 +302,8 @@ function buildList(){
       '<div class="eq"><span></span><span></span><span></span><span></span></div>'+
       '<div class="tname">'+t.title+'</div>'+
       '<div class="tdur" id="d-'+i+'">--:--</div>'+
-      '<span class="tk"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>';
-    row.addEventListener('click',e=>{ if(e.target.closest('.tk'))return; i===current?toggle():load(i,true); });
+      '<a class="download" href="'+t.src+'" download title="Baixar '+t.title+' em MP3" aria-label="Baixar '+t.title+' em MP3"><svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg></a>';
+    row.addEventListener('click',e=>{ if(e.target.closest('.download'))return; i===current?toggle():load(i,true); });
     els.tracks.appendChild(row);
     const probe=new Audio(); probe.preload='metadata'; probe.src=t.src;
     probe.addEventListener('loadedmetadata',()=>{ const el=$('d-'+i); if(el) el.textContent=fmt(probe.duration); });
